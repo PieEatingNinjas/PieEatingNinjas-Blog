@@ -10,7 +10,10 @@ const blog = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			...postFields,
-			heroImage: z.optional(image()),
+			heroImage: z.optional(z.union([
+				z.string().regex(/^\/wp-content\/uploads\/\d{4}\/\d{2}\/[^/]+\.(?:jpe?g|png|gif|webp)$/i),
+				image(),
+			])),
 		}).refine(matchesLegacyDate, 'Publication date must match the date in the legacy permalink.'),
 });
 

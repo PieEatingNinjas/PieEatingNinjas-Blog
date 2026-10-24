@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 'tags'> & {
+type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 'tags' | 'codeRepositories'> & {
 	pubDate?: Date;
 	canonicalPath?: string;
 };
@@ -39,6 +39,11 @@ const { title, description, pubDate, updatedDate, heroImage, canonicalPath } = A
 				padding: 1em;
 				color: rgb(var(--gray-dark));
 			}
+			.prose :global(video) {
+				width: var(--post-video-width, auto);
+				max-width: 100%;
+				height: auto;
+			}
 			.title {
 				margin-bottom: 1em;
 				padding: 1em 0;
@@ -63,7 +68,9 @@ const { title, description, pubDate, updatedDate, heroImage, canonicalPath } = A
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && (typeof heroImage === 'string'
+						? <img src={heroImage} alt="" />
+						: <Image width={1020} height={510} src={heroImage} alt="" />)}
 				</div>
 				<div class="prose">
 					<div class="title">

@@ -19,7 +19,7 @@ const SELECTED_PAGES = new Map([
 export const EXPECTED = {
 	posts: 62, drafts: 5, pages: 4, placeholders: 2, comments: 196,
 	categories: 44, tags: 7, originals: 125, images: 121, downloads: 4,
-	codeImages: 11, optimizationCases: 20, usedVariants: 424, unusedOriginals: 74,
+	codeImages: 7, optimizationCases: 20, usedVariants: 424, unusedOriginals: 74,
 };
 const array = (value) => value === undefined ? [] : Array.isArray(value) ? value : [value];
 const text = (value) => String(value?.['#text'] ?? value ?? '');
@@ -657,7 +657,7 @@ async function main() {
 		readFile(xmlPath, 'utf8'), readFile(path.join(root, 'MIGRATION-REPORT.md'), 'utf8'),
 	]);
 	const baseline = reportBaseline(report);
-	for (const [key, count] of [['originals', 125], ['codeImages', 11], ['optimization', 20], ['unused', 74]]) {
+	for (const [key, count] of [['originals', 125], ['codeImages', 7], ['optimization', 20], ['unused', 74]]) {
 		if (baseline[key].length !== count) fail(`Migration report ${key} baseline changed; review it explicitly.`);
 	}
 	const result = await createInventory({ xml, uploadsRoot, baseline, reportHash: digest(report) });

@@ -251,10 +251,10 @@ test('the report baseline parser independently recovers the agreed file lists', 
 	const report = await readFile(new URL('../MIGRATION-REPORT.md', import.meta.url), 'utf8');
 	const parsed = reportBaseline(report);
 	assert.equal(parsed.originals.length, 125);
-	assert.equal(parsed.codeImages.length, 11);
+	assert.equal(parsed.codeImages.length, 7);
 	assert.equal(parsed.optimization.length, 20);
 	assert.equal(parsed.unused.length, 74);
-	assert.equal(parsed.mixed.length, 8);
+	assert.equal(parsed.mixed.length, 12);
 	assert.equal(parsed.console.length, 8);
 	assert.throws(() => reportBaseline('unrecognized report'), /sections are missing/);
 });

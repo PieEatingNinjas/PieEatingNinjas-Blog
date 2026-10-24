@@ -70,6 +70,11 @@ test('schemas keep categories/tags separate and only permit the four selected pa
 	assert.deepEqual(entry.categories, ['shared']);
 	assert.deepEqual(entry.tags, ['shared']);
 	assert.equal(entry.legacy.id, 900001);
+	const withTaxonomy = schema.parse({ ...data, categories: ['C#'], tags: ['C#'],
+		legacy: { ...data.legacy, taxonomySlugs: { categories: ['c'], tags: ['c'] } } });
+	assert.deepEqual(withTaxonomy.categories, ['C#']);
+	assert.deepEqual(withTaxonomy.tags, ['C#']);
+	assert.deepEqual(withTaxonomy.legacy.taxonomySlugs, { categories: ['c'], tags: ['c'] });
 	assert.equal(schema.safeParse({ ...data, legacy: { ...data.legacy, id: -1 } }).success, false);
 	assert.equal(schema.safeParse({ ...data, legacy: { ...data.legacy, path: '/2021/02/29/no/' } }).success, false);
 	assert.deepEqual(Object.values(legacyPages).map((page) => page.path).sort(),
@@ -79,6 +84,20 @@ test('schemas keep categories/tags separate and only permit the four selected pa
 	}
 	assert.equal(legacyPageSchema.safeParse({ ...legacyPages.about, path: '/wrong/' }).success, false);
 	assert.equal(legacyPageSchema.safeParse({ ...legacyPages.about, status: 'draft' }).success, false);
+});
+
+test('optional code repositories support multiple canonical GitHub URLs and reject unsafe or ambiguous values', () => {
+	assert.deepEqual(schema.parse(data).codeRepositories, []);
+	const codeRepositories = ['https://github.com/example/sample', 'https://github.com/example/second-sample'];
+	assert.deepEqual(schema.parse({ ...data, codeRepositories }).codeRepositories, codeRepositories);
+	for (const url of ['http://github.com/example/sample', 'https://github.com/example',
+		'https://github.com/example/sample/tree/main', 'https://github.com/example/sample?token=secret',
+		'https://github.com/example/sample#readme', 'https://github.com/example/sample/',
+		'https://github.com.evil.invalid/example/sample', 'javascript:alert(1)', 'https://github.com/example/..']) {
+		assert.equal(schema.safeParse({ ...data, codeRepositories: [url] }).success, false);
+	}
+	assert.equal(schema.safeParse({ ...data, codeRepositories: [codeRepositories[0], codeRepositories[0].toUpperCase()] }).success, false);
+	assert.equal(schema.safeParse({ ...data, codeRepositories: [codeRepositories[0], codeRepositories[0]] }).success, false);
 });
 
 test('static build emits dated fixture pages, canonicals, archive/feed links and genuine 404 output', async (t) => {
@@ -101,6 +120,8 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 		await writeFile(path.join(directory, 'src/content/blog', `synthetic-${index}.md`),
 			`---\n${JSON.stringify(entry, null, 2)}\n---\nSynthetic route fixture.\n`);
 	}
+	await writeFile(path.join(directory, 'src/content/blog', 'synthetic-nonlegacy.md'),
+		`---\n${JSON.stringify({ title: 'Synthetic nonlegacy post', description: 'Fallback route fixture.', pubDate: '2020-01-01' })}\n---\nSynthetic fallback fixture.\n`);
 	const result = spawnSync(process.execPath, [path.join(root, 'node_modules/astro/bin/astro.mjs'), 'build'], {
 		cwd: directory, encoding: 'utf8', timeout: 120000,
 		env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1', TZ: 'America/Los_Angeles' },
@@ -136,7 +157,7 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 	for (const entry of fixtures) assert.ok(feed.includes(canonicalUrl(entry.legacy.path)));
 	const old404 = await readFile(path.join(output, '404-error-content-does-not-exist-anymore/index.html'), 'utf8');
 	assert.ok(old404.includes('/404.html'));
-	assert.ok((await readFile(path.join(output, 'blog/first-post/index.html'), 'utf8')).includes('First post'));
+	assert.ok((await readFile(path.join(output, 'blog/synthetic-nonlegacy/index.html'), 'utf8')).includes('Synthetic nonlegacy post'));
 	const sitemap = await readFile(path.join(output, 'sitemap-0.xml'), 'utf8');
 	assert.ok(!sitemap.includes('example.com'));
 	const sitemapUrls = load(sitemap, { xml: true })('loc').toArray().map((element) => decodeURI(element.children[0].data));

@@ -1,5 +1,9 @@
 export const SITE_ORIGIN = 'https://blog.pieeatingninjas.be';
 
+export function isCodeRepositoryUrl(value: string): boolean {
+	return /^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\/(?!\.{1,2}$)[A-Za-z0-9_.-]+$/.test(value);
+}
+
 export function parsePostPath(path: string) {
 	const match = /^\/(\d{4})\/(\d{2})\/(\d{2})\/([^/]+)\/$/.exec(path);
 	if (!match) throw new Error(`Expected a dated post path with a trailing slash: ${path}`);

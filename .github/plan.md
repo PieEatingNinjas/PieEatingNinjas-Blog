@@ -61,8 +61,8 @@ do not treat this documentation update as an inventory run or phase approval.
 | Posts | Import all 62 published posts; exclude all 5 drafts and draft-only assets. Preserve the listed dated permalinks exactly. |
 | Pages | Migrate About, Book, Privacy Policy, and 404; exclude the Home and Blog placeholders. About is an explicit exception to the normal private-content exclusion, subject to privacy review. |
 | Assets | Reconcile 125 unique referenced original files (121 images and 4 downloads) before code-image removal and approved exceptions; this is not the final copy count. |
-| Code-only images | Replace all 11 listed originals with language-tagged fenced code; review each replacement against its source. |
-| Other screenshots | Preserve all 8 unique mixed code/UI images and 8 console/output images as visual media; shared images can occur in more than one post. |
+| Code-only images | Replace the 7 unannotated originals approved in the [extraction report](../IMAGE-CODE-EXTRACTION-REPORT.md) with language-tagged fenced code; retain the other 4 original candidates as images. |
+| Other screenshots | Preserve all 12 unique mixed code/UI/annotated images and 8 console/output images as visual media; shared images can occur in more than one post. |
 | Optimization | Process all 20 listed oversized/heavy images: 8 dimension cases, 4 heavy stills, and 8 animated GIFs. Record before/after dimensions and byte sizes. |
 | External image | Self-host the single listed `pbs.twimg.com` image, subject to reuse permission and privacy checks; no general remote-image crawl. |
 | Comments | Archive all 196 approved comments statically and threaded; keep Giscus separately gated. This decision is already made, not reopened by the report. |
@@ -172,7 +172,7 @@ proposed schemas, and a redacted decision/exclusion list.
   unsupported conversions, missing assets, and Giscus placement.
 - [ ] Reconciliation accounts for 62 included posts, 5 excluded drafts, 4 selected
   pages, 2 excluded placeholders, 196 approved comments, 44 categories, 7 tags,
-  125 original assets, 11 code-image replacements, and 20 optimization cases.
+  125 original assets, 7 code-image replacements, and 20 optimization cases.
   Every difference from the report has a documented resolution.
 - [ ] Every reported resized/unused asset and each code-image URL has a recorded
   retain/rewrite/alias/omit disposition; no unresolved conflict remains between
@@ -262,6 +262,48 @@ authorization to start Phase 3.
 
 **Depends on:** approved Phases 1 and 2.
 
+**Authorization history (2026-10-24):** the owner first requested Phase 3 with
+only the first five posts as a review batch, then explicitly requested the
+remaining posts too. The current scope is all 62 published posts and their
+referenced media; selected pages, comments and later phases remain outside
+this post-only authorization.
+See the [pilot evidence and reproduction commands](../README.md#phase-3-five-post-review-pilot).
+All seven approved code-image replacements occur in this batch. The four
+keep-image decisions supersede the older eleven-replacement baseline throughout
+this plan. See the owner's acceptance of the implemented post-only scope below.
+See the [full-post import documentation](../README.md#phase-3-all-published-posts)
+for conversion/media/privacy dispositions and validation commands. The owner
+subsequently explicitly requested the external Xamarin archive screenshot be
+stored locally; it is now included as a local image, with its private source
+copy required for deterministic reruns.
+The owner subsequently also requested both eID PDFs be hosted locally to avoid
+upstream path changes, with a source-repository attribution link. The original
+upload paths are retained and private document metadata is stripped.
+No page-content or later-phase approval is inferred.
+
+**Post-only implementation checkpoint (2026-10-24):** all 62 posts are imported,
+with 288 verified rendered code blocks and 118 referenced local media/document files.
+All 48 focused tests, Astro check, build and full-post output verification pass;
+every post responds with HTTP 200 in the review server. Replaced template
+articles were removed after validation.
+
+**Owner acceptance (2026-10-24):** after reviewing the posts and follow-up
+corrections, the owner confirmed: "ziet er goed uit. Fase 3 compleet".
+Phase 3 is accepted and closed for the explicitly implemented post-only scope,
+including the local screenshot/PDF decisions and source attribution. The broader
+original checklist below is retained as a requirements record, not a claim that
+unimplemented work passed: selected page content, the 404-only optimization
+case, and compatibility-alias serving remain outstanding and must be explicitly
+scheduled in a subsequent approved scope. No next phase, deployment or commit
+is authorized by this acceptance.
+
+Owner-requested pilot metadata follow-ups: retain reviewed example-code GitHub
+repositories in `codeRepositories`, preserving body links and leaving badges
+for later. Preserve the name `C#` in categories/tags; keep original WordPress
+taxonomy slugs separately in `legacy.taxonomySlugs` for archive compatibility.
+These conventions are also recorded in the [persistent project rules](copilot-instructions.md)
+and [frontmatter documentation](../README.md#static-blog-foundation-phase-2).
+
 - Implement deterministic Node scripts in `scripts/` for XML parsing, Markdown
   conversion, asset selection/copying, and public mapping generation. Track
   importer-owned outputs so reruns cannot overwrite unrelated/manual files.
@@ -275,7 +317,7 @@ authorization to start Phase 3.
   code blocks. Map C#, XAML/XML, PowerShell, YAML, shell, AppleScript, VB.NET,
   JavaScript, Python, and JSON to supported fence tags. Reconcile exact block
   counts locally; the report's approximate counts are not fixed pass thresholds.
-- Replace the report's 11 code-only images with text, reusing nearby source code
+- Replace the report's 7 approved code-only images with text, reusing nearby source code
   where present. Transcribe locally only where necessary; review every line and
   preserve meaningful annotations (including the warning tooltip and binding
   diagram explanation). Never send screenshots to an external OCR service.
@@ -330,7 +372,7 @@ sanitized public maps, and reconciliation/privacy results.
   zero unreferenced upload files are copied and zero `i0.wp.com` references remain.
 - [ ] Scans report zero Gutenberg/wp-block artifacts, unconverted shortcodes,
   untagged code fences, or unresolved conversion errors.
-- [ ] All 11 code-image replacements are present as tagged code, all 8 mixed
+- [ ] All 7 code-image replacements are present as tagged code, all 12 mixed
   code/UI and 8 console originals remain represented visually, and all 20
   optimization rows have before/after measurements meeting approved budgets.
   Replaced code-image files are absent unless explicitly retained for legacy URLs.
@@ -347,7 +389,7 @@ sanitized public maps, and reconciliation/privacy results.
   Record the sample paths and pass/fail result for each feature.
 - [ ] Check code text/language tags, original-image selection, and all manual
   conversion resolutions; confirm no meaningful content was lost.
-- [ ] Review all 11 code-image conversions line by line and all 20 optimized
+- [ ] Review all 7 code-image conversions line by line and all 20 optimized
   images/animations for legibility, motion, and acceptable quality.
 - [ ] Approve About, reconstructed Book, Privacy Policy, prepared 404 content,
   and all external-media/download dispositions against the agreed copy.
@@ -512,7 +554,7 @@ CI checks, gated Pages workflow, custom-domain file, and release/rollback runboo
 - [ ] Artifact inspection finds zero private inputs/manifests or unused uploads;
   `dist/CNAME` contains exactly `blog.pieeatingninjas.be`.
 - [ ] The full report-disposition manifest is reconciled: all selected content,
-  11 code replacements, 20 optimization results, comments, downloads, and aliases
+  7 code replacements, 20 optimization results, comments, downloads, and aliases
   pass; every excluded/conditionally retained item has its approved disposition.
   Automated checks find zero prohibited WordPress/runtime/backup files.
 - [ ] Search Console verification matches the approved method; `ads.txt` is
