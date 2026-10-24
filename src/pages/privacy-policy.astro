@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import { legacyPages } from '../lib/legacy-pages';
+const page = legacyPages.privacy;
+---
+
+<Layout title={page.title} description={page.description} canonicalPath={page.path}>
+	<p>The updated privacy policy will be added before this migrated site is published.</p>
+</Layout>

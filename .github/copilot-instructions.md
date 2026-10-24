@@ -13,7 +13,7 @@
 - Use the VS Code dev container with Node 24 and npm. Keep the lockfile in sync with dependency changes.
 - Keep `server.host: true` and dev port `4321`; preserve the dev container's forwarded port.
 - Existing npm scripts are `dev`, `build`, `preview`, and `astro`. Use `npm run build` for application validation; do not assume a lint or test command exists. Add focused script tests when adding migration tooling.
-- Follow the [existing development instructions](../AGENTS.md) for background dev-server lifecycle commands. Check readiness and stop task-only servers when finished.
+- Follow the [existing development instructions](../AGENTS.md) for background dev-server lifecycle commands. The owner authorizes starting/reusing the current worktree's site after changes without asking: use `npm run astro -- dev --background`, verify status and an HTTP response, and share the reachable preview URL. Leave the review server running across handoffs so the owner can check in the browser. Reuse an existing matching server; stop only temporary test-only servers, not unrelated servers. Report any persistence/port-forwarding limitation explicitly. This does not authorize deployment or another migration phase.
 - Preserve Astro components, content collections, shared layouts, and template styles rather than adding a UI framework or duplicating helpers unnecessarily.
 - Consult the relevant [Astro guides](https://docs.astro.build/): [routing](https://docs.astro.build/en/guides/routing/), [components](https://docs.astro.build/en/basics/astro-components/), [content collections](https://docs.astro.build/en/guides/content-collections/), and [styling](https://docs.astro.build/en/guides/styling/) before related implementation.
 

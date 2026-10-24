@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { matchesLegacyDate, postFields } from './lib/content-schema';
 
 const blog = defineCollection({
 	// Load Markdown and MDX files in the `src/content/blog/` directory.
@@ -8,13 +9,9 @@ const blog = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: ({ image }) =>
 		z.object({
-			title: z.string(),
-			description: z.string(),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
+			...postFields,
 			heroImage: z.optional(image()),
-		}),
+		}).refine(matchesLegacyDate, 'Publication date must match the date in the legacy permalink.'),
 });
 
 export const collections = { blog };

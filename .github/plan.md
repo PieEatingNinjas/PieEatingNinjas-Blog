@@ -11,6 +11,21 @@ Every phase below requires explicit approval to start. At its end, report change
 validation evidence, outstanding issues, and decisions needed, then **stop for the
 owner's review**. Approval of one phase does not approve subsequent phases.
 
+### Standing permission for browser review
+
+From Phase 2 onward, the owner authorizes starting or reusing the local site
+after site changes without asking again, so changes can be checked immediately
+in the browser. Run `npm run astro -- dev --background` in the current
+worktree's Node 24 dev container, keeping `server.host: true` and port 4321.
+Check `astro dev status` and an HTTP response before reporting readiness, and
+provide the reachable preview URL and relevant page links at handoff.
+Leave this review server running for the owner; do not stop it merely because
+the phase or assistant turn ends. Stop temporary test-only servers when done.
+Reuse an existing server for this worktree rather than starting duplicates, and
+do not stop unrelated servers. If port forwarding or the environment prevents
+a persistent preview, explain the limitation instead of claiming it is ready.
+This permission does not authorize deployment or starting the next phase.
+
 ### Definition of phase completion
 
 - A phase is **ready for human review**, not complete, when all its acceptance
@@ -97,6 +112,11 @@ export. Analytics and redesign remain outside the approved scope.
 **Goal:** establish complete, privacy-safe inputs and expected outputs before
 writing the importer.
 
+Implementation evidence and proposed decisions are recorded in the
+[Phase 1 handoff](migration-phase-one.md). Acceptance remains blocked pending
+the documented discrepancies, owner decisions, and human review; the checkboxes
+below are intentionally unchanged.
+
 - Reconcile the report baseline above, including counts, shared-image
   deduplication, and its 125-file/121-image totals. Record any discrepancy for
   human resolution rather than changing expected counts to match the importer.
@@ -178,6 +198,23 @@ authorization to start Phase 2.
 ## Phase 2 - Static foundation and canonical routing
 
 **Depends on:** approved Phase 1 inventory and routing contract.
+
+The owner explicitly authorized Phase 2 after clarifying that the deliverable is
+the migrated blog, not a migration engine. The static foundation is implemented;
+see the [README](../README.md#static-blog-foundation-phase-2). Validation:
+`npm run test:routing` passes six tests including an isolated static fixture
+build; `npm run astro -- check` reports zero errors/warnings (two existing
+inventory-parser deprecation hints); `npm run build` generates 11 pages.
+The Node 24 background dev server was checked on `0.0.0.0:4321` (`/book/` 200,
+unknown URL 404), then stopped. About remains template content, Book/Privacy
+remain explicit placeholders, and no WordPress posts have been imported.
+Human review remains open; Phase 3 is not started.
+
+Owner-requested follow-up: remove the separate template welcome page now.
+The root `/` renders the blog overview, `/blog/` redirects to `/`, and the
+header has one Blog link rather than separate Home and Blog links. Starter
+article URLs remain unchanged. Pagination and real content import remain
+in their later phases.
 
 - Set production `site` to `https://blog.pieeatingninjas.be`, static output,
   trailing-slash policy, and directory-style page output. Do not add adapters,

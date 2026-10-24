@@ -1,5 +1,80 @@
 # Astro Starter Kit: Blog
 
+## WordPress migration
+
+Migration is phase-gated. See the [approved plan](.github/plan.md) and
+[phase-one inventory and proposed contract](.github/migration-phase-one.md).
+Phase one inventories local inputs only; it does not import content or assets.
+
+With Node 24 and dependencies installed:
+
+```sh
+npm run migration:inventory
+npm run test:migration
+npm run migration:inventory -- --check
+```
+
+The inventory requires one WXR 1.2 XML file directly in the gitignored
+`_migration/` folder, plus `_migration/blog/wp-content/uploads/YYYY/MM/`.
+It writes only `_migration/inventory/inventory.json` and
+`_migration/inventory/expected-output.json`. Do not commit, upload, or publish
+these files or use the source folder in GitHub Actions.
+
+The normal command exits 0 when evidence was generated, **not** when the phase
+is accepted. `--check` exits 1 while discrepancies or owner approvals remain.
+Malformed/missing inputs and unsafe filesystem inputs also exit nonzero.
+Review the local findings and the contract before approving another phase.
+
+### Static blog foundation (phase 2)
+
+The site now builds statically for `https://blog.pieeatingninjas.be`, with
+directory-style pages and trailing slashes. Development uses Node 24 and port
+4321 on all interfaces, matching the dev container. No adapter or backend is
+required.
+
+Posts imported later can supply this frontmatter in addition to the template's
+title, description, and publication date:
+
+```yaml
+pubDate: '2020-02-29'
+legacy:
+  id: 123
+  path: /2020/02/29/original-slug/
+categories: [dotnet]
+tags: [example]
+```
+
+The exact legacy path determines the route and canonical URL, not the content
+filename or the machine's timezone. The same WordPress ID will link the post
+to its future static comment archive. IDs and paths must be unique across posts
+and selected pages. Categories and tags remain separate. Starter posts without
+legacy metadata retain their `/blog/{id}/` URLs.
+
+About, Book, Privacy Policy, and the actual 404 page have independent routes.
+About still contains template copy; Book and Privacy Policy explicitly show
+pending-content placeholders. No private About content or final legal copy has
+been published. The old 404 content slug redirects to `/404.html`.
+Template styling is unchanged.
+
+The blog overview is the home page at `/`; there is no separate welcome page.
+`/blog/` redirects to `/`, while starter article URLs under `/blog/{id}/`
+remain available. Navigation links directly to the root overview.
+
+```sh
+npm run test:routing
+npm run astro -- check
+npm run build
+npm run dev -- --background
+# When finished:
+npm run astro -- dev stop
+```
+
+Routing tests build synthetic dated posts in a temporary project and remove it
+afterwards. They verify the actual HTML, canonical URLs, dates, feed/archive
+links, sitemap coverage, and rejection of duplicate IDs. Test articles are never
+added to the real site's content. The local WordPress dump is excluded from
+TypeScript/Astro checking.
+
 ```sh
 npm create astro@latest -- --template blog
 ```

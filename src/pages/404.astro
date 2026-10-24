@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import { legacyPages } from '../lib/legacy-pages';
+const page = legacyPages.notFound;
+---
+
+<Layout title={page.title} description={page.description} canonicalPath={page.path}>
+	<p>The page you requested could not be found.</p>
+	<p><a href="/">Browse the blog</a>.</p>
+</Layout>
