@@ -12,8 +12,8 @@ Source: `_migration/pieeatingninjas039blog.WordPress.2026-10-24.xml` (WXR 1.2 ex
 | Draft posts | 5 | **Do not migrate** |
 | Pages | 6 | Migrate 4 (About, Book, Privacy Policy, 404); skip 2 placeholders |
 | Unique asset files used by posts/pages (originals) | 125 | **Migrate** (original size only) |
-| Images that contain **code** (🔴) | 11 | **Replace with a code block** |
-| Images that mix code + IDE/UI/result (🟠) | 8 | Reviewed – **keep as image** |
+| Images that contain **code** without annotations (🔴) | 7 | **Replace with a code block**; see [extracted code report](./IMAGE-CODE-EXTRACTION-REPORT.md) |
+| Images that mix code + IDE/UI/result or annotations (🟠) | 12 | Reviewed – **keep as image** |
 | Images showing console/terminal output (🟢) | 8 | Keep as image |
 | Images to resize / optimize (📏) | 20 | Resize or recompress before migrating (see section 3b) |
 | External images hot-linked in posts | 1 | Download & self-host |
@@ -21,7 +21,7 @@ Source: `_migration/pieeatingninjas039blog.WordPress.2026-10-24.xml` (WXR 1.2 ex
 | Categories / tags | 44 / 7 | Map to Astro content-collection `tags` |
 | PHP files in the dump | 5870 | **Do not migrate** |
 
-Legend: 🔴 = image is (mostly) source code → must become text code block · 🟠 = code shown together with IDE tooling, debugger or rendered output → reviewed, keep as image · 🟢 = console / terminal / output-window → keep as image.
+Legend: 🔴 = source code without annotations → must become text code block · 🟠 = code shown together with IDE tooling, debugger, rendered output or annotations (lines, arrows, circles, markers) → reviewed, keep as image · 🟢 = console / terminal / output-window → keep as image. Counts are unique original files; an image reused by multiple posts is counted once.
 
 ## 1. Blog posts to migrate (published)
 
@@ -32,8 +32,8 @@ Permalink structure on WordPress: `/YYYY/MM/DD/<slug>/` – keep these URLs (or 
 | 1 | 2015-11-05 | Starting a blog since 2011... | `starting-a-blog-since-2011` | Welcome | 1 |  |  |  |  |
 | 2 | 2015-11-07 | Deferred Loading, mind the Visual State Manager | `deferred-loading-mind-the-visual-state-manager` | Performance, UWP, XAML | 6 | 2 | 3 |  |  |
 | 3 | 2015-11-14 | Using Rx in a UWP project with MVVM | `using-rx-in-a-uwp-project-with-mvvm` | C#, MVVM, Rx, UWP |  |  |  |  |  |
-| 4 | 2015-11-15 | x:Bind and inheritance | `xbind-and-inheritance` | UWP, x:Bind, XAML | 4 | 3 |  |  | 2 |
-| 5 | 2015-12-30 | Disable gestures on Pivot control | `disable-gestures-on-pivot-control` | C#, UWP, XAML | 5 | 5 |  |  | 4 |
+| 4 | 2015-11-15 | x:Bind and inheritance | `xbind-and-inheritance` | UWP, x:Bind, XAML | 4 | 2 | 1 |  | 2 |
+| 5 | 2015-12-30 | Disable gestures on Pivot control | `disable-gestures-on-pivot-control` | C#, UWP, XAML | 5 | 3 | 2 |  | 4 |
 | 6 | 2016-01-17 | Custom UWP Control: Step-Through ListView | `custom-uwp-control-step-through-listview` | C#, UWP, XAML | 1 |  |  |  | 5 |
 | 7 | 2016-02-06 | Displaying PDF files in a UWP app | `displaying-pdf-files-in-a-uwp-app` | C#, UWP, XAML | 1 |  |  |  | 27 |
 | 8 | 2016-03-08 | Slidedeck and code “Data sharing and Cross-App communication in UWP” | `slidedeck-and-code-data-sharing-and-cross-app-communication-in-uwp` | C#, Talks, UWP | 1 |  |  |  |  |
@@ -50,7 +50,7 @@ Permalink structure on WordPress: `/YYYY/MM/DD/<slug>/` – keep these URLs (or 
 | 19 | 2017-02-10 | Custom location and movement on Xamarin Remoted iOS Simulator for Windows | `custom-location-and-movement-on-xamarin-remoted-ios-simulator-for-windows` | AppleScript, Automation, Xamarin | 4 |  |  | 1 | 1 |
 | 20 | 2017-04-16 | Setting up a Realm Object Server in Azure and connect to it with Xamarin Forms | `setting-up-a-realm-object-server-in-azure` | Azure, C#, Realm, Xamarin | 3 |  |  | 1 | 1 |
 | 21 | 2017-04-20 | Trigger PropertyChanged of indexed property in Xamarin Forms | `trigger-propertychanged-of-indexed-property-in-xamarin-forms` | C#, MVVM, Xamarin, XAML |  |  |  |  | 4 |
-| 22 | 2017-05-20 | Dynamically binding RESX Resources in Xamarin Forms | `dynamically-binding-resx-resources-in-xamarin-forms` | C#, Localization, MVVM, UWP, Xamarin, XAML | 1 | 1 |  |  | 21 |
+| 22 | 2017-05-20 | Dynamically binding RESX Resources in Xamarin Forms | `dynamically-binding-resx-resources-in-xamarin-forms` | C#, Localization, MVVM, UWP, Xamarin, XAML | 1 |  | 1 |  | 21 |
 | 23 | 2017-07-06 | Bind to Xamarin Picker but only update value after hitting Done on iOS | `bind-to-xamarin-picker-but-only-update-value-after-hitting-done-on-ios` | C#, Xamarin, XAML |  |  |  |  | 10 |
 | 24 | 2017-08-03 | Sharing a Realm via a QR code using ZXing | `sharing-a-realm-via-a-qr-code-using-zxing` | C#, Realm, Xamarin |  |  |  |  | 3 |
 | 25 | 2017-08-13 | Creating a 'Continue Watching' experience using Project Rome in UWP | `creating-a-continue-watching-experience-using-project-rome-in-uwp` | C#, UWP | 1 |  |  |  | 1 |
@@ -115,9 +115,9 @@ The drafts will not be migrated. Their assets are therefore not included in the 
 | Privacy Policy | publish | `privacy-policy` | Migrate (update for new hosting/analytics/ads) |
 | Book | publish | `book` | Migrate – body is empty in the export, rebuild content (book: *The MVVM Pattern in .NET MAUI*) |
 
-## 2. Images containing code (must be converted)
+## 2. Images containing code (conversion review)
 
-Each row is one original image. The “displayed as” column lists the resized variant(s) WordPress actually embedded. Only the 🔴 images must be replaced, with fenced code blocks in Markdown (the code is often already present in the surrounding text or in a `<pre>` block nearby – check before re-typing).
+Each row is one original image per post. The “displayed as” column lists the resized variant(s) WordPress actually embedded. Only the 🔴 images must be replaced, with fenced code blocks in Markdown. All 11 original conversion candidates were visually inspected on 2026-10-24; seven unannotated images can be converted and four must remain images. The [extracted code report](./IMAGE-CODE-EXTRACTION-REPORT.md) contains the seven transcriptions and the keep-image decisions. Check for equivalent surrounding text or `<pre>` blocks before inserting code to avoid duplication. Never replace an annotated image with code: preserve its lines, arrows, circles and markers.
 
 ### 🔴 Code as image → replace with code block
 
@@ -127,23 +127,23 @@ Each row is one original image. The “displayed as” column lists the resized 
 | Deferred Loading, mind the Visual State Manager | `2015/11/vsm-bad.jpg` | (original) | XAML VisualStateManager |
 | x:Bind and inheritance | `2015/11/binding.jpg` | (original) | XAML |
 | x:Bind and inheritance | `2015/11/new.jpg` | (original) | C# interface |
-| x:Bind and inheritance | `2015/11/vs-warning.jpg` | (original) | C# with IDE warning tooltip |
 | Disable gestures on Pivot control | `2015/12/code-header.jpg` | (original) | C# |
 | Disable gestures on Pivot control | `2015/12/code-inside1.jpg` | `2015/12/code-inside1-1024x128.jpg` | C# |
 | Disable gestures on Pivot control | `2015/12/code-out.jpg` | `2015/12/code-out-1024x128.jpg` | C# |
-| Disable gestures on Pivot control | `2015/12/xaml-inside.jpg` | `2015/12/xaml-inside-300x129.jpg` | XAML |
-| Disable gestures on Pivot control | `2015/12/xaml-out.jpg` | `2015/12/xaml-out-300x114.jpg` | XAML |
-| Dynamically binding RESX Resources in Xamarin Forms | `2017/05/Binding-Resources.png` | `2017/05/Binding-Resources-300x189.png` | annotated XAML + C# indexer diagram |
 
-### 🟠 Code mixed with IDE / debugger / rendered output → reviewed: keep as image
+### 🟠 Code mixed with IDE / debugger / rendered output / annotations → reviewed: keep as image
 
-These were reviewed: the IDE tooling, debugger state or rendered result is the point of the screenshot, so they stay as images (no conversion needed).
+These were reviewed: the IDE tooling, debugger state, rendered result or annotations are part of the explanation, so they stay as images (no conversion needed).
 
 | Post | Image (original) | Displayed as | What it shows |
 |---|---|---|---|
 | Deferred Loading, mind the Visual State Manager | `2015/11/collapsed1.jpg` | (original) | VS Live Visual Tree + XAML editor |
 | Deferred Loading, mind the Visual State Manager | `2015/11/lazy1.jpg` | (original) | VS Live Visual Tree + XAML editor |
 | Deferred Loading, mind the Visual State Manager | `2015/11/result-good.png` | (original) | Live Visual Tree + XAML VisualStateManager |
+| x:Bind and inheritance | `2015/11/vs-warning.jpg` | (original) | IDE warning squiggle and tooltip explaining member hiding; tooltip obscures code |
+| Disable gestures on Pivot control | `2015/12/xaml-inside.jpg` | `2015/12/xaml-inside-300x129.jpg` | Red underlines highlight PointerEntered and PointerMoved handlers |
+| Disable gestures on Pivot control | `2015/12/xaml-out.jpg` | `2015/12/xaml-out-300x114.jpg` | Red underlines highlight PointerExited, PointerReleased and PointerCaptureLost handlers |
+| Dynamically binding RESX Resources in Xamarin Forms | `2017/05/Binding-Resources.png` | `2017/05/Binding-Resources-300x189.png` | Red underline, arrow and circle connect the XAML resource key to the C# indexer; labeled ViewModel/Resources diagram |
 | Compiled bindings gotcha - Don't forget INotifyPropertyChanged on your interface | `2016/11/propertychangednull.jpg` | `2016/11/propertychangednull-768x477.jpg` | C# in editor while debugging + Watch window |
 | Creating a HyperlinkLabel in Xamarin Forms | `2017/11/HyperlinkLabel.jpg` | `2017/11/HyperlinkLabel-768x99.jpg` | XAML snippet + rendered result |
 | Using Android Linkify to add inline links to a Xamarin Forms Label | `2017/11/HyperlinkLabel.jpg` | `2017/11/HyperlinkLabel-1024x132.jpg` | XAML snippet + rendered result |
@@ -188,15 +188,15 @@ Only the **original** file is needed; WordPress-generated size variants (`-300x2
 - `2015/11/binding.jpg` (20 KB) — 🔴 code
 - `2015/11/new.jpg` (29 KB) — 🔴 code
 - `2015/11/schema.jpg` (42 KB)
-- `2015/11/vs-warning.jpg` (28 KB) — 🔴 code
+- `2015/11/vs-warning.jpg` (28 KB) — 🟠 code + IDE warning tooltip (reviewed: keep)
 
 #### Disable gestures on Pivot control (`disable-gestures-on-pivot-control`)
 
 - `2015/12/code-header.jpg` (77 KB) — 🔴 code
 - `2015/12/code-inside1.jpg` (38 KB) — 🔴 code
 - `2015/12/code-out.jpg` (37 KB) — 🔴 code
-- `2015/12/xaml-inside.jpg` (68 KB) — 🔴 code
-- `2015/12/xaml-out.jpg` (63 KB) — 🔴 code
+- `2015/12/xaml-inside.jpg` (68 KB) — 🟠 code + red underlines (reviewed: keep)
+- `2015/12/xaml-out.jpg` (63 KB) — 🟠 code + red underlines (reviewed: keep)
 
 #### Custom UWP Control: Step-Through ListView (`custom-uwp-control-step-through-listview`)
 
@@ -263,7 +263,7 @@ Only the **original** file is needed; WordPress-generated size variants (`-300x2
 
 #### Dynamically binding RESX Resources in Xamarin Forms (`dynamically-binding-resx-resources-in-xamarin-forms`)
 
-- `2017/05/Binding-Resources.png` (50 KB) — 🔴 code
+- `2017/05/Binding-Resources.png` (50 KB) — 🟠 annotated code diagram (reviewed: keep)
 
 #### Creating a 'Continue Watching' experience using Project Rome in UWP (`creating-a-continue-watching-experience-using-project-rome-in-uwp`)
 
