@@ -12,22 +12,24 @@ const today = new Date();
 </footer>
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		padding: 2rem 1rem 3rem;
+		border-top: 1px solid var(--border);
+		background: var(--surface);
 		color: rgb(var(--gray));
 		text-align: center;
+		font-size: 0.82rem;
 	}
 	.social-links {
 		display: flex;
 		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
+		gap: 1.25rem;
+		margin-top: 0.85rem;
 	}
 	.social-links a {
 		text-decoration: none;
 		color: rgb(var(--gray));
 	}
 	.social-links a:hover {
-		color: rgb(var(--gray-dark));
+		color: var(--accent-dark);
 	}
 </style>

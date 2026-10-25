@@ -18,7 +18,8 @@ const isActive = target === pathname || (target && target !== '/' && pathname.st
 		text-decoration: none;
 	}
 	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
+		color: var(--accent-dark);
+		font-weight: 700;
+		box-shadow: inset 0 -2px var(--accent);
 	}
 </style>

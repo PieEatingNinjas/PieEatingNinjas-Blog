@@ -1,7 +1,9 @@
 ---
 import { GISCUS_PUBLIC_CONFIG, getGiscusConfig } from '../lib/giscus';
+import { SITE_ORIGIN } from '../lib/urls';
 
 const config = getGiscusConfig(import.meta.env.PUBLIC_GISCUS_ENABLED ?? 'true', GISCUS_PUBLIC_CONFIG);
+const themeUrl = new URL('/giscus-theme.css', SITE_ORIGIN).href;
 ---
 
 {config && (
@@ -20,7 +22,7 @@ const config = getGiscusConfig(import.meta.env.PUBLIC_GISCUS_ENABLED ?? 'true', 
 			data-reactions-enabled="1"
 			data-emit-metadata="0"
 			data-input-position="bottom"
-			data-theme="preferred_color_scheme"
+			data-theme={themeUrl}
 			data-lang="en"
 			data-loading="lazy"
 			crossorigin="anonymous"
@@ -30,13 +32,14 @@ const config = getGiscusConfig(import.meta.env.PUBLIC_GISCUS_ENABLED ?? 'true', 
 
 <style>
 	.giscus-comments {
-		width: 720px;
-		max-width: calc(100% - 2em);
+		width: 100%;
+		max-width: 740px;
 		margin: 0 auto;
-		padding: 1em;
+		padding: 1.5rem 0;
 		color: rgb(var(--gray-dark));
 	}
 	h2 {
-		font-size: 1.6rem;
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
 	}
 </style>

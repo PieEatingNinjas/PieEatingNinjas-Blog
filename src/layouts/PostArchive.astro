@@ -21,77 +21,192 @@ const { posts, title, page, total, path, previous, next } = Astro.props;
 		{next && <link rel="next" href={next} />}
 		<style>
 			main {
-				width: 960px;
+				max-width: 1080px;
 			}
-			ul {
+			.archive-intro {
+				max-width: 680px;
+				margin: 0 auto 3rem;
+			}
+			.eyebrow {
+				margin: 0 0 0.8rem;
+				color: var(--accent);
+				font-family: var(--font-mono);
+				font-size: 0.72rem;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+			}
+			.archive-intro h1 {
+				margin-bottom: 0.75rem;
+				font-size: clamp(2.5rem, 6vw, 4rem);
+				line-height: 1.06;
+			}
+			.archive-intro > p:last-child {
+				margin: 0;
+				color: rgb(var(--gray));
+				font-size: 1.05rem;
+			}
+			.post-list {
 				display: flex;
 				flex-wrap: wrap;
-				gap: 2rem;
+				gap: 1.25rem;
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
 			}
-			ul li {
-				width: calc(50% - 1rem);
+			.post-card {
+				width: calc(50% - 0.625rem);
 			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
+			.post-card a {
+				display: flex;
+				height: 100%;
+				flex-direction: column;
+				overflow: hidden;
+				padding: 0.75rem;
+				border: 1px solid var(--border);
 				border-radius: 12px;
+				background: var(--surface);
+				color: inherit;
+				text-decoration: none;
+				transition:
+					border-color 160ms ease,
+					box-shadow 160ms ease,
+					transform 160ms ease;
 			}
-			ul li a {
-				display: block;
+			.post-card a:hover {
+				transform: translateY(-2px);
+				border-color: #b9c9cd;
+				box-shadow: var(--box-shadow);
+			}
+			.post-card img {
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				margin-bottom: 0.85rem;
+				object-fit: cover;
+				background: #e9edf2;
+			}
+			.post-art {
+				display: grid;
+				flex: 1;
+				min-height: 160px;
+				margin-bottom: 0.85rem;
+				border-radius: 6px;
+				background: linear-gradient(135deg, #edf1f3, #f7f9fa);
+				color: var(--accent);
+				font-family: var(--font-mono);
+				font-size: 1.5rem;
+				place-items: center;
+			}
+			.post-card-content {
+				padding: 0.25rem 0.5rem 0.5rem;
 			}
 			.title {
-				margin: 0;
+				margin: 0 0 0.5rem;
 				color: rgb(var(--black));
-				line-height: 1;
+				font-size: 1.3rem;
+				line-height: 1.25;
 			}
 			.date {
-				margin: 0;
+				margin: 0 0 0.5rem;
 				color: rgb(var(--gray));
+				font-family: var(--font-mono);
+				font-size: 0.72rem;
+				letter-spacing: 0.025em;
+			}
+			.post-card.featured {
+				width: 100%;
+			}
+			.post-card.featured:not(.has-image) a {
+				grid-template-columns: 1fr;
+			}
+			.post-card.featured a {
+				display: grid;
+				grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+				align-items: center;
+				gap: 1.5rem;
+				padding: 1rem;
+			}
+			.post-card.featured img {
+				grid-column: 2;
+				grid-row: 1;
+				height: 100%;
+				min-height: 240px;
+				margin: 0;
+				aspect-ratio: auto;
+			}
+			.post-card.featured .post-card-content {
+				grid-column: 1;
+				grid-row: 1;
+				padding: 1.25rem;
+			}
+			.post-card.featured:not(.has-image) .post-card-content {
+				grid-column: 1;
+				grid-row: 2;
+			}
+			.post-card.featured:not(.has-image) .post-art {
+				grid-column: 1;
+				grid-row: 1;
+				height: 100%;
+				margin: 0;
+			}
+			.post-card.featured .title {
+				font-size: clamp(1.75rem, 3vw, 2.5rem);
 			}
 			nav {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				gap: 1rem;
-				margin-top: 2rem;
+				margin-top: 2.5rem;
+				padding-top: 1.25rem;
+				border-top: 1px solid var(--border);
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
+			nav a {
+				font-weight: 700;
 			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+			nav > span {
+				color: rgb(var(--gray));
+				font-family: var(--font-mono);
+				font-size: 0.78rem;
 			}
 			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
+				.archive-intro {
+					margin-bottom: 2rem;
 				}
-				ul li {
+				.post-list {
+					gap: 0.85rem;
+				}
+				.post-card {
 					width: 100%;
-					text-align: center;
 				}
-				ul li:first-child {
-					margin-bottom: 0;
+				.post-card.featured a {
+					grid-template-columns: 1fr;
+					gap: 0.75rem;
 				}
-				ul li:first-child .title {
-					font-size: 1.563em;
+				.post-card.featured img {
+					grid-column: 1;
+					grid-row: 1;
+					min-height: 0;
+					aspect-ratio: 16 / 9;
+				}
+				.post-card.featured .post-art {
+					grid-column: 1;
+					grid-row: 1;
+					min-height: 0;
+					aspect-ratio: 16 / 9;
+				}
+				.post-card.featured .post-card-content {
+					grid-column: 1;
+					grid-row: 2;
+					padding: 0.5rem;
+				}
+				nav {
+					font-size: 0.85rem;
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.post-card a {
+					transition: none;
 				}
 			}
 		</style>
@@ -100,19 +215,33 @@ const { posts, title, page, total, path, previous, next } = Astro.props;
 		<Header />
 		<main>
 			<section>
+				{path === '/' && page === 1 && (
+					<header class="archive-intro">
+						<p class="eyebrow">PIE EATING NINJAS / DEVELOPER NOTES</p>
+						<h1>Notes from the workbench.</h1>
+						<p>{SITE_DESCRIPTION}</p>
+					</header>
+				)}
 				{title && <h1>{title}</h1>}
 				{!posts.length && <p>No posts in this archive yet.</p>}
 				<ul class="post-list">
-					{posts.map((post) => (
-						<li data-post-id={post.data.legacy?.id ?? post.id}>
+					{posts.map((post, index) => (
+						<li
+							class:list={['post-card', {
+								featured: index === 0 && page === 1,
+								'has-image': Boolean(post.data.heroImage),
+							}]}
+							data-post-id={post.data.legacy?.id ?? post.id}
+						>
 							<a href={postUrl(post)}>
 								{post.data.heroImage && (typeof post.data.heroImage === 'string'
 									? <img src={post.data.heroImage} alt="" />
 									: <Image width={720} height={360} src={post.data.heroImage} alt="" />)}
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
+								{!post.data.heroImage && <div class="post-art" aria-hidden="true">{'{ }'}</div>}
+								<div class="post-card-content">
+									<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+									<h2 class="title">{post.data.title}</h2>
+								</div>
 							</a>
 						</li>
 					))}

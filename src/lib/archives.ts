@@ -61,13 +61,17 @@ export function archivePages<T extends ArchivePost>(input: T[], pageSize = compa
 		}),
 	];
 	return groups.flatMap((group) => {
-		const total = Math.max(1, Math.ceil(group.posts.length / pageSize));
+		const firstPageSize = group.base === '/' ? pageSize + 1 : pageSize;
+		const remainingPosts = Math.max(0, group.posts.length - firstPageSize);
+		const total = Math.max(1, 1 + Math.ceil(remainingPosts / pageSize));
 		return Array.from({ length: total }, (_, index) => ({
 			base: group.base, title: group.title, page: index + 1, total,
 			path: archivePath(group.base, index + 1),
 			previous: index ? archivePath(group.base, index) : undefined,
 			next: index + 1 < total ? archivePath(group.base, index + 2) : undefined,
-			posts: group.posts.slice(index * pageSize, (index + 1) * pageSize),
+			posts: index === 0
+				? group.posts.slice(0, firstPageSize)
+				: group.posts.slice(firstPageSize + (index - 1) * pageSize, firstPageSize + index * pageSize),
 		}));
 	});
 }
