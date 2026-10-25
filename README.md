@@ -112,7 +112,8 @@ About, Book, Privacy Policy, and the actual 404 page have independent routes.
 About still contains template copy; Book and Privacy Policy explicitly show
 pending-content placeholders. No private About content or final legal copy has
 been published. The old 404 content slug redirects to `/404.html`.
-Template styling is unchanged.
+Template styling remains the current baseline; the whole-blog redesign is
+planned for Phase 7.
 
 The blog overview is the home page at `/`; there is no separate welcome page.
 `/blog/` redirects to `/`, while starter article URLs under `/blog/{id}/`
@@ -547,8 +548,9 @@ Validation on 2026-10-25:
   with a visible `author` badge. The output verifier checks badge counts
   against the archived comments on every built post.
 
-The owner accepted Phase 5 on 2026-10-25. Phase 6 is in progress; Phase 7 and
-deployment have not started.
+The owner accepted Phase 5 on 2026-10-25. Phase 6 is in progress. Phase 7 is
+the planned whole-blog design phase; release readiness is Phase 8 and production
+cutover is Phase 9.
 
 ### Phase 6: Giscus community discussions
 

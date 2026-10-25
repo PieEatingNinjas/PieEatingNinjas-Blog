@@ -46,9 +46,11 @@ This permission does not authorize deployment or starting the next phase.
 - Do not mark review checkboxes complete on the owner's behalf. Any intentional
   exception or changed requirement needs explicit owner approval.
 
-Keep template styling throughout. Analytics remains undecided, with Google
-Analytics only a candidate; do not implement it as part of this plan without a
-separate decision.
+Phases 1-6 retain the official template styling. Phase 7 brings a redesign of
+the whole blog into scope; its direction and refinements will be developed
+iteratively with the owner. Analytics remains undecided, with Google Analytics
+only a candidate; do not implement it as part of this plan without a separate
+decision.
 
 ## Migration-report baseline and precedence
 
@@ -71,9 +73,10 @@ do not treat this documentation update as an inventory run or phase approval.
 
 Earlier explicit architecture and privacy decisions take precedence over the
 report's implementation suggestions: use clean Markdown, preserve dated URLs,
-keep upload URLs under `/wp-content/uploads/YYYY/MM/`, retain template styling,
-and do not move all assets into `src/assets/` or redesign branding. Do not read,
-copy, or print credentials from `wp-config.php` or database backups.
+keep upload URLs under `/wp-content/uploads/YYYY/MM/`, and do not move all
+assets into `src/assets/`. Phase 7 may redesign the presentation without
+changing these migration and URL requirements. Do not read, copy, or print
+credentials from `wp-config.php` or database backups.
 
 The report's original-only selection and code-image removal must be reconciled
 with the legacy-image URL requirement. The Phase 1 manifest must distinguish
@@ -87,7 +90,7 @@ Open review decisions are limited to unresolved details: image compatibility
 exceptions and optimization budgets, permitted external-image reuse, PDF source
 links, Book page copy, Privacy Policy copy, optional About photos, Search Console
 verification method, AdSense retention, and plugin redirects missing from the
-export. Analytics and redesign remain outside the approved scope.
+export. Analytics remains outside the approved scope.
 
 ## Inspected starting point
 
@@ -546,9 +549,27 @@ disabled-by-default behavior with verification results.
 **STOP:** hand off evidence and wait for Phase 6 acceptance and explicit
 authorization to start Phase 7.
 
-## Phase 7 - Final verifier and GitHub Pages release readiness
+## Phase 7 - Whole-blog design
 
-**Depends on:** approved Phases 1-6. No production cutover without separate approval.
+**Depends on:** approved Phases 1-6.
+
+- Redesign the presentation of the whole blog, iteratively with the owner.
+- Keep the static Astro architecture, migrated content, legacy URLs, and
+  accessibility and responsive behavior intact while design work proceeds.
+- Review the result with the owner before starting release-readiness work.
+
+**Deliverables:** owner-reviewed whole-blog design.
+
+**Human review:**
+
+- [ ] Review the design across representative pages and screen sizes.
+- [ ] Accept the design phase or request changes.
+
+**STOP:** wait for Phase 7 acceptance and explicit authorization to start Phase 8.
+
+## Phase 8 - Final verifier and GitHub Pages release readiness
+
+**Depends on:** approved Phases 1-7. No production cutover without separate approval.
 
 - Finish a re-runnable Node verification script in `scripts/`, runnable after
   `npm run build`, using the complete private expected-output manifest locally.
@@ -612,10 +633,10 @@ CI checks, gated Pages workflow, custom-domain file, and release/rollback runboo
 - [ ] Explicitly approve or reject deployment and custom-domain cutover for the
   identified revision/artifact; do not infer approval from passing CI.
 
-**STOP:** wait for Phase 7 acceptance and explicit authorization to start Phase 8
+**STOP:** wait for Phase 8 acceptance and explicit authorization to start Phase 9
 with production deployment and DNS changes.
 
-## Phase 8 - Approved cutover and live smoke checks
+## Phase 9 - Approved cutover and live smoke checks
 
 **Depends on:** explicit release approval and access to Pages/domain settings.
 
@@ -664,5 +685,5 @@ live smoke-check results, and owner release decision.
 - [ ] Confirm Search Console verification and ownership of the separate
   credential-retirement/offline-backup checklist before retiring WordPress.
 
-**STOP:** wait for the owner's final release acceptance. Analytics and any
-redesign remain separate future work.
+**STOP:** wait for the owner's final release acceptance. Analytics remains
+separate future work.

@@ -2,7 +2,7 @@
 
 ## Purpose and workflow
 
-- This is a personal .NET, MAUI, and Azure tech blog migrating from WordPress to Astro. Keep the official blog template's styling; redesign is out of scope.
+- This is a personal .NET, MAUI, and Azure tech blog migrating from WordPress to Astro. Phase 7 brings a redesign of the whole blog into scope; develop the design iteratively with the owner.
 - Follow the [migration plan](./plan.md). Implement only the explicitly approved phase, report its validation results and unresolved issues, then stop for the owner's review. Do not automatically start the next phase.
 - Treat planned features as requirements, not as already implemented. Inspect the current code before changing it. Keep changes focused and update directly related documentation.
 
