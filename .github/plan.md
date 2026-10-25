@@ -512,8 +512,8 @@ authorization to start Phase 6.
 
 **Depends on:** accepted Phase 5 static legacy comment archive.
 
-- Add Giscus below the static legacy comment archive on each post; it is separate
-  from, and never a replacement for, imported comments.
+- Add Giscus above the clearly labeled static legacy comment archive on each
+  post; it is separate from, and never a replacement for, imported comments.
 - Refine and review its placement and presentation alongside the existing template
   styles without redesigning the blog.
 - Document the required public repository, Discussions/category setup,
@@ -529,7 +529,7 @@ disabled-by-default behavior with verification results.
 
 - [ ] With Giscus disabled, generated pages contain no Giscus embed script and a
   browser network check records zero Giscus requests.
-- [ ] The embed is placed below the legacy comment archive on posts and does not
+- [ ] The embed is placed above the legacy comment archive on posts and does not
   replace, obscure, or alter its threaded comments.
 - [ ] Configuration prerequisites and stable discussion mapping are documented;
   incomplete configuration cannot load the Giscus script.

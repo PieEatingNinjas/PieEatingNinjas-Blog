@@ -21,6 +21,7 @@
     "migration:verify-comments": "node scripts/migration-verify-comments.mjs",
     "test:migration": "node --test scripts/migration-inventory.test.mjs",
     "test:routing": "node --experimental-strip-types --test scripts/routing.test.mjs",
+    "test:giscus": "node --experimental-strip-types --test scripts/giscus.test.mjs",
     "migration:compatibility": "node scripts/migration-compatibility.mjs",
     "test:compatibility": "node --test scripts/migration-compatibility.test.mjs",
     "migration:verify-compatibility": "node scripts/migration-verify-compatibility.mjs"

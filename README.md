@@ -547,8 +547,36 @@ Validation on 2026-10-25:
   with a visible `author` badge. The output verifier checks badge counts
   against the archived comments on every built post.
 
-Owner visual review remains outstanding; no Phase 6 work or deployment has
-started.
+The owner accepted Phase 5 on 2026-10-25. Phase 6 is in progress; Phase 7 and
+deployment have not started.
+
+### Phase 6: Giscus community discussions
+
+Phase 5 has been accepted by the owner. Giscus is placed below each imported
+post's static legacy comment archive. The owner approved adding it to the public
+build on 2026-10-25. It is enabled by default in production builds and local
+development; set `PUBLIC_GISCUS_ENABLED=false` to suppress the embed. If enabled
+without complete configuration, the build fails with the missing fields.
+Giscus appears above the archived WordPress comments, which are explicitly
+labeled as legacy and read-only.
+
+The owner has created the public Discussions repository and reports completing
+the Giscus app installation. The repository's public visibility and enabled
+Discussions feature were verified. The repository/category values were supplied
+from the giscus.app configurator and are included in the public site config.
+
+The public configuration is stored in `src/lib/giscus.ts`. The embed is enabled by
+default; this build-time environment variable disables it:
+
+```dotenv
+PUBLIC_GISCUS_ENABLED=false
+```
+
+The embed uses `pathname` mapping with strict matching and searches only the
+selected `Announcements` category. The repository and IDs are public website
+configuration, not secrets. Run `npm run test:giscus` and `npm run build` to
+verify the configured integration; use `PUBLIC_GISCUS_ENABLED=false` to test
+the disabled state.
 
 ```sh
 npm create astro@latest -- --template blog

@@ -13,8 +13,11 @@ const { entries } = buildCommentTree(archive.comments);
 ---
 
 {archive.comments.length > 0 && (
-	<section class="legacy-comments" id="comments" aria-label="Legacy comments">
-		<h2>Comments ({archive.comments.length})</h2>
+	<section class="legacy-comments" id="comments" aria-label="Archived comments">
+		<h2>Archived comments ({archive.comments.length})</h2>
+		<p class="archive-note">
+			Archived comments from the original blog, preserved here for reference. Join the discussion above.
+		</p>
 		<ol>
 			{entries.map(({ comment, depth, parentId, orphaned, cycleRoot }) => (
 				<li class="legacy-comment" style={`--comment-depth: ${Math.min(depth, 8)}`} id={`comment-${comment.id}`}>
@@ -51,6 +54,9 @@ const { entries } = buildCommentTree(archive.comments);
 	}
 	h2 {
 		font-size: 1.6rem;
+	}
+	.archive-note {
+		color: rgb(var(--gray));
 	}
 	ol {
 		margin: 0;

@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import Giscus from '../components/Giscus.astro';
 import Header from '../components/Header.astro';
 import LegacyComments from '../components/LegacyComments.astro';
 import type { LegacyComment } from '../lib/comments';
@@ -110,6 +111,7 @@ const commentArchive = Astro.props.legacy
 					)}
 				</div>
 			</article>
+			{Astro.props.legacy && <Giscus />}
 			{commentArchive && <LegacyComments archive={commentArchive} />}
 		</main>
 		<Footer />

@@ -1,0 +1,42 @@
+---
+import { GISCUS_PUBLIC_CONFIG, getGiscusConfig } from '../lib/giscus';
+
+const config = getGiscusConfig(import.meta.env.PUBLIC_GISCUS_ENABLED ?? 'true', GISCUS_PUBLIC_CONFIG);
+---
+
+{config && (
+	<section class="giscus-comments" aria-label="Community discussion">
+		<h2>Join the discussion</h2>
+		<script
+			is:inline
+			async
+			src="https://giscus.app/client.js"
+			data-repo={config.repo}
+			data-repo-id={config.repoId}
+			data-category={config.category}
+			data-category-id={config.categoryId}
+			data-mapping="pathname"
+			data-strict="1"
+			data-reactions-enabled="1"
+			data-emit-metadata="0"
+			data-input-position="bottom"
+			data-theme="preferred_color_scheme"
+			data-lang="en"
+			data-loading="lazy"
+			crossorigin="anonymous"
+		></script>
+	</section>
+)}
+
+<style>
+	.giscus-comments {
+		width: 720px;
+		max-width: calc(100% - 2em);
+		margin: 0 auto;
+		padding: 1em;
+		color: rgb(var(--gray-dark));
+	}
+	h2 {
+		font-size: 1.6rem;
+	}
+</style>
