@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 938,
+  "postPath": "/2017/08/03/sharing-a-realm-via-a-qr-code-using-zxing/",
+  "comments": [
+    {
+      "id": 67,
+      "parentId": 0,
+      "name": "Nikola Irinchev",
+      "website": "https://www.facebook.com/app_scoped_user_id/10154649742395824/",
+      "gravatarHash": "7607a37be12091a369db15dc219f48a3cb9f638b0b3e834f23f427a46420b509",
+      "date": "2017-08-08 13:14:35",
+      "content": "Nice one! I think you'll be happy to know that a lot of the boilerplate (around Task-ifying the changes) can be eliminated by using the new permission API:\n\n```\nvar token = User.Current.OfferPermissionsAsync(realmUrl, AccessLevel.Write, DateTimeOffset.UtcNow.AddDays(7));\n\n// Accepting\nvar realmUrl = User.Current.AcceptPermissionOfferAsync(invitation.Token);\n```\n\nHere's the API reference for the User where the new APIs reside: https://realm.io/docs/xamarin/1.5.0/api/reference/Realms.Sync.User.html"
+    },
+    {
+      "id": 68,
+      "parentId": 67,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-08-08 13:17:59",
+      "content": "Thanks for your input! I wasn't aware of the updated API... Thanks for sharing!"
+    },
+    {
+      "id": 69,
+      "parentId": 0,
+      "name": "The week in .NET – .NET Core 2.0, ASP.NET Core 2.0, Entity Framework 2.0, Visual Studio 2017 Update 3, enterprise Entity Framework Core in Boston, and links! | .NET Blog",
+      "website": "https://blogs.msdn.microsoft.com/dotnet/2017/08/15/the-week-in-net-net-core-2-0-asp-net-core-2-0-entity-framework-2-0-visual-studio-2017-update-3-enterprise-entity-framework-core-in-boston-and-links/",
+      "gravatarHash": null,
+      "date": "2017-08-15 21:21:02",
+      "content": "[…] Sharing a Realm via a QR code using ZXing by Pieter Nijs. […]"
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 498,
+  "postPath": "/2016/02/06/displaying-pdf-files-in-a-uwp-app/",
+  "comments": [
+    {
+      "id": 5,
+      "parentId": 0,
+      "name": "Igor Kulman (@igorkulman)",
+      "website": "http://twitter.com/igorkulman",
+      "gravatarHash": "463758557e280ab9ec79a567e2ebeda733fa8e6679a486341997288bafca601b",
+      "date": "2016-02-08 10:29:37",
+      "content": "Nice as a simple demostration, but in a real world app you would have to buy a 3rd party control, because of search, re-rendering after zoom and overall performance. I know :/"
+    },
+    {
+      "id": 10,
+      "parentId": 0,
+      "name": "Mike Tsayper",
+      "website": "https://plus.google.com/116194963698402449947",
+      "gravatarHash": "9bcfbaee4c7f0f540725ffef9dea01d742775aef56eb4f993ba06611b0737e82",
+      "date": "2016-05-25 15:47:50",
+      "content": "thanks thats a great article!\nif all articles were like this one.... \nvery helpful"
+    },
+    {
+      "id": 11,
+      "parentId": 0,
+      "name": "Simone",
+      "website": null,
+      "gravatarHash": "67c1776d100e426c8cb644bdb1b6d595f25b0d156dad27092c28ce251da19cfa",
+      "date": "2016-06-14 15:43:57",
+      "content": "Please the source code? :) Thanks"
+    },
+    {
+      "id": 12,
+      "parentId": 11,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-06-28 19:53:35",
+      "content": "All code is in the post. But I'll upload the code one of these days."
+    },
+    {
+      "id": 14,
+      "parentId": 12,
+      "name": "Shahriar",
+      "website": "http://shahriar.in/",
+      "gravatarHash": "f49bcb53b31588c61f115a2ce3a62424062b83f869586631efa16b07963f3b53",
+      "date": "2016-07-10 18:15:39",
+      "content": "1.How can i open PasswordProtected pdf files?\n2.How do you rerender pages while zooming?"
+    },
+    {
+      "id": 15,
+      "parentId": 0,
+      "name": "ericguti",
+      "website": null,
+      "gravatarHash": "dad80cb61464702d6be9bb9af803191a105ac458ec2428cf75f5b0d83a11b975",
+      "date": "2016-07-21 20:00:36",
+      "content": "When I try to open a local pdf, I get the following error: System.Runtime.InteropServices.COMException\n\nwhat is the solution?"
+    },
+    {
+      "id": 16,
+      "parentId": 0,
+      "name": "Antal István",
+      "website": null,
+      "gravatarHash": "5a5f67a6bf1332606ae80bf09932f094e88a89cba266e7a37abf62299c427945",
+      "date": "2016-08-17 10:51:16",
+      "content": "Hi!\nI couldn't get it work. Sources needed. :-("
+    },
+    {
+      "id": 17,
+      "parentId": 16,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-08-26 09:02:22",
+      "content": "Hi! Sorry for my late reply. I'll upload the sources in a minute and post a link in the post."
+    },
+    {
+      "id": 18,
+      "parentId": 15,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-08-26 09:03:40",
+      "content": "Hi! I'm uploading the sources at this very moment and will post a link asap. Then you can check if you get the same exception with my sources. If that still doesn't work, let me know."
+    },
+    {
+      "id": 19,
+      "parentId": 0,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-08-26 09:14:25",
+      "content": "Hi guys!\nI've added a link to the sources."
+    },
+    {
+      "id": 20,
+      "parentId": 14,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-08-26 09:17:16",
+      "content": "Hi!\nAccording to the msdn page, you should be able to pass in a password to the LoadFromFileAsync method if you want to open protected pdf files:\nhttps://msdn.microsoft.com/en-us/library/windows/apps/dn263419.aspx"
+    },
+    {
+      "id": 22,
+      "parentId": 0,
+      "name": "Mario",
+      "website": null,
+      "gravatarHash": "184b8f5b1110682f4c522ac0346625822474e571bbd3b542587f9130fef163d8",
+      "date": "2016-09-13 19:26:22",
+      "content": "it work with me , but only for your PDF , I tried many times to put another file , in assets and open it by the same url but I got exception file not found"
+    },
+    {
+      "id": 23,
+      "parentId": 22,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-09-13 21:13:17",
+      "content": "Hi Mario,\nCould you please send me your source code via mail? I will take a look at it, it's impossible to determine your issue otherwise. \nThanks!"
+    },
+    {
+      "id": 24,
+      "parentId": 23,
+      "name": "Mario",
+      "website": null,
+      "gravatarHash": "184b8f5b1110682f4c522ac0346625822474e571bbd3b542587f9130fef163d8",
+      "date": "2016-09-17 18:41:41",
+      "content": "Thanks Pieter for solving my problem \nthe mistake was that I wasn't ‘packaging’ your pdf file with your app\nand the solution done by the following steps \n\nRight-click the Assets folder in Visual Studio and select Add =&gt; Existing Item and then select your pdf file.\n\nNext,  select your pdf file in Visual Studio, go to the “Properties Window” and select Content as Build Action."
+    },
+    {
+      "id": 25,
+      "parentId": 24,
+      "name": "Mario",
+      "website": null,
+      "gravatarHash": "184b8f5b1110682f4c522ac0346625822474e571bbd3b542587f9130fef163d8",
+      "date": "2016-09-17 18:42:50",
+      "content": "sorry I mean my pdf with my app"
+    },
+    {
+      "id": 26,
+      "parentId": 25,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-09-17 18:56:40",
+      "content": "Glad that in the end everything worked out for you, Mario!"
+    },
+    {
+      "id": 27,
+      "parentId": 0,
+      "name": "UWP Simple PDF viewer | Pie Eating Ninjas' Blog",
+      "website": "http://blog.pieeatingninjas.be/2016/09/19/uwp-simple-pdf-viewer/",
+      "gravatarHash": null,
+      "date": "2016-09-19 18:31:45",
+      "content": "[…] Some months ago, I blogged about how to display PDF files in&nbsp;your UWP app: Displaying PDF files in a UWP app […]"
+    },
+    {
+      "id": 30,
+      "parentId": 0,
+      "name": "Duke",
+      "website": null,
+      "gravatarHash": "ad4fae2fe57052dd88a2d6f56db16363bd72764c6a0754d6d757e72a6a0f8677",
+      "date": "2016-11-29 12:01:34",
+      "content": "Hi, \nNice tutorial &amp; It helped me a lot to create my notice board application.\nOne problem i am facing is that resolution of image is too low. Is there a way to get the proper resolution of image?\n\nThanks in advance!"
+    },
+    {
+      "id": 70,
+      "parentId": 0,
+      "name": "KJ",
+      "website": null,
+      "gravatarHash": "95dec11504f795fab32fc52654856055a98bfff7d3c9b15903701953af8a7038",
+      "date": "2017-08-16 23:42:06",
+      "content": "Hi, \nYour article helped me a lot to create a pdf file from stream. I need a help to get the currentPage no while scrolling the pdf pages.\nEg:- Page 2 of 80.\n\nThanks in advance!"
+    },
+    {
+      "id": 71,
+      "parentId": 70,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-08-17 14:50:50",
+      "content": "Hi there,\nThat is a good question. I'll try to take a look at it asap. If I find a way to support this kind of behaviour, I'll add it to my source code and will drop you a message. \nKeep an eye on this post!\n\nPieter"
+    },
+    {
+      "id": 96,
+      "parentId": 0,
+      "name": "aah134",
+      "website": null,
+      "gravatarHash": "e0203df31013e64d2e3ff8650b51bd633830224f18c5d150d9da316140d6bffe",
+      "date": "2018-03-21 10:14:36",
+      "content": "Nice indeed, however doesn't work with mine because of binding. I tried many things until I decided to put only one image, and render it, which works great. Target Win 10 Fall Creator Update (16299)."
+    },
+    {
+      "id": 140,
+      "parentId": 0,
+      "name": "Ram",
+      "website": null,
+      "gravatarHash": "7244288b29891604b172c8090fda9816278aa29db0ff086365f8ce550500fcbe",
+      "date": "2018-10-17 07:08:32",
+      "content": "Hi, I used this sample to load the pdf file but it's not loading, can anyone help me."
+    },
+    {
+      "id": 160,
+      "parentId": 0,
+      "name": "AnHund",
+      "website": null,
+      "gravatarHash": "ab96d8097b700f0a6dc6ed4894aab041dbb089458077dce168c7eeec77e557ea",
+      "date": "2019-02-08 18:17:22",
+      "content": "To show the PDF using the default app, add the PDF to the Assets folder and set Build Action to \"Content\" and use this code:\n\nStorageFile file = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@\"Assets\\MyDoc.pdf\");\n   var result = await Launcher.LaunchFileAsync(file);"
+    },
+    {
+      "id": 166,
+      "parentId": 0,
+      "name": "Riani",
+      "website": "http://telkomuniversity.ac.id/",
+      "gravatarHash": "6d56aab12a8368c2bb2538efdc579e09c733157e4c54cb0b423a3d9691a49782",
+      "date": "2019-03-19 08:49:13",
+      "content": "informative post, thank you"
+    },
+    {
+      "id": 244,
+      "parentId": 0,
+      "name": "Ali",
+      "website": null,
+      "gravatarHash": "ad4fae2fe57052dd88a2d6f56db16363bd72764c6a0754d6d757e72a6a0f8677",
+      "date": "2020-02-24 18:08:12",
+      "content": "The PDF images are not showing up. Debug.Write shows that its looping, but no image showing up"
+    },
+    {
+      "id": 246,
+      "parentId": 244,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2020-03-14 09:11:24",
+      "content": "If you provide me a code sample so I can reproduce your issue, then I’d love to take a look at it."
+    },
+    {
+      "id": 559,
+      "parentId": 0,
+      "name": "Tamil",
+      "website": null,
+      "gravatarHash": "05768f580a13f1e7fab18d3154e89635659b9392f34b9fd92fa045c0a2ba5856",
+      "date": "2022-04-22 15:08:18",
+      "content": "Hi,\n\nThis really helped a lot but I faced one problem, On Zooming the pdf page it is not fit to the page or lets say not properly aligned. Any suggestions do you have ?"
+    }
+  ]
+}

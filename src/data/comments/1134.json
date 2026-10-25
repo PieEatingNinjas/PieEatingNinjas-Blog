@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1134,
+  "postPath": "/2018/04/05/creating-a-uwp-console-app-in-c/",
+  "comments": [
+    {
+      "id": 104,
+      "parentId": 0,
+      "name": "Image classification with WinML and UWP – Pie Eating Ninjas' Blog",
+      "website": "https://blog.pieeatingninjas.be/2018/05/15/image-classification-with-winml-and-uwp/",
+      "gravatarHash": null,
+      "date": "2018-05-15 10:27:47",
+      "content": "[…] an earlier blogpost I stipulated how to create a UWP Console App. The cool thing with UWP Console (and […]"
+    },
+    {
+      "id": 107,
+      "parentId": 0,
+      "name": "Ezra",
+      "website": null,
+      "gravatarHash": "08bb685270eb0bcd05db2977cb97fadb1bcd75597ff09da8d68ada1239d8a993",
+      "date": "2018-05-16 21:10:59",
+      "content": "Thanks so much for these instructions! I built a little UWP console app to update a file for myself, and it works fine as long as I build/run in the debug configuration. If I try to run it after building in the release configuration, the app wont launch. Any thoughts on why that might be the case?"
+    },
+    {
+      "id": 108,
+      "parentId": 107,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2018-05-17 09:33:31",
+      "content": "Glad you like it!\nConcerning your problem, you might take a look at differences between your debug and release configuration. If you can't find it out, please provide me your Solution so I could take a look at it, if you want."
+    },
+    {
+      "id": 112,
+      "parentId": 108,
+      "name": "Papa",
+      "website": null,
+      "gravatarHash": "7e3c4870c644c221a0fe2a32430bbd8f762e01a4f86d4108ac912366368e6415",
+      "date": "2018-05-29 22:26:31",
+      "content": "Ezra -\n   Same thing here, but it works after unchecking \"Compile with .NET Native tool chain\" in project Properties/Build.\n\nPieEatingNinjas -\n   I have a couple different questions to add: The console app comes up after the usual default Windows app window.. can that be skipped so only a console app runs?\n   And there is a Windows Store app activation error after the console+window are closed.. can that be oppressed? [\"Compile with .NET Native tool chain\" being a store requirement, why bother..?]\nBTW, same behaviors with your GitHub project.\n\nBarring those minor issues this is undoubtedly a good testing tool for libraries, OAuth2 redirect (per custom app URIs, otherwise out-of-reach for normal console apps), etc."
+    },
+    {
+      "id": 113,
+      "parentId": 108,
+      "name": "Papa",
+      "website": null,
+      "gravatarHash": "7e3c4870c644c221a0fe2a32430bbd8f762e01a4f86d4108ac912366368e6415",
+      "date": "2018-05-30 18:32:39",
+      "content": "Hello - Initially I got this working despite being on too old of a version of Windows 10, however that produced an extra non-console window to appear and an \"..unable to activate..\" error. Those problems went away as soon as I updated to 1803.\n   Since the issue Ezra saw (Release not working) only seems to be remedied by unchecking \"Compile with .NET Native tool chain\", is it a forgone conclusion that console UWP apps cannot be sold @ the store?"
+    },
+    {
+      "id": 116,
+      "parentId": 0,
+      "name": "Mark Pflug",
+      "website": null,
+      "gravatarHash": "a6ca33f42d0b1cc78c0115e9ee7a8be1dc2f60ba6e9f93e517dc525a4f2c3a42",
+      "date": "2018-06-06 19:33:40",
+      "content": "Nice walk-through. You might clarify the \"we need to add an AppExecutionAlias to the Appxmanifest file\" with some context about where it needs to be added. I had to go look at the github project to figure that part out."
+    },
+    {
+      "id": 117,
+      "parentId": 108,
+      "name": "Ezra",
+      "website": null,
+      "gravatarHash": "08bb685270eb0bcd05db2977cb97fadb1bcd75597ff09da8d68ada1239d8a993",
+      "date": "2018-06-06 20:05:03",
+      "content": "Thanks for the reply! I'll take a look again after I follow these directions to put the app back together. Maybe the template will solve the problem.\n\nhttps://blogs.windows.com/buildingapps/2018/06/06/c-console-uwp-applications/#lx6114BhGKvLgCmi.97"
+    },
+    {
+      "id": 118,
+      "parentId": 113,
+      "name": "Ezra",
+      "website": null,
+      "gravatarHash": "08bb685270eb0bcd05db2977cb97fadb1bcd75597ff09da8d68ada1239d8a993",
+      "date": "2018-06-06 20:06:15",
+      "content": "Check out my comment above about there being a template from which to build the C# UWP console apps now. Fingers crossed it fixes this issue."
+    },
+    {
+      "id": 156,
+      "parentId": 0,
+      "name": "John Smith",
+      "website": null,
+      "gravatarHash": "d96215018e9ae0427d7443212ce7f46bf8f9fa6145ab54f7c06b91d3fdd4c91a",
+      "date": "2019-01-26 19:41:54",
+      "content": "Exactly what is was looking for. Suggestion, post full sample code on github"
+    },
+    {
+      "id": 158,
+      "parentId": 156,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2019-01-31 15:55:32",
+      "content": "Hi John,\nThe code is already available on GitHub (https://github.com/PieEatingNinjas/UwpConsoleApp/tree/master). Did you miss this or do you have a remark about the source code itself?"
+    },
+    {
+      "id": 214,
+      "parentId": 0,
+      "name": "Bluetooth GATT server.",
+      "website": "https://www.jenx.si/2019/08/09/bluetooth-gatt-server/",
+      "gravatarHash": null,
+      "date": "2019-08-12 12:08:07",
+      "content": "[…] In general, UWP programs are desktop GUI applications, but with small tricks console application can be developed also. You can find all the information how to do it here: https://blog.pieeatingninjas.be/2018/04/05/creating-a-uwp-console-app-in-c/. […]"
+    },
+    {
+      "id": 609,
+      "parentId": 0,
+      "name": "Václav",
+      "website": null,
+      "gravatarHash": "9176b17dd2382951fc2ff1cadfd4cc088db999232e9a17924b9c27e13deae798",
+      "date": "2024-01-17 15:25:47",
+      "content": "Hi, still useful this information. Thank you"
+    }
+  ]
+}

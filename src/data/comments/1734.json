@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1734,
+  "postPath": "/2021/02/06/watch-for-changes-in-blazor-wasm-to-automatically-reload-your-page/",
+  "comments": [
+    {
+      "id": 551,
+      "parentId": 0,
+      "name": "Tobias Groeneveld",
+      "website": null,
+      "gravatarHash": "85090a82ac1b2fdd1306b53f393a672c8b4f6b02f094b0a96ec5c24ca8d10d7b",
+      "date": "2022-02-01 14:42:34",
+      "content": "does not work for me, I do see the checkmark icon appear on the top left corner but the changes in .razor files aren't reloaded... in VS I only have the backend running."
+    }
+  ]
+}

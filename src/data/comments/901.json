@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 901,
+  "postPath": "/2017/05/20/dynamically-binding-resx-resources-in-xamarin-forms/",
+  "comments": [
+    {
+      "id": 35,
+      "parentId": 0,
+      "name": "Dew Drop - May 22, 2017 (#2484) - Morning Dew",
+      "website": "https://www.alvinashcraft.com/2017/05/22/dew-drop-may-22-2017-2484/",
+      "gravatarHash": null,
+      "date": "2017-05-22 13:19:52",
+      "content": "[…] Dynamically binding RESX Resources in Xamarin Forms (Pieter Nijs) […]"
+    },
+    {
+      "id": 36,
+      "parentId": 0,
+      "name": "The week in .NET – Open XML SDK, Adventure Time | .NET Blog",
+      "website": "https://blogs.msdn.microsoft.com/dotnet/2017/05/30/the-week-in-net-open-xml-sdk-adventure-time/",
+      "gravatarHash": null,
+      "date": "2017-05-30 21:32:27",
+      "content": "[…] Dynamically binding RESX Resources in Xamarin Forms by Pieter Nijs. […]"
+    },
+    {
+      "id": 53,
+      "parentId": 0,
+      "name": "Cristhian Amaya",
+      "website": "http://camaya.co/",
+      "gravatarHash": "05549fbff69044c988bef146ee5d407b14e1afd181de45bbeec0257508b8b96a",
+      "date": "2017-06-15 13:45:21",
+      "content": "I was looking on how to do something like this, thanks for this post, it was really helpful!!\n\nI've got one question though, why do you create the CultureChangedMessage? You could do something like:\n\n    MessagingCenter.Send(this, \"CultureChanged\", new CultureInfo(\"en\"));\n    MessagingCenter.Subscribe(this, \"CultureChanged\", OnCultureChanged);\n\nCheers!"
+    },
+    {
+      "id": 54,
+      "parentId": 53,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-07-01 08:17:29",
+      "content": "Hi,\nyou are absolutely right, the approach you suggests works as well. However, I like to use dedicated classes for my messages, because strings are a lot more error prone as you could easily mistype the name of your message. Of course you can fix this by referencing to strings in a static messages class or something like that.\nBoth ways work perfectly. I think it is a matter of opinion and I suggest you use the approach you feel most comfortable with. :-)"
+    },
+    {
+      "id": 65,
+      "parentId": 0,
+      "name": "Raj Kumar Santhoshi",
+      "website": null,
+      "gravatarHash": "9552d9b28e1b8d1415af4b20a8b341a36b50fb3d45551e3e30692621c3dac3c0",
+      "date": "2017-07-31 11:11:35",
+      "content": "I want to implement the Indian languages, I added the new resx files in your sample, however only Hindi is working no other language like Tamil or Gujrati or Marathi working"
+    },
+    {
+      "id": 66,
+      "parentId": 65,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-07-31 11:33:56",
+      "content": "Hi Raj. Interesting case. Could you please provide me your code? I'd love to take a look at it."
+    },
+    {
+      "id": 73,
+      "parentId": 66,
+      "name": "payal",
+      "website": null,
+      "gravatarHash": "37881cef014902ef60dcead6aab8df58f607d78bb45eb7699fa3c0c6248bbe57",
+      "date": "2017-10-01 17:34:22",
+      "content": "HI, Is it possible to edit RESX files at runtime?\nActually I will be getting the translated strings from webservice. so how can I edit resx files dynamically?"
+    },
+    {
+      "id": 74,
+      "parentId": 73,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-10-01 17:46:52",
+      "content": "Hi Payal. If your translations are dynamic, resx isn’t the right tool for the job. \nYou can, however, use most of the code in my sample. But instead of going to look a specific string up in the resource file, look it up in your custom translation service which uses the (cached) data you retrieved from your backend service. \n\nKind regards,\nPieter"
+    },
+    {
+      "id": 75,
+      "parentId": 74,
+      "name": "payal",
+      "website": null,
+      "gravatarHash": "37881cef014902ef60dcead6aab8df58f607d78bb45eb7699fa3c0c6248bbe57",
+      "date": "2017-10-02 07:14:07",
+      "content": "Thanks alot :) \nIt is possible for you to share sample app?"
+    },
+    {
+      "id": 76,
+      "parentId": 0,
+      "name": "Rajnikant",
+      "website": null,
+      "gravatarHash": "160c0b68ff7323f1fa14125127e34c80358e4914fecdcbf305bdeedba61fb399",
+      "date": "2017-10-10 13:24:29",
+      "content": "This technique working fine in XAML, but what if i have a string in code behind."
+    },
+    {
+      "id": 79,
+      "parentId": 76,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-10-12 07:09:58",
+      "content": "Hi! I don't know exactly what you mean... Do you want to access your resources in code behind? Because that is really easy to do. For example (in code behind):\n<code>string labelText = (this.BindingContext as MyViewModel).Resources[\"TheResourceYouWant\"];</code>\nPlease let me know if this is the answer to your question, else you can give me some information about what you want to do."
+    },
+    {
+      "id": 86,
+      "parentId": 0,
+      "name": "Sergey",
+      "website": null,
+      "gravatarHash": "b351ec27c4197d6d76833ac2025f7d16ba1215a3d265cc8fd52d8fda0716f5e6",
+      "date": "2017-11-07 19:23:21",
+      "content": "When you bind to viewmodel, which loads resources with some logic this method does not work :( Do you know any elegant workaround?"
+    },
+    {
+      "id": 90,
+      "parentId": 0,
+      "name": "Дмитрий Грудкин",
+      "website": "https://plus.google.com/118135846685641290828",
+      "gravatarHash": "bcbfe591d7138b67f5991bd9c0a7c2b22345ebd136611a8500ed0792572a2338",
+      "date": "2017-12-19 22:31:23",
+      "content": "This is a great solution, I've been looking for it for a very long time!\nThere is one incomprehensible moment. I, like Rajnikant, want to use this solution in code, in a typical application with MasterDetailPage. I have a MasterPageItem class:\n\npublic class MasterPageItem : BindableObject\n{\n    public static BindableProperty TitleProperty = BindableProperty.Create(\n                                                     propertyName: \"Title\",\n                                                     returnType: typeof(string),\n                                                     declaringType: typeof(MasterPageItem),\n                                                     defaultValue: string.Empty,\n                                                     defaultBindingMode: BindingMode.OneWay,\n                                                     propertyChanged: TitlePropertyChanged);\n\n<pre><code>private static void TitlePropertyChanged(BindableObject bindable, object oldValue, object newValue)\n{\n    if (bindable != null &amp;&amp; newValue != null)\n    {\n        var control = (MasterPageItem)bindable;\n        control.Title = newValue.ToString();\n    }\n}\n\npublic string Title\n{\n    get { return (string)GetValue(TitleProperty); }\n    set { SetValue(TitleProperty, value); }\n}\npublic string Icon { get; set; }\npublic Type TargetType { get; set; }\n</code></pre>\n\n}\n\nI create the ObservableRangeCollection  () in the ViewModel:\n\nFirstPageItem = new MasterPageItem() { Icon = \"learning.png\", TargetType = typeof(FirstPage) };\nFirstPageItem.SetBinding(MasterPageItem.TitleProperty, new Binding(path: \"Resources[FirstPageMenuItemText]\", source: this));\n\nMainMenuItems = new ObservableRangeCollection()\n{\n    FirstPageItem\n};\n\nAnd I assign in the MainPage constructor (MainPage.xaml.cs):\n\nnavigationDrawerList.ItemsSource = vModel.MainMenuItems;\n\nBut it does not work. There are items on the menu (I add more than I gave here), but they do not contain text. How to fix it?"
+    },
+    {
+      "id": 100,
+      "parentId": 0,
+      "name": "essayforme",
+      "website": "http://dekrtyuijg.com/",
+      "gravatarHash": null,
+      "date": "2018-04-12 12:41:02",
+      "content": "<strong>write essays for me http://dekrtyuijg.com/</strong>\n\nMany thanks. An abundance of information."
+    },
+    {
+      "id": 139,
+      "parentId": 0,
+      "name": "Audace Byishimo",
+      "website": null,
+      "gravatarHash": "1ab9c51d5791b78f82f18365ecfd47714bb63c983038fcb8649a13ab8e8d93ec",
+      "date": "2018-10-11 07:41:21",
+      "content": "Thank you Sir!"
+    },
+    {
+      "id": 157,
+      "parentId": 0,
+      "name": "Mohammad",
+      "website": null,
+      "gravatarHash": "c9f3dda52a7bcca42ec16e947bce52d31b755983a03d2f362f2261c915d93e84",
+      "date": "2019-01-29 19:39:36",
+      "content": "Nice implementation! Thank you"
+    },
+    {
+      "id": 171,
+      "parentId": 0,
+      "name": "Jackie Engberg Christensen",
+      "website": null,
+      "gravatarHash": "94cd97be0a50aa7d77c0bfebbdb7582ebad0929ffa36e205c2ca6562e9380efc",
+      "date": "2019-03-27 11:00:09",
+      "content": "Probably the best implementation I've seen so far, works really well, however I am very interested in if you can access the resource array from an other static resource (like a class of static String ID), any idea this could be accomplished?\n\nThanks a lot for the guide"
+    },
+    {
+      "id": 180,
+      "parentId": 79,
+      "name": "Cathal",
+      "website": null,
+      "gravatarHash": "585a52b3172c3665a97926e24537adced0d665363694882473dc893b5d54b48d",
+      "date": "2019-04-26 10:11:18",
+      "content": "Hi, I've just found your great solution, but I have a problem with resource access from code as well. To be precise, I have no problem with accessing them, but they dont update dynamicaly. \nXAML binding updates without any problem, but this code access doesn't update when language changes.\n\nDo you have any suggestions?\nThank you :)"
+    },
+    {
+      "id": 201,
+      "parentId": 0,
+      "name": "Amit d",
+      "website": null,
+      "gravatarHash": "41a5a4ffef2ca26a8c4daacd934c8511e1131c26384e66b0078c9ddf5886a1b8",
+      "date": "2019-05-27 20:49:12",
+      "content": "I like this post. If i change the language from language drop down then immediately constrol lable changed to selected language but I have one problem master detail page xamarin forms not changing language\n\nI have added below come in constrator\n\nMenuItems.Add(new Models.MenuModel()\n            {\n                Icon = \"Home\",\n                PageName = nameof(HomePage),\n                Title = Resources[\"titleHome\"]\n            });\n\nI think  master detail page calling only once coz of that is it not changing.\n\ndo you have any suggestion to update menu page language"
+    },
+    {
+      "id": 261,
+      "parentId": 0,
+      "name": "Adam Ormsby",
+      "website": "http://www.adamormsby.com/",
+      "gravatarHash": "7ec7e8d4d5d9a1d3eb8310f5fe6d0c1c13a7dc1f2dfab0f8e9b9aa43e5858f0e",
+      "date": "2020-07-10 04:08:59",
+      "content": "Pieter, thank you so much for sharing this clever implementation! It's been super hard to find good Forms localization content. I'm using a modified version of your system in my current project, and it works great. It's baffling that dynamic resource binding isn't already a built-in Forms option! I wonder why that is."
+    },
+    {
+      "id": 507,
+      "parentId": 0,
+      "name": "Murali",
+      "website": null,
+      "gravatarHash": "171143930751d8f80602ebe392208f6bf6b477bbe1800e4c0bfabca17ee860fa",
+      "date": "2021-07-02 07:58:46",
+      "content": "Thanks a lot for posting this Article. I downloaded and run it. It working fine. The same article kept in csharpcorner but they didn't kept any sample code or they didn't tell fully. So very very much thank you so much for keeping the sample code. I love it. Keep it up like this only."
+    }
+  ]
+}

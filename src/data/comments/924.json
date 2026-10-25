@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 924,
+  "postPath": "/2017/07/06/bind-to-xamarin-picker-but-only-update-value-after-hitting-done-on-ios/",
+  "comments": [
+    {
+      "id": 56,
+      "parentId": 0,
+      "name": "ZiChao Zhang",
+      "website": null,
+      "gravatarHash": "71001793bbe46385d9ad52d3979f8ccfe44c9fd33d68b099556933936c9a1b97",
+      "date": "2017-07-16 17:18:32",
+      "content": "Sir, you can try UnFocused event, it worked same.\nForgive my poor english, i hope you can see it."
+    },
+    {
+      "id": 57,
+      "parentId": 56,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-07-16 17:25:43",
+      "content": "Indeed, you can. That was one of the work arounds I wrote before I found this solution. It felt a bit like a hack an didn't play nice with databinding neither (I ended up with using 2 properties on my viewmodel and stuff). \nWith this solution, in combination with databinding, I don't have the feeling I'm hacking my way around as this is a thing from the framework itself."
+    },
+    {
+      "id": 60,
+      "parentId": 0,
+      "name": "The week in .NET – Command Line Parser Library, .NET South East | .NET Blog",
+      "website": "https://blogs.msdn.microsoft.com/dotnet/2017/07/18/the-week-in-net-command-line-parser-library-net-south-east/",
+      "gravatarHash": null,
+      "date": "2017-07-19 00:00:55",
+      "content": "[…] Bind to Xamarin Picker but only update value after hitting Done on iOS by Pieter Nijs. […]"
+    },
+    {
+      "id": 62,
+      "parentId": 0,
+      "name": "vlad",
+      "website": null,
+      "gravatarHash": "20acc6dc0833f254b2b08785bf9f45b9c48358bb627c09aecebaf8753905cc59",
+      "date": "2017-07-27 15:50:24",
+      "content": "Any way to include a cancel button also?"
+    },
+    {
+      "id": 64,
+      "parentId": 0,
+      "name": "Pablo Siller",
+      "website": null,
+      "gravatarHash": "d4b326ed6af9be334b60c5c95c84145898f6c674e2a30ab1d62b33cf1366a012",
+      "date": "2017-07-28 21:33:16",
+      "content": "Excellent solution, thanks for sharing."
+    },
+    {
+      "id": 87,
+      "parentId": 0,
+      "name": "Chris Knight",
+      "website": null,
+      "gravatarHash": "ca89bf7a5f530d1e19fb356f7a2719b564b711da58ad0eb8e6a60c97436902cf",
+      "date": "2017-11-27 20:37:00",
+      "content": "This!!!!!! Thanks for sharing!"
+    },
+    {
+      "id": 89,
+      "parentId": 0,
+      "name": "Hzap",
+      "website": null,
+      "gravatarHash": "6affdf46304f0d62195a576f82ca0095692ad8d7756d8fb0315aae8d5d224b5b",
+      "date": "2017-12-13 06:45:12",
+      "content": "You're great!!!!! I have been wondering for this since long many weeks"
+    },
+    {
+      "id": 94,
+      "parentId": 0,
+      "name": "Richard Canoa",
+      "website": null,
+      "gravatarHash": "4993396a71cbb96d127b76c0fc64e97e81a92f2a51225da1ec91886cba8d120e",
+      "date": "2018-02-07 22:27:57",
+      "content": "Excelente Solución, gracias."
+    },
+    {
+      "id": 119,
+      "parentId": 0,
+      "name": "primehalo",
+      "website": "http://www.absoluteanime.com/",
+      "gravatarHash": "f30548e18595a0a568f3eae64dc5397a41729abd907684e79b1681f690fa5113",
+      "date": "2018-07-06 02:01:36",
+      "content": "So this only works on Picker, not DatePicker or TimePicker?"
+    },
+    {
+      "id": 202,
+      "parentId": 119,
+      "name": "Jamin Frederick",
+      "website": "http://jaminfrederick.com/",
+      "gravatarHash": "82c49c04e4b08c9be61c219ab5cd46bd1d8fa8a4855764dabe8ca39875ea5eef",
+      "date": "2019-06-10 16:03:45",
+      "content": "No, looks like this is still considered an enhancement for DatePicker or TimePicker:\n\nhttps://bugzilla.xamarin.com/show_bug.cgi?id=57859"
+    }
+  ]
+}

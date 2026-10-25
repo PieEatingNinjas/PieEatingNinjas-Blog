@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1164,
+  "postPath": "/2018/05/15/image-classification-with-winml-and-uwp/",
+  "comments": [
+    {
+      "id": 111,
+      "parentId": 0,
+      "name": "Creating a UWP Console app in C# – Pie Eating Ninjas' Blog",
+      "website": "https://blog.pieeatingninjas.be/2018/04/05/creating-a-uwp-console-app-in-c/",
+      "gravatarHash": null,
+      "date": "2018-05-22 12:25:53",
+      "content": "[…] example of a UWP Console app can be found in this blogpost. In this post we use a UWP Console app that does image classification using […]"
+    },
+    {
+      "id": 115,
+      "parentId": 0,
+      "name": "Image classification with Azure Custom Vision Service and CoreML – Pie Eating Ninjas' Blog",
+      "website": "https://blog.pieeatingninjas.be/2018/06/04/image-classification-with-azure-custom-vision-service-and-coreml/",
+      "gravatarHash": null,
+      "date": "2018-06-04 08:26:12",
+      "content": "[…] my previous blogpost I created a small PoC to show you how to work with the Azure Custom Vision Service and WinML. In […]"
+    },
+    {
+      "id": 141,
+      "parentId": 0,
+      "name": "JP",
+      "website": null,
+      "gravatarHash": "f583355c77c04f335afb3b3b290a31d8e696f2736796efd9e901523b38c063b5",
+      "date": "2018-10-18 14:55:01",
+      "content": "Hi,\n\nI've tried or code, however the following function is always null, and I don't have no error to load the onnx file, could you help me please?\n\nawait LearningModelPreview.LoadModelFromStorageFileAsync(file)\n\nTkx a lot\nJoao"
+    },
+    {
+      "id": 155,
+      "parentId": 141,
+      "name": "Prithvi",
+      "website": null,
+      "gravatarHash": "71e81874074860027017c18c4017bea3880c9b35dbdb1e30d740bcb3d2a64a1d",
+      "date": "2018-12-27 06:03:54",
+      "content": "Hi Pieter and Joao,\n\nI am also facing same issue and receiving NULL for await LearningModelPreview.LoadModelFromStorageFileAsync(file).\n\nI tried with a fresh application and published application in GitHub(https://github.com/PieEatingNinjas/DisneyCastleClassification). Both are ending up to NULL learning model.\n\nCan you please let me know what might be the issue here?\n\nRegards,\nPrithvi Pal SIngh"
+    },
+    {
+      "id": 177,
+      "parentId": 0,
+      "name": "Image classification with WinML and UWP (update) - Pie Eating Ninjas' Blog",
+      "website": "https://blog.pieeatingninjas.be/2019/04/22/image-classification-with-winml-and-uwp-update/",
+      "gravatarHash": null,
+      "date": "2019-04-22 13:58:39",
+      "content": "[…] over a year ago, I blogged about how to do image classification using WinML in UWP. Since then we got some updates of Windows and Visual Studio which result in some […]"
+    }
+  ]
+}

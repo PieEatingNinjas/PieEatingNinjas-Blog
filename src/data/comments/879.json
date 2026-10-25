@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 879,
+  "postPath": "/2017/04/20/trigger-propertychanged-of-indexed-property-in-xamarin-forms/",
+  "comments": [
+    {
+      "id": 32,
+      "parentId": 0,
+      "name": "Dew Drop - April 20, 2017 (#2462) - Morning Dew",
+      "website": "https://www.alvinashcraft.com/2017/04/20/dew-drop-april-20-2017-2462/",
+      "gravatarHash": null,
+      "date": "2017-04-20 13:00:39",
+      "content": "[…] Trigger PropertyChanged of indexed property in Xamarin Forms (Pieter Nijs) […]"
+    },
+    {
+      "id": 34,
+      "parentId": 0,
+      "name": "Dynamically binding RESX Resources in Xamarin Forms | Pie Eating Ninjas' Blog",
+      "website": "http://blog.pieeatingninjas.be/2017/05/20/dynamically-binding-resx-resources-in-xamarin-forms/",
+      "gravatarHash": null,
+      "date": "2017-05-20 11:22:41",
+      "content": "[…] and trigger a PropertyChanged&nbsp;event, passing “item” as PropertyName&nbsp;(see my previous blogpost). All bindings on the index property are re-executed, resulting in getting the resource values of […]"
+    },
+    {
+      "id": 77,
+      "parentId": 0,
+      "name": "HARI RAJAGOPAL",
+      "website": null,
+      "gravatarHash": "7263ddcf5f37c48e37da9ca5fc93ce10ca0b8b8b82b13fef8ab8bce63b0e340d",
+      "date": "2017-10-11 20:39:38",
+      "content": "Hi Pieter,\nThanks for this tip and the complete sample code, came in handy.\n\nFollow up question,\nIs there a way to bind to more than one indexed property in a viewmodel?\n\nIndexer argument can be overloaded but the xaml is only going to pass in a string, so I am not sure how more than one indexer can be present in a view model.\n\nYour thoughts appreciated,\n\nThanks\nHari"
+    },
+    {
+      "id": 80,
+      "parentId": 77,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-10-12 07:28:29",
+      "content": "Hi Hari,\n\nI'm afraid that this is not possible. You could perfectly well define a second indexed property (int as indexer argument), but the binding engine won't know which indexed property to pick, resulting in a runtime exception.\n\nGlad my post could be of any help to you!"
+    }
+  ]
+}

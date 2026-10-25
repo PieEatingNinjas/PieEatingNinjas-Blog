@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 963,
+  "postPath": "/2017/09/02/using-sqlclient-in-uwp/",
+  "comments": [
+    {
+      "id": 78,
+      "parentId": 0,
+      "name": "William Homer",
+      "website": null,
+      "gravatarHash": "62545821b4e540fe137107779dd1796dc268c52859655722e1dc26af08330ff2",
+      "date": "2017-10-11 22:48:12",
+      "content": "The full release of Fall Creators Update doesn't recognize SqlConnection.  I also cannot successfully add a reference to System.Data.SqlClient.  What am I missing here?"
+    },
+    {
+      "id": 81,
+      "parentId": 78,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2017-10-12 07:30:17",
+      "content": "Hi William,\n\nI didn't try out the release version yet. Will try it asap and will let you know. I wouldn't expect any issues on this to be honest, but I'll post my findings here as soon as I've tested it on the release version.\n\nPieter"
+    },
+    {
+      "id": 83,
+      "parentId": 0,
+      "name": "Harshad Rathjod",
+      "website": null,
+      "gravatarHash": "36c1f452cc8d9c55c82942d4fdfe311e30c90c607e1ac115f11fce8cfdb420ff",
+      "date": "2017-11-03 05:49:20",
+      "content": "Hi Pieter,\n\nI  installed Windows Fall Creator Update and Visual Studio 2017 15.5.  I too am not seeing any option to sue SQLClient.  System.Data has only Common lib and there is nothing in references either.  Not only that but Windows Template Studio too stopped working.\n\nLook forward to your findings.\n\nThanks\nHarshad"
+    },
+    {
+      "id": 84,
+      "parentId": 83,
+      "name": "Harshad Rathjod",
+      "website": null,
+      "gravatarHash": "36c1f452cc8d9c55c82942d4fdfe311e30c90c607e1ac115f11fce8cfdb420ff",
+      "date": "2017-11-03 15:43:36",
+      "content": "Quick Update:\nWhen I upgraded VS2017 to 15.5, I did not realize that it actually installed parallel to old install.  I invoked VS using my pinned shortcut (ie old version of VS) and hence it did not support SqlClient.  I then found out that there is VS2017 15.5 PREVIEW.  Started that and it DOES support SqlClient.  I have not tested it further though.  But at least SqlClient is available in UWP now."
+    },
+    {
+      "id": 85,
+      "parentId": 0,
+      "name": "Harshad Rathjod",
+      "website": null,
+      "gravatarHash": "36c1f452cc8d9c55c82942d4fdfe311e30c90c607e1ac115f11fce8cfdb420ff",
+      "date": "2017-11-03 17:40:10",
+      "content": "And it works with only those projects that do not use any framework or template - eg MVVM Light or any template from Windows Template Studio."
+    },
+    {
+      "id": 109,
+      "parentId": 0,
+      "name": "Anastasios-Antonios Toulkeridis",
+      "website": "https://plus.google.com/116095211776634438334",
+      "gravatarHash": "ee5a34f06fad584231f5e68d01691f2a978d2a8480fc2833593f057871cc638f",
+      "date": "2018-05-20 14:49:06",
+      "content": "To those who have problem referencing System.Data.SqlClient...\nI had the same problem.\nThe culprit seems to be that when you upgrade the min target version to 16267 it doesn't automatically upgrade the Universal Windows Platform reference.\nI discovered that by manually comparing the lines of my upgraded project to a new project that was built for 16267 from the start.\n\nThe new project had this inside:\n \n      6.0.6\n \n\nThe upgraded project had this instead:\n \n      5.0.0\n \n\nAs you can see even after targeting 16267 it still used the old UWP reference version 5.0.0 which lacks System.Data.SqlClient.\nSo open your csproj file with notepad, change 5.0.0 to 6.0.6 and it should work (If it still doesn't work delete everything in the bin and obj folders).\n\nAs to why it keeps the old reference I've no idea and i would love an explanation from Microsoft."
+    },
+    {
+      "id": 110,
+      "parentId": 0,
+      "name": "Anastasios-Antonios Toulkeridis",
+      "website": "https://plus.google.com/116095211776634438334",
+      "gravatarHash": "ee5a34f06fad584231f5e68d01691f2a978d2a8480fc2833593f057871cc638f",
+      "date": "2018-05-20 14:51:04",
+      "content": "for some reason the csproj lines are not displayed in my comment above. Go to the PackageReference line"
+    },
+    {
+      "id": 145,
+      "parentId": 0,
+      "name": "Ramcham Rosales Gaid",
+      "website": null,
+      "gravatarHash": "9133d727be70de03ddf7e0555407bd9d51ba0c9ac6d8524b0478f05959c8e7a8",
+      "date": "2018-12-04 03:03:23",
+      "content": "Great App :) much helpful"
+    },
+    {
+      "id": 146,
+      "parentId": 0,
+      "name": "Ramcham Rosales Gaid",
+      "website": null,
+      "gravatarHash": "9133d727be70de03ddf7e0555407bd9d51ba0c9ac6d8524b0478f05959c8e7a8",
+      "date": "2018-12-04 05:09:27",
+      "content": "Great Codes Indeed"
+    },
+    {
+      "id": 159,
+      "parentId": 0,
+      "name": "Peter",
+      "website": null,
+      "gravatarHash": "ffe0f95a2ac6e281c2bf507a8e4c1456a23daa856f307215a4bffc126073a1d5",
+      "date": "2019-02-07 18:56:40",
+      "content": "Very useful, I just getting started with UWP, I wish there were more resources concerning SQL server, I am currently struggling with 2 way databinding back to MS SQL using the MVVM model.  Your user group looks very helpful, I wish I could make it t the APP development day!!\nThanks\n\nPete"
+    }
+  ]
+}

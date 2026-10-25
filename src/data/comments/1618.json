@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1618,
+  "postPath": "/2020/02/15/reading-belgian-eid-in-uwp-using-smartcardreader/",
+  "comments": [
+    {
+      "id": 243,
+      "parentId": 0,
+      "name": "Tony",
+      "website": "https://blogdotonyhenrique.blogspot.com/",
+      "gravatarHash": "7ec496815c62f3532d73d21f2e038c9d2860f2cb40287f84d63d718b7d6a4ff0",
+      "date": "2020-02-15 13:36:34",
+      "content": "Outstanding!\nThis is very interesting."
+    },
+    {
+      "id": 469,
+      "parentId": 0,
+      "name": "Karl",
+      "website": null,
+      "gravatarHash": "4c256f32769cb5d6658e7db014d90312fd384e04903fc64d72c9df8dce4318e9",
+      "date": "2020-12-09 06:59:43",
+      "content": "You are my hero! I searched for a C# WPF solution for Austria's e-Health System - e-card but didn't find anything. Then I came to your Blog and it was easy to code. Many thanks for this great article and sharing your source code! \nTHANK YOU!"
+    },
+    {
+      "id": 472,
+      "parentId": 469,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2020-12-21 16:34:32",
+      "content": "That's great to hear! Glad my sample could help you out!"
+    },
+    {
+      "id": 473,
+      "parentId": 472,
+      "name": "Karl",
+      "website": null,
+      "gravatarHash": "4c256f32769cb5d6658e7db014d90312fd384e04903fc64d72c9df8dce4318e9",
+      "date": "2020-12-28 21:03:17",
+      "content": "Thank you so much!"
+    },
+    {
+      "id": 520,
+      "parentId": 0,
+      "name": "gianluca",
+      "website": null,
+      "gravatarHash": "5b5f3614567dd7e27d31d65bf82ebd1de06806fbc296d89c774e2149aa22cde9",
+      "date": "2021-10-25 17:51:49",
+      "content": "Hi, thanks for the code, I tried for the Italian version, I looked on the documents and retrieved the addresses, but it tells me file not found ... 6A 82 .... I know that to use it you need a pin, this is the l why?"
+    },
+    {
+      "id": 537,
+      "parentId": 520,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2021-11-29 14:39:22",
+      "content": "HI! I don't know the ins or outs from the Italian eID cards. But if you need a pin, that's probably why it crashes. On the other hand, some data should be publicly accessible."
+    },
+    {
+      "id": 585,
+      "parentId": 0,
+      "name": "Mohamed Farah",
+      "website": null,
+      "gravatarHash": "5f864387a7ff0a54d1b1a47da926298e1064826e61ec292038b118718b230575",
+      "date": "2023-05-16 13:15:12",
+      "content": "Hi,\nThanks for this effort, but I still didnt find the APDU command for getting the first name and last name from a Belgian ID."
+    },
+    {
+      "id": 587,
+      "parentId": 585,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2023-05-30 10:29:03",
+      "content": "Hi Mohamed! The Firstname and Lastname can be found in the ID file. The tags for these properties are 0x08 and 0x07"
+    },
+    {
+      "id": 1242,
+      "parentId": 0,
+      "name": "Vincent",
+      "website": null,
+      "gravatarHash": "ebbfa8faa4d4a6e2c56ebda1101776138cbf705c8cfa9b481ea3aff6dfd87ecc",
+      "date": "2025-02-13 17:02:44",
+      "content": "Hey there, do you happen to have a solution for reading Belgian eID on iPadOS with .Net Maui?\nI am looking for a solution to read eID cards with a USB-C connected card reader on iPad."
+    },
+    {
+      "id": 2046,
+      "parentId": 1242,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2025-08-19 07:43:48",
+      "content": "Hi Vincent. Unfortunately, I don't have any experience with that."
+    }
+  ]
+}

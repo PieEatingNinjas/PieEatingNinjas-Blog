@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1805,
+  "postPath": "/2021/09/19/fixing-build-issue-in-maui-preview-8/",
+  "comments": [
+    {
+      "id": 515,
+      "parentId": 0,
+      "name": "Dew Drop – September 20, 2021 (#3520) – Morning Dew by Alvin Ashcraft",
+      "website": "https://www.alvinashcraft.com/2021/09/20/dew-drop-september-20-2021-3520/",
+      "gravatarHash": null,
+      "date": "2021-09-20 12:01:10",
+      "content": "[…] Fixing build issue in MAUI preview 8 (Pieter Nijs) […]"
+    },
+    {
+      "id": 516,
+      "parentId": 0,
+      "name": "➧Dew Drop – September 20, 2021 (#3520) • Softbranchdevelopers",
+      "website": "https://softbranchdevelopers.com/dew-drop-september-20-2021-3520/",
+      "gravatarHash": null,
+      "date": "2021-09-20 13:52:57",
+      "content": "[…] on Windows (Claudio Bernasconi) Getting Device Information with Xamarin Essentials (Leomaris Reyes) Fixing build issue in MAUI preview 8 (Pieter […]"
+    },
+    {
+      "id": 517,
+      "parentId": 0,
+      "name": "David",
+      "website": null,
+      "gravatarHash": "7ac231d733f93d220e40365e3389def99457d4fda587cc632ddd14384975eec2",
+      "date": "2021-09-20 15:02:16",
+      "content": "I'm having the same type/namespace errors! I ran the same command, which did run an update, but the error persists! Such a nuisance!"
+    },
+    {
+      "id": 518,
+      "parentId": 517,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2021-09-20 15:40:54",
+      "content": "That is strange, David! Make sure after you ran the command that you close VS2022, re-open it and create a new MAUI project using the new Template (do you see the updated icon?)."
+    },
+    {
+      "id": 519,
+      "parentId": 0,
+      "name": "Abdelalim",
+      "website": null,
+      "gravatarHash": "4cd17ed0e2dbd10926175bda84aa056fb73d2cd7bbfbd276bb14197843910242",
+      "date": "2021-09-22 18:37:10",
+      "content": "I had the same problem , i did exactly what you said, it did work , new colored Icons and everything seems to work fine.\nThank you"
+    }
+  ]
+}

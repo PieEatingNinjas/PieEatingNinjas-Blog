@@ -5,6 +5,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import LegacyComments from '../components/LegacyComments.astro';
+import type { LegacyComment } from '../lib/comments';
 import type { TaxonomyTerm } from '../lib/archives';
 
 type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 'tags' | 'codeRepositories'> & {
@@ -14,6 +16,13 @@ type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 't
 };
 
 const { title, description, pubDate, updatedDate, heroImage, canonicalPath, archiveTerms = [] } = Astro.props;
+const commentArchives = import.meta.glob<{
+	legacyPostId: number;
+	comments: LegacyComment[];
+}>('../data/comments/*.json', { eager: true, import: 'default' });
+const commentArchive = Astro.props.legacy
+	? commentArchives[`../data/comments/${Astro.props.legacy.id}.json`]
+	: undefined;
 ---
 
 <html lang="en">
@@ -101,6 +110,7 @@ const { title, description, pubDate, updatedDate, heroImage, canonicalPath, arch
 					)}
 				</div>
 			</article>
+			{commentArchive && <LegacyComments archive={commentArchive} />}
 		</main>
 		<Footer />
 	</body>

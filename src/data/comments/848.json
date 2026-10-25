@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 848,
+  "postPath": "/2017/04/16/setting-up-a-realm-object-server-in-azure/",
+  "comments": [
+    {
+      "id": 33,
+      "parentId": 0,
+      "name": "Podsumowanie tygodnia odc.5 - Maciej Gos",
+      "website": "http://maciejgos.com/podsumowanie-tygodnia-odc-5/",
+      "gravatarHash": null,
+      "date": "2017-04-21 11:46:55",
+      "content": "[…] Setting up a Realm Object Server in Azure and connect to it with Xamarin Forms […]"
+    }
+  ]
+}

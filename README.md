@@ -351,8 +351,9 @@ authorize starting the next phase.
 ### Phase 4: archives, feeds and compatibility
 
 Implementation is available for review, but **Phase 4 acceptance is blocked**
-by the unresolved input/disposition decisions below. No Phase 5 work or
-deployment has been started, and the plan's human-review checkboxes remain open.
+by the unresolved input/disposition decisions below. Phase 5 was explicitly
+authorized on 2026-10-25; that work does not resolve the Phase 4 blockers or
+authorize deployment, and the Phase 4 human-review checkboxes remain open.
 
 - Home pagination uses the Phase 1 proposal: **10 posts per page**, newest
   publication date first, descending WordPress ID as the date tie-breaker.
@@ -474,7 +475,80 @@ The current worktree's persistent review site is **http://localhost:4324/**
 (Node 24 container port 4321). Representative links: `/page/4/`, `/page/7/`,
 `/category/c/`, `/category/c/page/5/`, `/tag/c/`, `/rss.xml`, `/feed/index.html`
 and `/404.html`. The older phase-three server on port 4323 was not changed.
-Stop here for owner review; do not start Phase 5.
+Phase 4 remains pending owner review. Phase 5 has been separately authorized;
+its implementation and validation status are recorded below.
+
+### Phase 5: static legacy comments
+
+The owner explicitly authorized Phase 5 on 2026-10-25. The importer reads the
+ignored local WordPress export, verifies all 62 approved post IDs and paths
+against the completed Phase 3 manifest, and writes one JSON archive per post.
+Only approved comments on those posts are exported. Archives contain the
+approved display name, safe HTTP(S) website, SHA-256 Gravatar hash, original
+comment date, sanitized HTML, and stable comment/parent IDs. Source email
+addresses are normalized and hashed in memory only; embedded email addresses
+are redacted. IPs, account metadata, unapproved comments, and comments on
+unselected content are not written to public files.
+
+Comment HTML is reduced to an explicit element/attribute allowlist. Active
+elements and unsafe links are removed. Missing or excluded parents are rendered
+as roots, and cycles are broken deterministically without dropping approved
+replies or changing their archived parent IDs. Static comments render below
+each post; no comment service or Giscus script is enabled.
+Comments whose display name is exactly `PieEatingNinjas` are labeled with a
+visible `author` badge; this presentation-only marker adds no identity data
+to the archives.
+
+Run in the Node 24 dev container with the private export under `_migration/`:
+
+```sh
+npm run test:comments
+npm run migration:comments
+npm run build
+npm run migration:verify-comments
+npm run astro -- dev --background
+npm run astro -- dev status
+```
+
+Per-post output is `src/data/comments/<legacy-post-id>.json`; private
+reconciliation and output ownership state stay under `_migration/comments/`.
+The verification script checks the exact 196-comment inventory baseline,
+per-post/rendered counts, every `#comment-<id>` anchor, allowed output fields,
+safe markup, Gravatar hash shape, and email scans of `src/`, `public/`, and
+`dist/`. Human review must still compare a nested thread and an orphan-handling
+example with the local source. Phase 5 remains pending owner review; do not
+start Phase 6 until it is explicitly accepted and separately authorized.
+
+Validation on 2026-10-25:
+
+- **196/196 approved comments** across **62/62 posts**; all 18 unapproved
+  comments were excluded, with no approved comments outside the selected posts.
+  No comments were dropped during rendering.
+- **61 replies**, maximum thread depth **4**; the source has no missing-parent or
+  cyclic relationships. Synthetic tests cover missing/excluded parents and
+  cycle repair without dropping replies.
+- The built output contains all **196** comment anchors, matching per-post
+  archive and rendered counts. Output fields contain no IP/account metadata;
+  privacy scans found zero email addresses in `src/`, `public/`, and `dist/`.
+- `test:comments`: **6/6 passed**; `test:import`: **26/26 passed**;
+  `test:migration`: **16/16 passed**. Astro check: **0 errors, 0 warnings**
+  (four existing XML-validator deprecation hints). `npm run build`: **134
+  static pages**, exit 0. The comment verifier passed.
+- The existing post-output verifier could not run: its ignored
+  `_migration/pilot/state.json` ownership file is absent in this worktree.
+  The post-import regression tests and static build passed; the Phase 5
+  comment importer uses its own ignored ownership state.
+- Browser smoke check: the PDF-display post renders **27 comments** and
+  working “In reply” links at
+  [http://localhost:4321/2016/02/06/displaying-pdf-files-in-a-uwp-app/](http://localhost:4321/2016/02/06/displaying-pdf-files-in-a-uwp-app/).
+  Synthetic orphan handling can be reviewed in
+  [migration-comments.test.mjs](./scripts/migration-comments.test.mjs).
+- A follow-up owner request labels the **40** comments named `PieEatingNinjas`
+  with a visible `author` badge. The output verifier checks badge counts
+  against the archived comments on every built post.
+
+Owner visual review remains outstanding; no Phase 6 work or deployment has
+started.
 
 ```sh
 npm create astro@latest -- --template blog

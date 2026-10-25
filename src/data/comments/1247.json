@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1247,
+  "postPath": "/2018/12/07/using-android-linkify-to-add-inline-links-to-a-xamarin-forms-label/",
+  "comments": [
+    {
+      "id": 148,
+      "parentId": 0,
+      "name": "Creating a HyperlinkLabel in Xamarin Forms – Pie Eating Ninjas' Blog",
+      "website": "https://blog.pieeatingninjas.be/2017/11/05/creating-a-hyperlinklabel-in-xamarin-forms/",
+      "gravatarHash": null,
+      "date": "2018-12-07 19:13:58",
+      "content": "[…] Update 7 December 2018: A year later, I finally made an Android renderer for this control. More info can be found in this post. […]"
+    },
+    {
+      "id": 150,
+      "parentId": 0,
+      "name": "Dew Drop - December 10, 2018 (#2856) - Morning Dew",
+      "website": "https://www.alvinashcraft.com/2018/12/10/dew-drop-december-10-2018-2856/",
+      "gravatarHash": null,
+      "date": "2018-12-10 14:15:02",
+      "content": "[…] Using Android Linkify to add inline links to a Xamarin Forms Label (Pieter Nijs) […]"
+    }
+  ]
+}

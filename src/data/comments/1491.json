@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1491,
+  "postPath": "/2019/07/27/simple-data-validation-in-xamarin-forms/",
+  "comments": [
+    {
+      "id": 211,
+      "parentId": 0,
+      "name": "Andrei Nitescu",
+      "website": "http://andreinitescuhome.wordpress.com/",
+      "gravatarHash": "f6df3a30fe857b96670e424986a688ee6b93fb6773f712d1569709c93748a5b8",
+      "date": "2019-07-27 11:47:41",
+      "content": "Very very similar to what I've done too, we think the same :)"
+    },
+    {
+      "id": 212,
+      "parentId": 211,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2019-07-28 09:19:38",
+      "content": "Great minds think alike? ?"
+    },
+    {
+      "id": 213,
+      "parentId": 0,
+      "name": "Dew Drop – July 29, 2019 (#2999) | Morning Dew",
+      "website": "https://www.alvinashcraft.com/2019/07/29/dew-drop-july-29-2019-2999/",
+      "gravatarHash": null,
+      "date": "2019-07-29 12:31:11",
+      "content": "[…] Simple data validation in Xamarin Forms (Pieter Nijs) […]"
+    },
+    {
+      "id": 215,
+      "parentId": 0,
+      "name": "Martin Gburík",
+      "website": null,
+      "gravatarHash": "506ed78a953c3b5aecab8331c00dc6c0df75f8509b35379aa6e38839a275f2b0",
+      "date": "2019-08-14 09:49:53",
+      "content": "the programming of the validation is so great, but from the UX view it's not a very good approach.\nThis great article (link bellow) about forms UX says:\nBut inline validation should be implemented carefully:\n- Avoid showing inline validation on focus.\n- Don’t validate after each character typed.\n\nI recommend for everyone to read it.\nhttps://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/"
+    },
+    {
+      "id": 216,
+      "parentId": 215,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2019-08-15 12:42:41",
+      "content": "Hi Martin! Thanks for your feedback, much appreciated!\nI'm not at all a UX expert, so I've put the link you've share on my to-read list.\nIn my defense, like I've said at the beginning of my post, I'm not pretending that this is the best way of dealing with data validation and it has proven in my projects to be a good solution (both from a developer and user point of view). \nAnd that's why I really appreciate your feedback, I'll be taking it into account when setting up a new project which requires data validation."
+    },
+    {
+      "id": 245,
+      "parentId": 0,
+      "name": "Luis Avila",
+      "website": null,
+      "gravatarHash": "8d003593ebcbb7721e1446e52491c051582034efd7fd3a34b043302f9cac1faf",
+      "date": "2020-03-11 02:30:45",
+      "content": "This is a excelent approach!\nI have a question for you.\nCan you think of a way to adapt this approach to imply validation of equality between two entries? of the type that would be used for password and confirm password and maintain the characteristics of its implementation"
+    }
+  ]
+}

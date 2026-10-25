@@ -1,0 +1,89 @@
+---
+import { buildCommentTree, type LegacyComment } from '../lib/comments';
+
+type Props = {
+	archive: {
+		legacyPostId: number;
+		comments: LegacyComment[];
+	};
+};
+
+const { archive } = Astro.props;
+const { entries } = buildCommentTree(archive.comments);
+---
+
+{archive.comments.length > 0 && (
+	<section class="legacy-comments" id="comments" aria-label="Legacy comments">
+		<h2>Comments ({archive.comments.length})</h2>
+		<ol>
+			{entries.map(({ comment, depth, parentId, orphaned, cycleRoot }) => (
+				<li class="legacy-comment" style={`--comment-depth: ${Math.min(depth, 8)}`} id={`comment-${comment.id}`}>
+					<article>
+						<header>
+							<strong>
+								{comment.website
+									? <a href={comment.website} rel="nofollow ugc">{comment.name}</a>
+									: comment.name}
+							</strong>
+							{comment.name.trim().toLowerCase() === 'pieeatingninjas' && (
+								<span class="author-badge">author</span>
+							)}
+							<time>{comment.date}</time>
+							{parentId > 0 && <a class="reply-link" href={`#comment-${parentId}`}>In reply</a>}
+							{orphaned && <span class="thread-note">Reply to an unavailable comment</span>}
+							{cycleRoot && <span class="thread-note">Thread cycle resolved</span>}
+						</header>
+						<div class="comment-content" set:html={comment.content} />
+					</article>
+				</li>
+			))}
+		</ol>
+	</section>
+)}
+
+<style>
+	.legacy-comments {
+		width: 720px;
+		max-width: calc(100% - 2em);
+		margin: 0 auto;
+		padding: 1em;
+		color: rgb(var(--gray-dark));
+	}
+	h2 {
+		font-size: 1.6rem;
+	}
+	ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		margin: 1em 0;
+		margin-left: min(calc(var(--comment-depth) * 1.25em), 10em);
+		padding: 0 0 0.75em;
+		border-bottom: 1px solid rgb(var(--gray-light));
+		scroll-margin-top: 1em;
+	}
+	header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.5em 1em;
+	}
+	time,
+	.reply-link,
+	.thread-note {
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
+	.author-badge {
+		padding: 0.1em 0.45em;
+		border-radius: 0.4em;
+		background: rgb(var(--gray-light));
+		font-size: 0.8em;
+		font-weight: 600;
+	}
+	.comment-content :global(p:first-child) {
+		margin-top: 0.5em;
+	}
+</style>

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 634,
+  "postPath": "/2016/09/19/uwp-simple-pdf-viewer/",
+  "comments": [
+    {
+      "id": 28,
+      "parentId": 0,
+      "name": "Displaying PDF files in a UWP app | Pie Eating Ninjas' Blog",
+      "website": "http://blog.pieeatingninjas.be/2016/02/06/displaying-pdf-files-in-a-uwp-app/",
+      "gravatarHash": null,
+      "date": "2016-09-19 18:35:10",
+      "content": "[…] I made a PdfViewerControl you can use in order to easily display PDF files in your UWP apps. It’s available, together with the source code in GitHub. See this blogpost: UWP Simple PDF viewer […]"
+    },
+    {
+      "id": 88,
+      "parentId": 0,
+      "name": "Abellard Joseph",
+      "website": null,
+      "gravatarHash": "13e118a474f498f2699bb92297dd6cbc5517d3eef4a995ee70c57c6c35da687f",
+      "date": "2017-12-06 15:45:43",
+      "content": "Thanks on this post very interesting, I am creating a hosted universal windows apps based on my WordPress document library. I have couple pages with PDF file and when I click on it app crashed, can you please give me some idea. Thanks again"
+    },
+    {
+      "id": 162,
+      "parentId": 0,
+      "name": "Riani",
+      "website": "http://telkomuniversity.ac.id/",
+      "gravatarHash": "6d56aab12a8368c2bb2538efdc579e09c733157e4c54cb0b423a3d9691a49782",
+      "date": "2019-02-16 11:43:04",
+      "content": "great article, thank you for sharing"
+    },
+    {
+      "id": 238,
+      "parentId": 0,
+      "name": "shalinivathra",
+      "website": "http://gravatar.com/shalinivathra",
+      "gravatarHash": "13c35af50ddb2018cb2a8335c328bf576295bffc73ebf559a1ef0ecf8febf9fb",
+      "date": "2019-11-04 10:03:41",
+      "content": "Hi, Your post is very useful. Thanks for this. i am totally new in windows UWP app development. I tried to do write bridge this in react-native for windows uwp. \n\n            \n                &lt;ItemsControl.ItemTemplate&gt;\n                    \n                        \n                    \n                &lt;/ItemsControl.ItemTemplate&gt;\n            \n        \n\nHow can i achieve this is programatically?.. \nyou just add it in pdfpages and its biniding in xaml file. i need to do this in programatically. Could you please help me?.."
+    },
+    {
+      "id": 242,
+      "parentId": 238,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2019-12-03 09:28:03",
+      "content": "Sorry for my late reply...\nIf you don't want to use databinding, you can just loop over your collection of PDF pages (which are BitmapImages), foreach page create a new Image and add this image to your view. In pseudo code it would look something like this:\nforeach(BitmapImage img in pdfPages)\n{\n    var image = new Image();\n    image.Source = img;\n    myUIElement.Add(image); \n}\nIf it's not clear, please feel free to reach out on GitHub where you can drop some code so I can help you out."
+    }
+  ]
+}

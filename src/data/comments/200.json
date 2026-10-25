@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 200,
+  "postPath": "/2015/11/15/xbind-and-inheritance/",
+  "comments": [
+    {
+      "id": 2,
+      "parentId": 0,
+      "name": "scottisafool",
+      "website": null,
+      "gravatarHash": "10d1d04e1aa8676f237d993efb87d0320d2735c634b9602c73d18060ac219bd1",
+      "date": "2015-11-30 11:04:15",
+      "content": "An alternative is to have two fields on your page/control for the two different interfaces/objects and bind to whichever is relevant. For example https://github.com/MediaBrowser/Emby.Mobile.Universal/blob/Dev/Emby.Mobile.Universal/Controls/ItemControls/UserDtoControl.xaml.cs#L9-L10"
+    },
+    {
+      "id": 91,
+      "parentId": 0,
+      "name": "Barry Manilowa",
+      "website": "https://plus.google.com/107116606774483941348",
+      "gravatarHash": "4056c0d29e5bd5c29ac8808feefa7dbad5d497a0a6692c53020b1ff500fe21f7",
+      "date": "2017-12-27 16:08:28",
+      "content": "Window Template Studio using MVVM Light allows you to x:Bind to ViewModel which is provided by its Locator service.  It allows you to do the following:\n\nText=\"{x:Bind ViewModel.MyText }\"\n\nThe syntax is a bit wordy, but get's the job done."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1071,
+  "postPath": "/2018/02/06/multiple-instances-support-for-uwp-apps/",
+  "comments": [
+    {
+      "id": 92,
+      "parentId": 0,
+      "name": "Multiple Instanzen von UWP Apps starten - Hinweis in der Redstone 4 | Deskmodder.de",
+      "website": "https://www.deskmodder.de/blog/2018/02/06/multiple-instanzen-von-uwp-apps-starten-hinweis-in-der-redstone-4/",
+      "gravatarHash": null,
+      "date": "2018-02-06 16:50:51",
+      "content": "[…] App bereitgestellt, die diese Funktion schon implementiert hat. Alles weitere dazu könnt ihr hier […]"
+    },
+    {
+      "id": 93,
+      "parentId": 0,
+      "name": "Windows 10 Redstone 4 bringt echte Mehrfach-Instanzen für Universal Apps › Dr. Windows",
+      "website": "https://www.drwindows.de/news/windows-10-redstone-4-bringt-echte-mehrfach-instanzen-fuer-universal-apps",
+      "gravatarHash": null,
+      "date": "2018-02-07 08:30:14",
+      "content": "[…] voneinander unabhängige Vordergrund-Instanzen einer Universal App zu starten. Der Entwickler&nbsp;Pieter Nijs hat das beim Experimentieren mit dem aktuellen Vorschau-SDK […]"
+    },
+    {
+      "id": 95,
+      "parentId": 0,
+      "name": "Multiple instances support for UWP apps (Part 2): Redirection – Pie Eating Ninjas' Blog",
+      "website": "https://blog.pieeatingninjas.be/2018/02/25/multiple-instances-support-for-uwp-apps-part-2-redirection/",
+      "gravatarHash": null,
+      "date": "2018-02-25 11:17:13",
+      "content": "[…] my previous blogpost, I showed you how we can opt-in for multi instance support in the Windows RS4 […]"
+    },
+    {
+      "id": 101,
+      "parentId": 0,
+      "name": "Tobi Van Helsinki",
+      "website": null,
+      "gravatarHash": "8bf6cc9282719aea6f210899b56205ec2ca71f7c8d67ca06e0e77c7690570ea1",
+      "date": "2018-05-10 13:11:39",
+      "content": "It doesn’t work in Debug-Mode, cause you have to use the .Net Native Toolchain, which is disabled in Debug-Mode by Default. Enabeling .Net Native Toolchain let me debug this, but it is very slowly, I hope, MS will fix this either.\n\nGreetings."
+    }
+  ]
+}

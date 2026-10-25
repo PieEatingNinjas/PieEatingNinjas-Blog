@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1517,
+  "postPath": "/2019/08/29/distributing-wpf-winforms-applications-using-appcenter-and-msix/",
+  "comments": [
+    {
+      "id": 240,
+      "parentId": 0,
+      "name": "Annissa Solihat",
+      "website": "https://dsm.telkomuniversity.ac.id/",
+      "gravatarHash": "4e90ac9a722ba2954e4f11447d49dc6ff284a7a77a80b98ac56ad71b21cadaa3",
+      "date": "2019-11-26 23:37:46",
+      "content": "thank you..Can WinForms support Visual Studio AppCenter in any Windows?"
+    },
+    {
+      "id": 241,
+      "parentId": 240,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2019-12-03 09:12:33",
+      "content": "Hi Annissa. In order to use the AppCenter SDK in your WinForms application, your project should target either .NET Framework 4.5 (or higher) or .NET Core 3.0 (or higher). I'm currently not aware of any Windows version restrictions."
+    }
+  ]
+}

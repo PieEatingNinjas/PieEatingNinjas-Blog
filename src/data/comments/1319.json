@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1319,
+  "postPath": "/2018/12/12/fixing-appcenter-android-build-error-usr-bin-jarsigner-failed-with-return-code-1/",
+  "comments": [
+    {
+      "id": 152,
+      "parentId": 0,
+      "name": "Krzysztof Stępnikowski",
+      "website": "https://krzysztofstepnikowski.wordpress.com/",
+      "gravatarHash": "9b6d1b2c02abb1af18f206418e5568bb295cd3613b323867a1d384406ea3f8c5",
+      "date": "2018-12-16 15:16:33",
+      "content": "Very good an article and thank you for sharing solution. It is very often problem with Android's build in App Center."
+    },
+    {
+      "id": 153,
+      "parentId": 0,
+      "name": "Patricio",
+      "website": null,
+      "gravatarHash": "06c773ebac29e96622cd78905274e7df67f53026f5a2132efb0e67f79519de08",
+      "date": "2018-12-17 17:55:30",
+      "content": "Good info. Thanks. Just a minor typo: \"I checked-in a singed version\""
+    },
+    {
+      "id": 154,
+      "parentId": 153,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2018-12-23 08:57:56",
+      "content": "Glad you liked it. Fixed the typo as well, thanks for pointing that out ?"
+    },
+    {
+      "id": 164,
+      "parentId": 0,
+      "name": "Riani",
+      "website": "http://telkomuniversity.ac.id/",
+      "gravatarHash": "6d56aab12a8368c2bb2538efdc579e09c733157e4c54cb0b423a3d9691a49782",
+      "date": "2019-02-16 11:49:09",
+      "content": "nice share, thank you for the info"
+    },
+    {
+      "id": 569,
+      "parentId": 0,
+      "name": "App center build, Error: /usr/bin/jarsigner failed with return code: 1",
+      "website": "https://androiderrors.com/app-center-build-error-usr-bin-jarsigner-failed-with-return-code-1/",
+      "gravatarHash": null,
+      "date": "2022-07-19 08:11:57",
+      "content": "[…] Build Error issue – helped identify my issue […]"
+    }
+  ]
+}

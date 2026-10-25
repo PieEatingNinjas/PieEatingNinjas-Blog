@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 451,
+  "postPath": "/2016/01/17/custom-uwp-control-step-through-listview/",
+  "comments": [
+    {
+      "id": 7,
+      "parentId": 0,
+      "name": "Marijn",
+      "website": null,
+      "gravatarHash": "a35400f31987d6cecd584edafa52286894afa8c0ff1adb4e939d4b2269bff47c",
+      "date": "2016-05-22 08:27:21",
+      "content": "Thank you for sharing this I need the Align selected item functionality. But the link is not working\nand I'm missing some information could you please reactivate it."
+    },
+    {
+      "id": 8,
+      "parentId": 7,
+      "name": "PieEatingNinjas",
+      "website": "http://devpieblog.wordpress.com/",
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-05-23 09:27:43",
+      "content": "Hi Marijn,\nThanks for your comment. I'll update the link to the code in just a minute.\nIf you have any further questions, you can always drop a comment."
+    },
+    {
+      "id": 9,
+      "parentId": 8,
+      "name": "Marijn",
+      "website": null,
+      "gravatarHash": "a35400f31987d6cecd584edafa52286894afa8c0ff1adb4e939d4b2269bff47c",
+      "date": "2016-05-24 21:23:06",
+      "content": "Thanks is working now!"
+    },
+    {
+      "id": 31,
+      "parentId": 0,
+      "name": "Mike",
+      "website": null,
+      "gravatarHash": "b16baaa318010336d95d5b22651ef48579f9b9d01d92cc70119bad42508881de",
+      "date": "2017-03-09 07:12:56",
+      "content": "Great sample - thanks.  I am trying to create my first UWP user control so this has helped a lot, especially around Dependency Properties where I struggle.  What I don't understand is when the value is changed in the control how do you know it's changed in the main page?   There is no SelectionChanged type event raised anywhere (that I can see anwyay) so if your main page has to do some action after the value has been selected or changed in the control, how would it know?\n\nMy background is WPF (and previously WinForms) where I would just expose a public Event in the control and subscribe to it from the main page - is this still a valid way of doing it or am I missing something with the - i.e: does the RaiseChangedEvent do this?"
+    },
+    {
+      "id": 167,
+      "parentId": 0,
+      "name": "Riani",
+      "website": "http://telkomuniversity.ac.id/",
+      "gravatarHash": "6d56aab12a8368c2bb2538efdc579e09c733157e4c54cb0b423a3d9691a49782",
+      "date": "2019-03-19 08:55:08",
+      "content": "what a fantastic blog and informative posts, thank you"
+    }
+  ]
+}

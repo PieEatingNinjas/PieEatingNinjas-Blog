@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 657,
+  "postPath": "/2016/09/26/how-to-catch-multiple-types-of-exceptions-in-one-catch-block/",
+  "comments": [
+    {
+      "id": 247,
+      "parentId": 0,
+      "name": "gianted",
+      "website": "http://gravatar.com/gianted",
+      "gravatarHash": "073ded39ed0ea38d8bf076c423853af3b7efa79114df6d19de0ec959bfa45bf2",
+      "date": "2020-03-14 19:16:53",
+      "content": "Thank you for this awesome pill,very useful to simplify the code in a smart way.. :-)"
+    },
+    {
+      "id": 595,
+      "parentId": 0,
+      "name": "Eske Rahn",
+      "website": "http://eskerahn.dk/",
+      "gravatarHash": "afbef58656230b10cc46e78767dae3495d4ce013f4fd85a4642c7e753fcd889b",
+      "date": "2023-10-20 17:03:57",
+      "content": "Could be a newer C#, but this variant is (now) allowed:\n\ncatch(Exception ex) when(ex is ArgumentException or FileLoadException)"
+    }
+  ]
+}

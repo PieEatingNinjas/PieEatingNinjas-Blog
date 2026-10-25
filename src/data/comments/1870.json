@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1870,
+  "postPath": "/2022/12/13/fontawesome-duotone-icons-in-maui-and-xamarin-forms/",
+  "comments": [
+    {
+      "id": 573,
+      "parentId": 0,
+      "name": "Dew Drop – December 14, 2022 (#3837) – Morning Dew by Alvin Ashcraft",
+      "website": "https://www.alvinashcraft.com/2022/12/14/dew-drop-december-14-2022-3837/",
+      "gravatarHash": null,
+      "date": "2022-12-14 13:17:33",
+      "content": "[…] Font Awesome Duotone icons in .NET MAUI and Xamarin.Forms (Pieter Nijs) […]"
+    },
+    {
+      "id": 577,
+      "parentId": 0,
+      "name": "Sam",
+      "website": null,
+      "gravatarHash": "96e570f24939f97a783782a20abea5522250a84efe86cd8d2b3ba568df3bd934",
+      "date": "2023-02-28 05:33:22",
+      "content": "Hi Pieter, I can't seem to get Font Awesome fonts working the way you have it implemeted here (in MAUI). Adding the font as an embedded reference and inserting it into a label just gives me whatever text I entered inter the Label's text property. e.g. \"user\" if I was trying to use the user icon."
+    },
+    {
+      "id": 580,
+      "parentId": 577,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2023-04-09 09:48:13",
+      "content": "That's strange, this should work. It's hard for me to determine the issue. Could you maybe provide me some repro so I can have a look at it?"
+    },
+    {
+      "id": 582,
+      "parentId": 577,
+      "name": "deB",
+      "website": null,
+      "gravatarHash": "074807196a74caad0d496de96631a1c22d1c69629580dc5782eccb763dd3961b",
+      "date": "2023-05-07 12:50:49",
+      "content": "I have the same issue :-(\nI copy pasted the same code above."
+    },
+    {
+      "id": 583,
+      "parentId": 580,
+      "name": "Sam",
+      "website": null,
+      "gravatarHash": "c93e18f59a5d9907dc6eb92edf6e60ac08151a6f626d7231b9792cce50f25623",
+      "date": "2023-05-08 02:40:24",
+      "content": "Sorry for the slow reply! Heres a repo containing a default MAUI template application and the above changes! https://github.com/faheys/FontAwesomeTest"
+    },
+    {
+      "id": 584,
+      "parentId": 580,
+      "name": "Sam",
+      "website": null,
+      "gravatarHash": "96e570f24939f97a783782a20abea5522250a84efe86cd8d2b3ba568df3bd934",
+      "date": "2023-05-08 02:56:36",
+      "content": "Sorry for the late reply! Here is a repo with a default MAUI template application and the modifications suggested in your post! https://github.com/faheys/FontAwesomeTest"
+    },
+    {
+      "id": 593,
+      "parentId": 584,
+      "name": "sam",
+      "website": null,
+      "gravatarHash": "c4e59f0505d5299ec5bbd93ba9150ef234d8fe21dd81bcc524a9439fb1dba504",
+      "date": "2023-10-03 22:29:29",
+      "content": "Sam, if you're using the free version of FA icons, then rocket-launch doesn't exist.. use \"rocket\" instead."
+    },
+    {
+      "id": 594,
+      "parentId": 584,
+      "name": "sam",
+      "website": null,
+      "gravatarHash": "c4e59f0505d5299ec5bbd93ba9150ef234d8fe21dd81bcc524a9439fb1dba504",
+      "date": "2023-10-03 22:37:43",
+      "content": "actually FA SOLID is the one you're looking for"
+    }
+  ]
+}

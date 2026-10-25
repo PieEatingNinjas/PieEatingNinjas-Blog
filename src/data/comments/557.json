@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 557,
+  "postPath": "/2016/06/28/get-users-location-without-location-services/",
+  "comments": [
+    {
+      "id": 13,
+      "parentId": 0,
+      "name": "Igor Kulman (@igorkulman)",
+      "website": "http://twitter.com/igorkulman",
+      "gravatarHash": "463758557e280ab9ec79a567e2ebeda733fa8e6679a486341997288bafca601b",
+      "date": "2016-06-28 21:10:53",
+      "content": "Nice one. You should make it into a function returning a country enum."
+    }
+  ]
+}

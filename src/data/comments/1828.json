@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1828,
+  "postPath": "/2022/02/11/setting-up-a-basic-mvvm-architecture-in-net-maui/",
+  "comments": [
+    {
+      "id": 552,
+      "parentId": 0,
+      "name": ".NET related news on 2/11/2022 – Daily.NET news – András Tóth’s professional blog",
+      "website": "https://devnews.banditoth.hu/net-related-news-on-2-11-2022/",
+      "gravatarHash": null,
+      "date": "2022-02-12 08:41:24",
+      "content": "[…] Setting up a basic MVVM architecture in .NET MAUI [#C# #MAUI #MVVM #Xamarin] […]"
+    },
+    {
+      "id": 553,
+      "parentId": 0,
+      "name": "Dew Drop – February 14, 2022 (#3620) – Morning Dew by Alvin Ashcraft",
+      "website": "https://www.alvinashcraft.com/2022/02/14/dew-drop-february-14-2022-3620/",
+      "gravatarHash": null,
+      "date": "2022-02-14 13:10:48",
+      "content": "[…] Setting up a basic MVVM architecture in .NET MAUI (PieEatingNinjas) […]"
+    },
+    {
+      "id": 574,
+      "parentId": 0,
+      "name": "Artur Wyszomirski",
+      "website": null,
+      "gravatarHash": "cfac7bd587ec41bc472783a46437dfd91fc0e2d352803b6ceafd9d34deb7878a",
+      "date": "2023-02-11 16:57:08",
+      "content": "Hi PieEatingNinjas!\n\nIt was pleasure studying your post - I've learned a lot and it helped me with developing navigation service in my app:) I have some questions though:\n1. In Page_NavigatedFrom you mark sender as nullable reference type. Is this really necessary as you have already checked that toPage isn't null in NavigateToPage task?\n2. Latter in Page_NavigatedFrom you check if sender is Page type. As I see it is that sender must be a page because the ResolvePage method couldn't return anything else."
+    },
+    {
+      "id": 579,
+      "parentId": 574,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2023-04-09 09:45:50",
+      "content": "Hi Artur. Thanks for your reply. I'm so sorry to reply this late.\nRegarding your first remark: as I have Nullable set to enable on the project level, this is the only 'correct' signature for this event handler. \nAbout your second remark: as the sender is of type object?, I prefer to do a safe check rather then casting the sender immediately to a Page. \nIf you should have any further questions, please do reach out. I promise to be more quick in my replies ;-)"
+    },
+    {
+      "id": 589,
+      "parentId": 0,
+      "name": "Julien Duprat",
+      "website": null,
+      "gravatarHash": "40de0cb98442592ba9211c43027277ec6661e2842aa1c3e600cf7dfadcc91e6c",
+      "date": "2023-06-25 14:19:42",
+      "content": "Thank you very much for your navigation tutorial."
+    },
+    {
+      "id": 591,
+      "parentId": 0,
+      "name": "Kenji",
+      "website": "https://www.kenslearningcurve.com/",
+      "gravatarHash": "5cb8095d358902ed8df3c3940ba3e40b379e9e267ef1e3d9dbdc40198fa2dd2b",
+      "date": "2023-09-03 10:20:01",
+      "content": "Nice one! Love the MVVM architecture when I was working with WPF. Gonna try this in my own MAUI apps!"
+    }
+  ]
+}

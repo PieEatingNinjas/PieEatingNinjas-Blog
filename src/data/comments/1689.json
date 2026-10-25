@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1689,
+  "postPath": "/2020/12/03/uploading-uwp-appxbundle-to-app-center-in-azure-devops/",
+  "comments": [
+    {
+      "id": 512,
+      "parentId": 0,
+      "name": "Jonathan Peel",
+      "website": null,
+      "gravatarHash": "4e2a50558617c5acea806f6718405982086c762a5bebed290891d8fb30b74e06",
+      "date": "2021-09-16 10:50:13",
+      "content": "Hi, I am trying this, but my build breaks once I add the VersionAPPX task.\nIt says \"##[error]Could not find version number data in 20210916.6.\""
+    },
+    {
+      "id": 513,
+      "parentId": 512,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2021-09-19 16:52:19",
+      "content": "Hi Jonathan,\nthat's unfortunate... At first glance, it seems like your version number isn't in a format the VersionAPPX task expects it to be.\nMaybe try adding this to your yaml file, right after the 'trigger':\nname: 1.1.$(date:yy)$(DayOfYear)$(rev:.r)"
+    },
+    {
+      "id": 514,
+      "parentId": 513,
+      "name": "Jonathan Peel",
+      "website": null,
+      "gravatarHash": "4e2a50558617c5acea806f6718405982086c762a5bebed290891d8fb30b74e06",
+      "date": "2021-09-19 17:24:28",
+      "content": "I will give that a try, thank you."
+    }
+  ]
+}

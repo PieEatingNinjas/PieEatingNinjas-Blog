@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 275,
+  "postPath": "/2015/12/30/disable-gestures-on-pivot-control/",
+  "comments": [
+    {
+      "id": 3,
+      "parentId": 0,
+      "name": "hamdanit12",
+      "website": "http://hamdanit12.wordpress.com/",
+      "gravatarHash": "312ce20876eaef0372b9b148c76758b763a15700ee970a837d2a1be6c354b590",
+      "date": "2016-02-05 03:10:32",
+      "content": "I have similar issue , and now it's working like charm. You save my day, thank you!"
+    },
+    {
+      "id": 4,
+      "parentId": 3,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2016-02-06 12:28:51",
+      "content": "Great! Glad I've been of any help!"
+    },
+    {
+      "id": 168,
+      "parentId": 0,
+      "name": "Riani",
+      "website": "http://telkomuniversity.ac.id/",
+      "gravatarHash": "6d56aab12a8368c2bb2538efdc579e09c733157e4c54cb0b423a3d9691a49782",
+      "date": "2019-03-19 08:56:21",
+      "content": "I liked this article.It was helpful. Keep on posting!"
+    },
+    {
+      "id": 581,
+      "parentId": 0,
+      "name": "umj berkemajuan",
+      "website": "https://umj.ac.id/",
+      "gravatarHash": "531dd7ccb463172853119e94a6ee8c3679970d6ce541e6a894eeb65c2377361a",
+      "date": "2023-04-28 10:14:01",
+      "content": "This is a very good post! Just keep updating much useful information"
+    }
+  ]
+}

@@ -409,7 +409,9 @@ Acceptance remains blocked by the missing plugin redirect list, 394 unresolved
 attachment URL/query dispositions, 417 unapproved additional image variants
 and the documented owner review decisions. Pagination follows the unaccepted
 Phase 1 proposal, not an inferred owner approval. Human-review and acceptance
-checkboxes below are intentionally unchanged. No Phase 5 work is authorized.
+checkboxes below are intentionally unchanged. Phase 5 was explicitly authorized
+on 2026-10-25; this does not clear the independent Phase 4 blockers or authorize
+Phase 6/deployment.
 
 - Replace template home content with the paginated post archive at `/`; generate
   `/page/N/` for subsequent pages with consistent ordering and navigation.

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1395,
+  "postPath": "/2019/03/12/get-geo-location-in-background-with-xamarin-essentials-on-ios/",
+  "comments": [
+    {
+      "id": 174,
+      "parentId": 0,
+      "name": "Andy",
+      "website": null,
+      "gravatarHash": "ca00455ce51fc3fd8039b11cec94f57137457849bb26f4dbe67a9bcf8f3a1118",
+      "date": "2019-04-16 09:47:15",
+      "content": "Do you have any solution or work around on Xamarin Android?"
+    },
+    {
+      "id": 176,
+      "parentId": 174,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2019-04-22 11:48:39",
+      "content": "Hi Andy. No, I haven't looked into that yet."
+    },
+    {
+      "id": 179,
+      "parentId": 0,
+      "name": "Mohammad",
+      "website": null,
+      "gravatarHash": "c9f3dda52a7bcca42ec16e947bce52d31b755983a03d2f362f2261c915d93e84",
+      "date": "2019-04-25 09:41:22",
+      "content": "It didn't work for me!"
+    }
+  ]
+}

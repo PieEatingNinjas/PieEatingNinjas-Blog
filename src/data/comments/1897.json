@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 1897,
+  "postPath": "/2023/10/03/exploring-whisper-model-in-azure-openai-service/",
+  "comments": [
+    {
+      "id": 592,
+      "parentId": 0,
+      "name": "Dew Drop – October 3, 2023 (#4038) – Morning Dew by Alvin Ashcraft",
+      "website": "https://www.alvinashcraft.com/2023/10/03/dew-drop-october-3-2023-4038/",
+      "gravatarHash": null,
+      "date": "2023-10-03 11:54:43",
+      "content": "[…] Exploring the Whisper model in Azure OpenAI Service (Pieter Nijs) […]"
+    },
+    {
+      "id": 596,
+      "parentId": 0,
+      "name": "Pankaj",
+      "website": null,
+      "gravatarHash": "6d0becf7bd388ed44f5277a5c3c18d71345184f13011151a74c660296608d8ab",
+      "date": "2023-11-09 13:34:18",
+      "content": "Hi Pieter, In python python code for calling whisper endpoint. Could you please help me in. How to pass other parameters like response_format, language and others. as shown in the openai documentation:\nhttps://platform.openai.com/docs/api-reference/audio/createTranscription"
+    },
+    {
+      "id": 597,
+      "parentId": 0,
+      "name": "Justin",
+      "website": null,
+      "gravatarHash": "cd49dc51a5f7a7b91bc7e666a7ff9a3951302621d4354e57c3a692d04f043e91",
+      "date": "2023-11-16 16:12:53",
+      "content": "Pieter, how do you know which version of Whisper that the Azure model is using. ie right now in the batch transcription service I have access to \"20231026 Whisper preview\" - is that v1, v2, or v3?"
+    },
+    {
+      "id": 598,
+      "parentId": 596,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2023-11-27 11:46:15",
+      "content": "Hi Pankaj,\nI don't think the Azure endpoint supports all of these additional parameters. But I haven't checked."
+    },
+    {
+      "id": 599,
+      "parentId": 597,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2023-11-27 11:50:11",
+      "content": "Hi Justin. That's a good question. I honestly don't know to which version of the Whisper model these versions on Azure correspond."
+    }
+  ]
+}

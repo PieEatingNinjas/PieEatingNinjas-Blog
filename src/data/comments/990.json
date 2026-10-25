@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "legacyPostId": 990,
+  "postPath": "/2017/11/05/creating-a-hyperlinklabel-in-xamarin-forms/",
+  "comments": [
+    {
+      "id": 102,
+      "parentId": 0,
+      "name": "san",
+      "website": null,
+      "gravatarHash": "33e78c3ea53947ffe236762bc5e66afb5ce340023afebb5fa16e0e91d0dce40f",
+      "date": "2018-05-11 19:47:40",
+      "content": "do you have android version of this? it looks promising."
+    },
+    {
+      "id": 103,
+      "parentId": 102,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2018-05-14 11:22:09",
+      "content": "No I haven't unfortunately. Didn't find the time yet to implement this on Android."
+    },
+    {
+      "id": 105,
+      "parentId": 103,
+      "name": "Gama",
+      "website": "http://gravatar.com/sasankakarandana",
+      "gravatarHash": "755977e870120a740541afd0ee27eb205b43ca44da0dd2fd4b736c915bc35d91",
+      "date": "2018-05-15 11:02:28",
+      "content": "Can you please add the android code base for this?Much appreciated !"
+    },
+    {
+      "id": 106,
+      "parentId": 105,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2018-05-15 12:50:33",
+      "content": "I honestly don't have the time for this at the moment. I can't promise you anything, but I'll try and look to implement this as soon as I find the chance."
+    },
+    {
+      "id": 147,
+      "parentId": 0,
+      "name": "Using Android Linkify to add inline links to a Xamarin Forms Label – Pie Eating Ninjas' Blog",
+      "website": "https://blog.pieeatingninjas.be/2018/12/07/using-android-linkify-to-add-inline-links-to-a-xamarin-forms-label/",
+      "gravatarHash": null,
+      "date": "2018-12-07 16:00:50",
+      "content": "[…] this is what it feels like…), I created this custom Xamarin Forms control HyperlinkLabel (Blog post, GitHub repo) that can show one or multiple hyperlinks inline with other text. The links can be […]"
+    },
+    {
+      "id": 149,
+      "parentId": 105,
+      "name": "PieEatingNinjas",
+      "website": null,
+      "gravatarHash": "ac8737157050d150573984b8cea685fdab919296d75367b596f7f60074b900e4",
+      "date": "2018-12-07 19:48:08",
+      "content": "Android implementation can be found here: https://blog.pieeatingninjas.be/2018/12/07/using-android-linkify-to-add-inline-links-to-a-xamarin-forms-label/"
+    },
+    {
+      "id": 563,
+      "parentId": 0,
+      "name": "Oba",
+      "website": null,
+      "gravatarHash": "d77a045254db6e97a58358821fbbeaf6074fc8db8a13ce61217bbc3350e4c692",
+      "date": "2022-04-30 09:08:48",
+      "content": "Thank you for this functionality, loving it. How would you go about getting an event when a link is clicked? also maybe having the clicked section as a parameter of that event"
+    }
+  ]
+}
