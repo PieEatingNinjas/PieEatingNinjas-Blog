@@ -12,7 +12,7 @@ export class BasePathError extends Error {}
 
 const fail = (message) => { throw new BasePathError(message); };
 const LOCAL = /^\/(?!\/)/;
-const ATTRIBUTE = /(\s(?:href|src|poster|action))="(\/(?!\/)[^"]*)"/g;
+const ATTRIBUTE = /(\s(?:href|src|poster|action|data-theme))="(\/(?!\/)[^"]*)"/g;
 const SRCSET = /(\ssrcset)="([^"]*)"/g;
 const REFRESH = /(<meta http-equiv="refresh" content="\d+;\s*url=)(\/(?!\/)[^"]*)"/g;
 const CSS_URL = /url\((["']?)(\/(?!\/))/g;

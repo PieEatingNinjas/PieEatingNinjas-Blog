@@ -580,6 +580,15 @@ configuration, not secrets. Run `npm run test:giscus` and `npm run build` to
 verify the configured integration; use `PUBLIC_GISCUS_ENABLED=false` to test
 the disabled state.
 
+The custom theme in `public/giscus-theme.css` uses black text, the site's green
+accent (`#397a76`), white input surfaces and subtle rounded borders. The embed
+resolves the theme URL against the current viewing origin, not the canonical
+production domain: Giscus must be able to fetch this stylesheet with CORS
+enabled. GitHub Pages provides this header. The temporary Pages post-build
+step also prefixes the theme path, so repository previews load their own theme.
+The local dev server explicitly allows cross-origin stylesheet requests from
+`https://giscus.app`; it must also be reachable from the browser.
+
 ### GitHub Pages deployment
 
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds the

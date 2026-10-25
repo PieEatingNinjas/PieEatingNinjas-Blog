@@ -13,6 +13,14 @@ export default defineConfig({
 	trailingSlash: 'always',
 	build: { format: 'directory' },
 	server: { host: true, port: 4321 },
+	security: {
+		allowedDomains: [{ protocol: 'https', hostname: 'giscus.app' }],
+	},
+	vite: {
+		server: {
+			cors: { origin: 'https://giscus.app' },
+		},
+	},
 	redirects: compatibility.redirects,
 	integrations: [mdx(), sitemap({
 		filter: (url) => !Object.hasOwn(compatibility.redirects, new URL(url).pathname)

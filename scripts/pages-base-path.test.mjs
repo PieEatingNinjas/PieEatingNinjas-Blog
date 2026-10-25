@@ -34,6 +34,16 @@ test('prefixes srcset candidates, refresh redirects and CSS urls', () => {
 		'a{src:url("/example-repo/_astro/f.woff")} b{background:url(/example-repo/i.png)} c{background:url(//x/y)}');
 });
 
+test('prefixes the local Giscus theme without changing built-in or external themes', () => {
+	const html = '<script data-theme="/giscus-theme.css"></script><script data-theme="light"></script>'
+		+ '<script data-theme="https://example.com/theme.css"></script>';
+	assert.equal(rewriteHtml(html, base),
+		'<script data-theme="/example-repo/giscus-theme.css"></script><script data-theme="light"></script>'
+		+ '<script data-theme="https://example.com/theme.css"></script>');
+	assert.deepEqual(findUnprefixed(html, base), ['/giscus-theme.css']);
+	assert.deepEqual(findUnprefixed(rewriteHtml(html, base), base), []);
+});
+
 test('prefixes legacy query-ID destinations', () => {
 	const html = '<script id="legacy-query-ids" type="application/json">{"p":{"7":"/2015/11/05/a/"},"page_id":{"5":"/about/"}}</script>';
 	assert.equal(rewriteHtml(html, base),

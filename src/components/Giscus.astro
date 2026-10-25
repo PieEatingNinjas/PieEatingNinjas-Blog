@@ -1,9 +1,7 @@
 ---
 import { GISCUS_PUBLIC_CONFIG, getGiscusConfig } from '../lib/giscus';
-import { SITE_ORIGIN } from '../lib/urls';
 
 const config = getGiscusConfig(import.meta.env.PUBLIC_GISCUS_ENABLED ?? 'true', GISCUS_PUBLIC_CONFIG);
-const themeUrl = new URL('/giscus-theme.css', SITE_ORIGIN).href;
 ---
 
 {config && (
@@ -11,8 +9,6 @@ const themeUrl = new URL('/giscus-theme.css', SITE_ORIGIN).href;
 		<h2>Join the discussion</h2>
 		<script
 			is:inline
-			async
-			src="https://giscus.app/client.js"
 			data-repo={config.repo}
 			data-repo-id={config.repoId}
 			data-category={config.category}
@@ -22,11 +18,22 @@ const themeUrl = new URL('/giscus-theme.css', SITE_ORIGIN).href;
 			data-reactions-enabled="1"
 			data-emit-metadata="0"
 			data-input-position="bottom"
-			data-theme={themeUrl}
+			data-theme="/giscus-theme.css"
 			data-lang="en"
 			data-loading="lazy"
-			crossorigin="anonymous"
-		></script>
+		>
+			const configuration = document.currentScript;
+			const embed = document.createElement('script');
+			for (const { name, value } of configuration.attributes) {
+				if (name.startsWith('data-')) embed.setAttribute(name, value);
+			}
+			// Resolve against the viewing origin, including the Pages preview prefix.
+			embed.dataset.theme = new URL(configuration.dataset.theme, window.location.origin).href;
+			embed.src = 'https://giscus.app/client.js';
+			embed.async = true;
+			embed.crossOrigin = 'anonymous';
+			configuration.after(embed);
+		</script>
 	</section>
 )}
 

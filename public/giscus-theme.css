@@ -5,6 +5,7 @@
  */
 
 main {
+	color-scheme: light;
 	--color-prettylights-syntax-comment: #637182;
 	--color-prettylights-syntax-constant: #43577d;
 	--color-prettylights-syntax-entity: #536b9b;
@@ -35,7 +36,7 @@ main {
 	--color-prettylights-syntax-brackethighlighter-angle: #637182;
 	--color-prettylights-syntax-sublimelinter-gutter-mark: #99a4b0;
 	--color-prettylights-syntax-constant-other-reference-link: #285c59;
-	--color-btn-text: #303d4d;
+	--color-btn-text: #000;
 	--color-btn-bg: #fff;
 	--color-btn-border: #e1e6eb;
 	--color-btn-shadow: 0 1px 0 rgb(27 38 52 / 4%);
@@ -61,9 +62,9 @@ main {
 	--color-segmented-control-bg: #e9edf2;
 	--color-segmented-control-button-bg: #fff;
 	--color-segmented-control-button-selected-border: #aebac5;
-	--color-fg-default: #303d4d;
-	--color-fg-muted: #637182;
-	--color-fg-subtle: #637182;
+	--color-fg-default: #000;
+	--color-fg-muted: #454545;
+	--color-fg-subtle: #454545;
 	--color-canvas-default: #f4f6f8;
 	--color-canvas-overlay: #fff;
 	--color-canvas-inset: #edf1f4;
@@ -101,5 +102,35 @@ main .gsc-loading-image {
 .gsc-comment,
 .gsc-comment-box {
 	border-color: var(--color-border-default);
-	border-radius: 8px;
+	border-radius: 10px;
+}
+
+main .gsc-comment-box-tabs {
+	background: var(--color-canvas-default);
+	border-radius: 10px 10px 0 0;
+}
+
+main .gsc-comment-box-textarea,
+main .gsc-comment-box-textarea-extras {
+	background: var(--color-canvas-overlay);
+	color: var(--color-fg-default);
+}
+
+main .gsc-comment-box-textarea::placeholder {
+	color: var(--color-fg-muted);
+	opacity: 1;
+}
+
+main .gsc-comment-box-textarea:focus {
+	border-color: var(--color-accent-emphasis);
+	box-shadow: 0 0 0 3px var(--color-accent-muted);
+}
+
+main a:not(.btn):hover {
+	color: var(--color-accent-fg);
+}
+
+main :focus-visible {
+	outline: 2px solid var(--color-accent-emphasis);
+	outline-offset: 2px;
 }
