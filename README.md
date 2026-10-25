@@ -580,6 +580,20 @@ configuration, not secrets. Run `npm run test:giscus` and `npm run build` to
 verify the configured integration; use `PUBLIC_GISCUS_ENABLED=false` to test
 the disabled state.
 
+### GitHub Pages deployment
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds the
+static site with `withastro/action` (Node 24, npm) and publishes `dist/` to
+GitHub Pages. It only runs on a manual trigger (`workflow_dispatch`): open
+**Actions → Deploy to GitHub Pages → Run workflow**. It builds from committed
+content only; `_migration/` is never required or uploaded.
+
+One-time setup: in **Settings → Pages**, set **Source** to **GitHub Actions**.
+The site is built for `https://blog.pieeatingninjas.be` at the domain root;
+until the custom domain is configured (with `public/CNAME` and DNS, planned for
+release readiness), the default `*.github.io/<repository>/` URL will not
+resolve root-relative links and assets correctly.
+
 ```sh
 npm create astro@latest -- --template blog
 ```
