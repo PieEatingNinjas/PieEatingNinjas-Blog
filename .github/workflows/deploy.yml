@@ -16,6 +16,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Temporary preview without a custom domain: Pages serves the site under
+      # /<repository>/. Remove both variables when blog.pieeatingninjas.be is
+      # mapped (see README "GitHub Pages deployment").
+      PAGES_BASE_PATH: /${{ github.event.repository.name }}
+      PUBLIC_GISCUS_ENABLED: 'false'
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -24,6 +30,7 @@ jobs:
         with:
           node-version: 24
           package-manager: npm
+          build-cmd: npm run build:pages
 
   deploy:
     needs: build

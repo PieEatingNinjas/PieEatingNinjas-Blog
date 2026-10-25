@@ -589,10 +589,55 @@ GitHub Pages. It only runs on a manual trigger (`workflow_dispatch`): open
 content only; `_migration/` is never required or uploaded.
 
 One-time setup: in **Settings → Pages**, set **Source** to **GitHub Actions**.
-The site is built for `https://blog.pieeatingninjas.be` at the domain root;
-until the custom domain is configured (with `public/CNAME` and DNS, planned for
-release readiness), the default `*.github.io/<repository>/` URL will not
-resolve root-relative links and assets correctly.
+
+#### Temporary preview without the custom domain
+
+The site is built for the root of `https://blog.pieeatingninjas.be`. Until that
+domain is mapped, GitHub Pages serves the site at
+`https://<owner>.github.io/<repository>/`, so the workflow currently deploys a
+**preview build**:
+
+- The build job sets `PAGES_BASE_PATH=/<repository>` and runs
+  `npm run build:pages` (`astro build` followed by
+  [`scripts/pages-base-path.mjs`](scripts/pages-base-path.mjs)). That post-build
+  step prefixes every root-relative URL in `dist/` with the base path: `href`,
+  `src`, `srcset`, CSS `url(...)` (including fonts), static redirect pages and the
+  `/?p=ID` / `/?page_id=ID` query-ID map. It fails if a root-relative URL is left
+  unprefixed or if `feed/index.html` stops matching `rss.xml`. Without
+  `PAGES_BASE_PATH` it changes nothing, so `npm run build:pages` then produces
+  exactly the same output as `npm run build`.
+- The build job sets `PUBLIC_GISCUS_ENABLED=false`, because Giscus maps
+  discussions by pathname: the `/<repository>/...` paths would create
+  discussions that do not match the production paths.
+- Absolute URLs still point to the production domain: canonical/Open Graph
+  URLs, the sitemap entries, RSS links and the RSS `<link rel="alternate">`.
+  Internal links written as absolute production URLs in posts also go there.
+  Validate those after the domain is mapped.
+
+Reproduce the preview locally:
+
+```sh
+PAGES_BASE_PATH=/PieEatingNinjas-Blog PUBLIC_GISCUS_ENABLED=false npm run build:pages
+mkdir -p /tmp/pages && rm -rf /tmp/pages/PieEatingNinjas-Blog
+cp -r dist /tmp/pages/PieEatingNinjas-Blog
+python3 -m http.server 8099 --directory /tmp/pages
+# open http://localhost:8099/PieEatingNinjas-Blog/
+npm run test:pages-base   # focused tests for the rewrite step
+```
+
+#### Switching to the custom domain
+
+1. Add `public/CNAME` containing exactly `blog.pieeatingninjas.be`, configure
+   DNS, and set the custom domain (with **Enforce HTTPS**) in **Settings → Pages**.
+2. In [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), remove the
+   `env:` block of the build job (`PAGES_BASE_PATH` and
+   `PUBLIC_GISCUS_ENABLED`) and the `build-cmd` line, so the action runs the
+   standard `npm run build` with Giscus enabled.
+3. Remove `scripts/pages-base-path.mjs`, its test, and the `build:pages` and
+   `test:pages-base` npm scripts, plus this preview subsection.
+
+No source, content or Astro configuration changes are needed. The preview step
+only rewrites the build output.
 
 ```sh
 npm create astro@latest -- --template blog
