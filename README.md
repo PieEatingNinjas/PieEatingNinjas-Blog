@@ -581,7 +581,10 @@ verify the configured integration; use `PUBLIC_GISCUS_ENABLED=false` to test
 the disabled state.
 
 The custom theme in `public/giscus-theme.css` uses black text, the site's green
-accent (`#397a76`), white input surfaces and subtle rounded borders. The embed
+accent (`#397a76`), white input surfaces and subtle rounded borders. It
+uses white comment cards with a green top border, a softly tinted author badge,
+and a white editor with a green active-tab marker to distinguish the discussion
+from the light-grey page background. The embed
 resolves the theme URL against the current viewing origin, not the canonical
 production domain: Giscus must be able to fetch this stylesheet with CORS
 enabled. GitHub Pages provides this header. The temporary Pages post-build
