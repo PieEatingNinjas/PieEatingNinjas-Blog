@@ -111,6 +111,13 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 		cp(path.join(root, 'package.json'), path.join(directory, 'package.json')),
 		symlink(path.join(root, 'node_modules'), path.join(directory, 'node_modules'), 'dir'),
 	]);
+	const configFile = path.join(directory, 'astro.config.mjs');
+	await writeFile(configFile, (await readFile(configFile, 'utf8')).replace('defineConfig({', "defineConfig({\n\tcacheDir: './.astro-cache/',"));
+	const compatibilityFile = path.join(directory, 'src/data/migration-compatibility.json');
+	const compatibility = JSON.parse(await readFile(compatibilityFile, 'utf8'));
+	compatibility.taxonomies.push({ kind: 'category', slug: 'shared', name: 'Synthetic category' },
+		{ kind: 'tag', slug: 'shared', name: 'Synthetic tag' });
+	await writeFile(compatibilityFile, JSON.stringify(compatibility));
 	const fixtures = [
 		{ ...data },
 		{ ...data, pubDate: '2023-12-31', legacy: { id: 900002, path: '/2023/12/31/caf%c3%a9/' } },
@@ -143,7 +150,14 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 		const $ = load(await readFile(path.join(output, file), 'utf8'));
 		assert.equal($('link[rel="canonical"]').attr('href'), canonicalUrl(page.path));
 	}
-	const listing = load(await readFile(path.join(output, 'index.html'), 'utf8'));
+	const listings = [];
+	for (let page = 1; ; page++) {
+		const html = await readFile(path.join(output, page === 1 ? 'index.html' : `page/${page}/index.html`), 'utf8');
+		const $ = load(html);
+		listings.push($);
+		if (!$('nav[aria-label="Archive pagination"] a[rel="next"]').length) break;
+	}
+	const listing = listings[0];
 	assert.equal(listing('link[rel="canonical"]').attr('href'), canonicalUrl('/'));
 	assert.ok(!listing.text().includes('Hello, Astronaut!'));
 	assert.deepEqual(listing('header .internal-links a').toArray().map((element) => listing(element).text().trim()), ['Blog', 'About']);
@@ -151,7 +165,7 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 	assert.match(blogRedirect('meta[http-equiv="refresh"]').attr('content'), /url=\/$/);
 	assert.equal(blogRedirect('link[rel="canonical"]').attr('href'), canonicalUrl('/'));
 	for (const entry of fixtures) {
-		assert.ok(listing('a').toArray().some((element) => listing(element).attr('href') === entry.legacy.path));
+		assert.ok(listings.some(($) => $('a').toArray().some((element) => $(element).attr('href') === entry.legacy.path)));
 	}
 	const feed = await readFile(path.join(output, 'rss.xml'), 'utf8');
 	for (const entry of fixtures) assert.ok(feed.includes(canonicalUrl(entry.legacy.path)));

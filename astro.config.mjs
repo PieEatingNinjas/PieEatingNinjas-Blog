@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import { SITE_ORIGIN } from './src/lib/urls.ts';
+import compatibility from './src/data/migration-compatibility.json' with { type: 'json' };
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,11 +13,11 @@ export default defineConfig({
 	trailingSlash: 'always',
 	build: { format: 'directory' },
 	server: { host: true, port: 4321 },
-	redirects: {
-		'/blog/': '/',
-		'/404-error-content-does-not-exist-anymore/': '/404.html',
-	},
-	integrations: [mdx(), sitemap()],
+	redirects: compatibility.redirects,
+	integrations: [mdx(), sitemap({
+		filter: (url) => !Object.hasOwn(compatibility.redirects, new URL(url).pathname)
+			&& !['/404.html', '/feed/index.html', '/feed/'].includes(new URL(url).pathname),
+	})],
 	fonts: [
 		{
 			provider: fontProviders.local(),

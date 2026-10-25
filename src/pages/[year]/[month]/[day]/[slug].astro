@@ -3,6 +3,7 @@ import { type CollectionEntry, render } from 'astro:content';
 import BlogPost from '../../../../layouts/BlogPost.astro';
 import { getPosts } from '../../../../lib/posts';
 import { parsePostPath, postUrl } from '../../../../lib/urls';
+import { postTerms } from '../../../../lib/archives';
 
 export async function getStaticPaths() {
 	const posts = await getPosts();
@@ -17,6 +18,6 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} canonicalPath={postUrl(post)}>
+<BlogPost {...post.data} canonicalPath={postUrl(post)} archiveTerms={postTerms(post)}>
 	<Content />
 </BlogPost>

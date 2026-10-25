@@ -5,13 +5,15 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import type { TaxonomyTerm } from '../lib/archives';
 
 type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 'tags' | 'codeRepositories'> & {
 	pubDate?: Date;
 	canonicalPath?: string;
+	archiveTerms?: TaxonomyTerm[];
 };
 
-const { title, description, pubDate, updatedDate, heroImage, canonicalPath } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, canonicalPath, archiveTerms = [] } = Astro.props;
 ---
 
 <html lang="en">
@@ -86,6 +88,17 @@ const { title, description, pubDate, updatedDate, heroImage, canonicalPath } = A
 						<hr />
 					</div>
 					<slot />
+					{archiveTerms.length > 0 && (
+						<nav aria-label="Post categories and tags">
+							{(['category', 'tag'] as const).map((kind) => {
+								const terms = archiveTerms.filter((term) => term.kind === kind);
+								return terms.length > 0 && <p>
+									{kind === 'category' ? 'Categories: ' : 'Tags: '}
+									{terms.map((term, index) => <>{index > 0 && ', '}<a href={`/${kind}/${term.slug}/`}>{term.name}</a></>)}
+								</p>;
+							})}
+						</nav>
+					)}
 				</div>
 			</article>
 		</main>

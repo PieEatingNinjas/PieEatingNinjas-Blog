@@ -159,7 +159,8 @@ async function walk(directory, files = []) {
 }
 for (const directory of ['src', 'public', 'dist']) await walk(directory);
 const copied = await walk('public/wp-content/uploads');
-assert.deepEqual(copied.sort(), manifest.assets.map((asset) => `public${asset.path}`).sort());
+const compatibility = JSON.parse(await read('src/data/migration-compatibility.json'));
+assert.deepEqual(copied.sort(), [...manifest.assets.map((asset) => `public${asset.path}`), `public${compatibility.notFound.image}`].sort());
 const externalPost = manifest.posts.find((post) => post.id === 1986);
 assert.ok(!(await read(externalPost.file)).includes(externalScreenshot));
 const screenshot = manifest.assets.find((asset) => asset.original === externalScreenshotLocal);

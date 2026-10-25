@@ -235,6 +235,22 @@ test('GIF conversion preserves both frames, animation loop and frame timing', as
 	assert.deepEqual(metadata.delay, [100, 200]);
 });
 
+test('maximum finite GIF loop counts retain GIF rather than changing playback in WebP', async () => {
+	const raw = Buffer.concat([Buffer.alloc(4 * 4 * 3, 30), Buffer.alloc(4 * 4 * 3, 220)]);
+	const gif = await sharp(raw, { raw: { width: 4, height: 8, channels: 3, pageHeight: 4 } })
+		.gif({ loop: 65535, delay: [100, 200] }).toBuffer();
+	const marker = gif.indexOf(Buffer.from('NETSCAPE2.0'));
+	assert.ok(marker >= 0);
+	gif.writeUInt16LE(65535, marker + 13);
+	assert.equal((await sharp(gif).metadata()).loop, 65536);
+	const result = await transformImage(gif, '2020/01/finite.gif');
+	assert.equal(result.outputName, '2020/01/finite.gif');
+	const metadata = await sharp(result.output).metadata();
+	assert.equal(metadata.loop, 65536);
+	assert.deepEqual(metadata.delay, [100, 200]);
+	assert.equal(result.measurements.frames, 2);
+});
+
 test('public OneDrive share URLs are narrowly supported without accepting authentication parameters on other hosts', () => {
 	assert.doesNotThrow(() => safeLink('https://onedrive.live.com/redir?resid=ABCDEF!123&authkey=!synthetic_public_share&ithint=folder%2Czip'));
 	for (const url of [

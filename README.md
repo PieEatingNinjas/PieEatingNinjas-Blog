@@ -326,6 +326,134 @@ feed compatibility, query-ID redirects, legacy alias serving and deployment
 remain outstanding, outside this completed scope. Acceptance does not
 authorize starting the next phase.
 
+### Phase 4: archives, feeds and compatibility
+
+Implementation is available for review, but **Phase 4 acceptance is blocked**
+by the unresolved input/disposition decisions below. No Phase 5 work or
+deployment has been started, and the plan's human-review checkboxes remain open.
+
+- Home pagination uses the Phase 1 proposal: **10 posts per page**, newest
+  publication date first, descending WordPress ID as the date tie-breaker.
+  The 62 posts produce seven pages: `/`, `/page/2/` through `/page/7/`.
+  `/page/1/` is an explicit static HTML redirect to `/`.
+  This page-size proposal still needs owner acceptance; it is not recorded
+  as approved merely because it has been implemented.
+- All **44 categories and 7 tags** retain their separate legacy namespaces.
+  Continuations use `/category/<slug>/page/N/` and `/tag/<slug>/page/N/`;
+  each namespace's `/page/1/` redirects to its first page. Empty terms retain
+  one landing page with an empty state and no continuation pages. The actual
+  inventory has no empty terms; synthetic build tests cover that case.
+  `C#` remains the display name for `/category/c/` and `/tag/c/`.
+  Post footers link to their category/tag archives using the preserved slugs.
+- Both `/rss.xml` and `/feed/index.html` contain **byte-identical RSS XML**
+  with all 62 canonical post URLs in archive order. The compatibility feed
+  is not an HTML redirect or wrapper. GitHub Pages may serve its `.html`
+  extension as `text/html`; live hosting/content-type checks remain deferred.
+- A small script on `/` handles the **66 selected post/page query IDs**.
+  Valid `p` and `page_id` requests preserve fragments; unknown, malformed,
+  duplicate or conflicting IDs do not navigate. Destinations are known local
+  routes only. This is client-side navigation, not HTTP query routing.
+- **73 static HTML redirects** cover nine old dated paths, two placeholder
+  paths, the selected 404 alias, 52 first-page aliases and nine code-image
+  replacement paths. Destinations and code anchors are checked in the build.
+  These are not GitHub Pages HTTP 301/302 rules.
+- **85 referenced/optimized image aliases** are prerendered as image bytes at
+  their legacy upload paths, byte-identical to the optimized canonical files.
+  No private inputs are needed by the site build; these static endpoints read
+  only checked-in public assets. They are not runtime server functions.
+  Some historical extensions differ from the optimized encoding (e.g. GIF
+  aliases containing WebP bytes). Browser decoding is checked locally;
+  production MIME behavior remains a deployment smoke-check requirement.
+- The genuine 404 page uses the selected legacy text and animation, plus a
+  home-archive link. The animation remains a GIF because its **65,536-play**
+  loop cannot be represented exactly by WebP's loop field. Optimization keeps
+  all 29 frames, 3,480 ms total timing, 400 x 300 dimensions and the original
+  loop, reducing **671,698 bytes to 459,982 bytes**. Unknown routes still return
+  404 locally; no catch-all success page was added.
+- Archive cards retain the template's existing markup and styles in the shared
+  archive layout. Branding, About/Book/Privacy copy, comments, Giscus, analytics
+  and deployment remain unchanged.
+
+The ignored source directory is **`_migration/` (singular)**. Git does not copy
+it into a new worktree. Manually restore the private export, uploads and inventory
+there, retaining the importer ownership state for reruns. Never stage the folder.
+Alternatively, `--source` can point to another local source folder; inventories
+and ownership state still belong under the current worktree's `_migration/`.
+
+The re-runnable compatibility importer checks the inventory's source checksum,
+rejects symlinks and output collisions, and keeps its ownership hashes only at
+`_migration/compatibility/state.json`. The sanitized runtime mapping is
+`src/data/migration-compatibility.json`. To supply plugin aliases, place an
+owner-sanitized `eps-301-redirects.json` directly in the private source directory,
+as an array such as `[{"from":"/old-path/","to":"/about/"}]`. Only known local
+content destinations are accepted; query rules, external destinations, private
+values and extra fields fail explicitly. An explicitly supplied empty array
+records that the reviewed list contains no rules.
+
+Run in the Node 24 dev container:
+
+```sh
+npm run migration:compatibility
+node --test scripts/migration-compatibility.test.mjs scripts/migration-import.test.mjs scripts/migration-inventory.test.mjs scripts/routing.test.mjs
+npm run astro -- check
+npm run build
+npm run migration:verify-posts
+npm run migration:verify-compatibility
+cmp dist/rss.xml dist/feed/index.html
+# Acceptance gate: intentionally exits 1 while unresolved decisions remain.
+npm run migration:verify-compatibility -- --check
+npm run astro -- dev --background
+npm run astro -- dev status
+```
+
+Validation on 2026-10-25:
+
+| Check | Expected | Actual / exit code |
+|---|---|---|
+| Focused migration/routing tests | All pass | 54/54; exit 0 |
+| Astro check | No errors/warnings | 0 errors, 0 warnings, 4 XML-validator deprecation hints; exit 0 |
+| Static build | Home, terms, selected pages and posts | 134 pages (68 archives + 62 posts + 4 selected pages), plus redirects and static endpoints; exit 0 |
+| Home archive union | 62 distinct posts, 7 pages | Exact set and ordering; no duplicates or selected pages; exit 0 |
+| Taxonomy mapping | 44 categories / 7 tags | Exact source memberships, all continuation/navigation links resolve; exit 0 |
+| Query-ID mapping | 66 generated destinations | 66/66; exit 0 |
+| Known HTML / image aliases | 73 / 85 | All destinations and bytes verified; exit 0 |
+| Feeds | Equal bytes, valid XML, 62 canonical links | Exact match; verifier and `cmp` exit 0 |
+| Existing post verification | Original content and media preserved | 62 posts, 288 exact code blocks, 118 post assets; exit 0 |
+| Privacy scan | No private values or raw source in source/public/build | Zero findings; exit 0 |
+| Real-source reruns | Same owned output bytes | Two reruns with identical SHA-256 hashes; exit 0 |
+| Acceptance gate | Fail with unresolved dependencies | Exit 1, expected; not phase acceptance |
+
+Browser automation checked the first/middle/last home pages, both `c` namespaces,
+the final C# category page, navigation/card counts, no broken archive images,
+the 404 archive link, a historical alias, and eight query cases (valid post,
+valid page, fragment, unknown, malformed, duplicate, conflicting and off-site
+input). Unknown paths returned 404. This is automation evidence, not owner
+visual acceptance.
+All 85 exact legacy image URLs also returned HTTP 200 with their expected bytes.
+A format-changing GIF alias decoded successfully in the browser even when its
+WebP bytes were wrapped with the historical `image/gif` MIME type. Literal image
+extension routes avoid Astro's page-style trailing-slash matching for these
+binary endpoints.
+
+**Outstanding blockers, not silently omitted or guessed:**
+
+1. The `eps-301-redirects` list is still absent; its aliases cannot be reconciled.
+2. **394 attachment-page/query URL dispositions** still need owner decisions.
+   Attachment IDs are not added to the post/page query map.
+3. **417 additional inventoried image-variant URLs** still need approval or
+   explicit exclusion. The 70 referenced paths are covered by the 68 image and
+   two code-variant mappings; copying all other variants was not authorized.
+4. Accept or change the proposed page size, empty-term behavior and historical
+   slug/date aliases after reviewing their source-derived mappings.
+5. About, Book and Privacy Policy remain the previous phase's placeholder copy.
+   Their query destinations exist, but their final content is not claimed here.
+
+The current worktree's persistent review site is **http://localhost:4324/**
+(Node 24 container port 4321). Representative links: `/page/4/`, `/page/7/`,
+`/category/c/`, `/category/c/page/5/`, `/tag/c/`, `/rss.xml`, `/feed/index.html`
+and `/404.html`. The older phase-three server on port 4323 was not changed.
+Stop here for owner review; do not start Phase 5.
+
 ```sh
 npm create astro@latest -- --template blog
 ```

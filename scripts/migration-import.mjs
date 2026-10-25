@@ -341,7 +341,11 @@ export async function transformImage(input, original) {
 	const needsMetadataRemoval = metadata.exif || metadata.iptc || metadata.xmp || metadata.icc;
 	let output;
 	let outputName = original;
-	if (animated) {
+	if (animated && metadata.loop > 65535) {
+		// GIF supports 65,536 plays, which WebP's loop field cannot represent.
+		output = await sharp(input, { animated: true, failOn: 'warning', limitInputPixels: 512_000_000 })
+			.resize({ width: Math.min(width, 600), withoutEnlargement: true }).gif({ effort: 10 }).toBuffer();
+	} else if (animated) {
 		outputName = original.replace(/\.[^.]+$/, '.webp');
 		for (const quality of [85, 70, 55, 40]) {
 			output = await sharp(input, { animated: true, failOn: 'warning', limitInputPixels: 512_000_000 }).resize({ width: Math.min(width, 600), withoutEnlargement: true })

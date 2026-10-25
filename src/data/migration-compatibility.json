@@ -1,0 +1,773 @@
+{
+  "version": 1,
+  "pageSize": 10,
+  "taxonomies": [
+    {
+      "kind": "category",
+      "slug": "ai",
+      "name": "AI"
+    },
+    {
+      "kind": "category",
+      "slug": "android",
+      "name": "Android"
+    },
+    {
+      "kind": "category",
+      "slug": "apdu",
+      "name": "APDU"
+    },
+    {
+      "kind": "category",
+      "slug": "appcenter",
+      "name": "AppCenter"
+    },
+    {
+      "kind": "category",
+      "slug": "applescript",
+      "name": "AppleScript"
+    },
+    {
+      "kind": "category",
+      "slug": "architecture",
+      "name": "Architecture"
+    },
+    {
+      "kind": "category",
+      "slug": "arm",
+      "name": "ARM"
+    },
+    {
+      "kind": "category",
+      "slug": "automation",
+      "name": "Automation"
+    },
+    {
+      "kind": "category",
+      "slug": "azure",
+      "name": "Azure"
+    },
+    {
+      "kind": "category",
+      "slug": "azure-devops",
+      "name": "Azure DevOps"
+    },
+    {
+      "kind": "category",
+      "slug": "blazor",
+      "name": "Blazor"
+    },
+    {
+      "kind": "category",
+      "slug": "c",
+      "name": "C#"
+    },
+    {
+      "kind": "category",
+      "slug": "cognitive-services",
+      "name": "Cognitive services"
+    },
+    {
+      "kind": "category",
+      "slug": "cross-platform",
+      "name": "Cross-platform"
+    },
+    {
+      "kind": "category",
+      "slug": "custom-vision",
+      "name": "Custom Vision"
+    },
+    {
+      "kind": "category",
+      "slug": "eid",
+      "name": "eID"
+    },
+    {
+      "kind": "category",
+      "slug": "fall-creators-update",
+      "name": "Fall Creators Update"
+    },
+    {
+      "kind": "category",
+      "slug": "fluent-design",
+      "name": "Fluent Design"
+    },
+    {
+      "kind": "category",
+      "slug": "function-app",
+      "name": "Function App"
+    },
+    {
+      "kind": "category",
+      "slug": "ios",
+      "name": "iOS"
+    },
+    {
+      "kind": "category",
+      "slug": "llms",
+      "name": "LLMs"
+    },
+    {
+      "kind": "category",
+      "slug": "localization",
+      "name": "Localization"
+    },
+    {
+      "kind": "category",
+      "slug": "maui",
+      "name": "MAUI"
+    },
+    {
+      "kind": "category",
+      "slug": "ml",
+      "name": "ML"
+    },
+    {
+      "kind": "category",
+      "slug": "mvvm",
+      "name": "MVVM"
+    },
+    {
+      "kind": "category",
+      "slug": "notification-hubs",
+      "name": "Notification Hubs"
+    },
+    {
+      "kind": "category",
+      "slug": "ollama",
+      "name": "Ollama"
+    },
+    {
+      "kind": "category",
+      "slug": "onedrive",
+      "name": "OneDrive"
+    },
+    {
+      "kind": "category",
+      "slug": "openai-services",
+      "name": "OpenAI Services"
+    },
+    {
+      "kind": "category",
+      "slug": "performance",
+      "name": "Performance"
+    },
+    {
+      "kind": "category",
+      "slug": "powershell",
+      "name": "PowerShell"
+    },
+    {
+      "kind": "category",
+      "slug": "python",
+      "name": "Python"
+    },
+    {
+      "kind": "category",
+      "slug": "realm",
+      "name": "Realm"
+    },
+    {
+      "kind": "category",
+      "slug": "rs4",
+      "name": "RS4"
+    },
+    {
+      "kind": "category",
+      "slug": "rx",
+      "name": "Rx"
+    },
+    {
+      "kind": "category",
+      "slug": "talks",
+      "name": "Talks"
+    },
+    {
+      "kind": "category",
+      "slug": "uwp",
+      "name": "UWP"
+    },
+    {
+      "kind": "category",
+      "slug": "visual-studio",
+      "name": "Visual Studio"
+    },
+    {
+      "kind": "category",
+      "slug": "welcome",
+      "name": "Welcome"
+    },
+    {
+      "kind": "category",
+      "slug": "xamarin",
+      "name": "Xamarin"
+    },
+    {
+      "kind": "category",
+      "slug": "xamarinalliance",
+      "name": "XamarinAlliance"
+    },
+    {
+      "kind": "category",
+      "slug": "xaml",
+      "name": "XAML"
+    },
+    {
+      "kind": "category",
+      "slug": "xbind",
+      "name": "x:Bind"
+    },
+    {
+      "kind": "category",
+      "slug": "xbox-one",
+      "name": "Xbox One"
+    },
+    {
+      "kind": "tag",
+      "slug": "c",
+      "name": "C#"
+    },
+    {
+      "kind": "tag",
+      "slug": "deferredloadstrategy",
+      "name": "DeferredLoadStrategy"
+    },
+    {
+      "kind": "tag",
+      "slug": "mvvm",
+      "name": "MVVM"
+    },
+    {
+      "kind": "tag",
+      "slug": "rx",
+      "name": "Rx"
+    },
+    {
+      "kind": "tag",
+      "slug": "uwp",
+      "name": "UWP"
+    },
+    {
+      "kind": "tag",
+      "slug": "xaml",
+      "name": "XAML"
+    },
+    {
+      "kind": "tag",
+      "slug": "xbind",
+      "name": "x:Bind"
+    }
+  ],
+  "queryIds": {
+    "p": {
+      "7": "/2015/11/05/starting-a-blog-since-2011/",
+      "16": "/2015/11/07/deferred-loading-mind-the-visual-state-manager/",
+      "132": "/2015/11/14/using-rx-in-a-uwp-project-with-mvvm/",
+      "200": "/2015/11/15/xbind-and-inheritance/",
+      "275": "/2015/12/30/disable-gestures-on-pivot-control/",
+      "451": "/2016/01/17/custom-uwp-control-step-through-listview/",
+      "498": "/2016/02/06/displaying-pdf-files-in-a-uwp-app/",
+      "530": "/2016/03/08/slidedeck-and-code-data-sharing-and-cross-app-communication-in-uwp/",
+      "557": "/2016/06/28/get-users-location-without-location-services/",
+      "577": "/2016/07/05/xamarin-interview-questions/",
+      "606": "/2016/09/03/uwp-app-on-xbox-one-controller-input-gotcha-keydown-event/",
+      "634": "/2016/09/19/uwp-simple-pdf-viewer/",
+      "646": "/2016/09/20/fix-visual-studio-2015-random-crash/",
+      "657": "/2016/09/26/how-to-catch-multiple-types-of-exceptions-in-one-catch-block/",
+      "670": "/2016/10/25/uwp-custom-control-expandabledetailgridview-google-images-style-gridview/",
+      "701": "/2016/11/17/compiled-bindings-gotcha-dont-forget-inotifypropertychanged-on-your-interface/",
+      "721": "/2016/11/19/getting-rid-of-whitespaces-between-runs-in-a-textblock/",
+      "735": "/2017/01/29/building-a-xamarin-app-with-azure-functions-and-onedrive/",
+      "804": "/2017/02/10/custom-location-and-movement-on-xamarin-remoted-ios-simulator-for-windows/",
+      "848": "/2017/04/16/setting-up-a-realm-object-server-in-azure/",
+      "879": "/2017/04/20/trigger-propertychanged-of-indexed-property-in-xamarin-forms/",
+      "901": "/2017/05/20/dynamically-binding-resx-resources-in-xamarin-forms/",
+      "924": "/2017/07/06/bind-to-xamarin-picker-but-only-update-value-after-hitting-done-on-ios/",
+      "938": "/2017/08/03/sharing-a-realm-via-a-qr-code-using-zxing/",
+      "953": "/2017/08/13/creating-a-continue-watching-experience-using-project-rome-in-uwp/",
+      "963": "/2017/09/02/using-sqlclient-in-uwp/",
+      "977": "/2017/10/11/demos-talk-realm-the-cool-new-kid-in-xamarin-town/",
+      "990": "/2017/11/05/creating-a-hyperlinklabel-in-xamarin-forms/",
+      "1017": "/2017/12/02/achievement-unlocked-microsoft-mvp/",
+      "1025": "/2017/12/21/using-the-fluent-design-system-in-a-minesweeper-game/",
+      "1071": "/2018/02/06/multiple-instances-support-for-uwp-apps/",
+      "1100": "/2018/02/25/multiple-instances-support-for-uwp-apps-part-2-redirection/",
+      "1134": "/2018/04/05/creating-a-uwp-console-app-in-c/",
+      "1164": "/2018/05/15/image-classification-with-winml-and-uwp/",
+      "1197": "/2018/06/04/image-classification-with-azure-custom-vision-service-and-coreml/",
+      "1247": "/2018/12/07/using-android-linkify-to-add-inline-links-to-a-xamarin-forms-label/",
+      "1319": "/2018/12/12/fixing-appcenter-android-build-error-usr-bin-jarsigner-failed-with-return-code-1/",
+      "1340": "/2019/01/01/multi-targeting-am-i-falling-in-love/",
+      "1395": "/2019/03/12/get-geo-location-in-background-with-xamarin-essentials-on-ios/",
+      "1414": "/2019/04/22/image-classification-with-winml-and-uwp-update/",
+      "1491": "/2019/07/27/simple-data-validation-in-xamarin-forms/",
+      "1517": "/2019/08/29/distributing-wpf-winforms-applications-using-appcenter-and-msix/",
+      "1569": "/2019/11/22/gotcha-opening-default-app-for-file-in-uwp/",
+      "1577": "/2019/12/03/a-fixed-and-always-expanded-commandbar-in-uwp/",
+      "1589": "/2020/01/29/gotcha-deploying-azure-notification-hub-with-arm-template-apns-token-and-certificate/",
+      "1618": "/2020/02/15/reading-belgian-eid-in-uwp-using-smartcardreader/",
+      "1680": "/2020/11/30/accessing-uwp-apis-from-a-win32-application/",
+      "1689": "/2020/12/03/uploading-uwp-appxbundle-to-app-center-in-azure-devops/",
+      "1728": "/2021/02/03/uwp-randomly-throwing-system-executionengineexception-a-fix/",
+      "1734": "/2021/02/06/watch-for-changes-in-blazor-wasm-to-automatically-reload-your-page/",
+      "1752": "/2021/08/19/select-textbox-content-when-tab-focussed-in-uwp/",
+      "1773": "/2021/09/09/multi-targeting-based-on-file-name-in-maui/",
+      "1805": "/2021/09/19/fixing-build-issue-in-maui-preview-8/",
+      "1818": "/2021/12/21/fixing-video-file-not-streaming-from-azure-blob-storage-on-android/",
+      "1828": "/2022/02/11/setting-up-a-basic-mvvm-architecture-in-net-maui/",
+      "1870": "/2022/12/13/fontawesome-duotone-icons-in-maui-and-xamarin-forms/",
+      "1897": "/2023/10/03/exploring-whisper-model-in-azure-openai-service/",
+      "1935": "/2023/12/01/i-wrote-a-book/",
+      "1949": "/2023/12/08/translate-spoken-text-with-whisper-and-gpt-with-azure-open-ai-services-and-net-maui/",
+      "1986": "/2024/05/02/cross-platform-app-development-is-dead-long-live-cross-platform-app-development/",
+      "1999": "/2025/08/14/fix-maui-android-doesnt-support-required-abi-issue/",
+      "2012": "/2026/05/25/qwen3-5-in-net-meai-hangs-forever-and-how-ollamasharp-fixes-it-in-one-line/"
+    },
+    "page_id": {
+      "5": "/about/",
+      "1263": "/404.html",
+      "1927": "/privacy-policy/",
+      "1947": "/book/"
+    }
+  },
+  "redirects": {
+    "/2015/11/07/deferred-loading-use-is-wisely/": "/2015/11/07/deferred-loading-mind-the-visual-state-manager/",
+    "/2015/11/14/using-rx-in-a-uwp-mvvm-project/": "/2015/11/14/using-rx-in-a-uwp-project-with-mvvm/",
+    "/2019/02/06/multi-targeting-am-i-falling-in-love/": "/2019/01/01/multi-targeting-am-i-falling-in-love/",
+    "/2019/08/29/distributing-msix-package-with-appcenter/": "/2019/08/29/distributing-wpf-winforms-applications-using-appcenter-and-msix/",
+    "/2019/08/29/distributing-msix-packages-with-appcenter/": "/2019/08/29/distributing-wpf-winforms-applications-using-appcenter-and-msix/",
+    "/2019/08/29/distributing-wpf-winforms-applications-via-appcenter-with-msix/": "/2019/08/29/distributing-wpf-winforms-applications-using-appcenter-and-msix/",
+    "/2019/08/29/distributing-wpf-winforms-applications-with-appcenter-with-msix/": "/2019/08/29/distributing-wpf-winforms-applications-using-appcenter-and-msix/",
+    "/2019/12/03/a-fixed-and-always-expanded-commmandbar-in-uwp/": "/2019/12/03/a-fixed-and-always-expanded-commandbar-in-uwp/",
+    "/2024/05/02/cross-platform-development-is-dead-long-live-cross-platform-development/": "/2024/05/02/cross-platform-app-development-is-dead-long-live-cross-platform-app-development/",
+    "/404-error-content-does-not-exist-anymore/": "/404.html",
+    "/blog/": "/",
+    "/category/ai/page/1/": "/category/ai/",
+    "/category/android/page/1/": "/category/android/",
+    "/category/apdu/page/1/": "/category/apdu/",
+    "/category/appcenter/page/1/": "/category/appcenter/",
+    "/category/applescript/page/1/": "/category/applescript/",
+    "/category/architecture/page/1/": "/category/architecture/",
+    "/category/arm/page/1/": "/category/arm/",
+    "/category/automation/page/1/": "/category/automation/",
+    "/category/azure-devops/page/1/": "/category/azure-devops/",
+    "/category/azure/page/1/": "/category/azure/",
+    "/category/blazor/page/1/": "/category/blazor/",
+    "/category/c/page/1/": "/category/c/",
+    "/category/cognitive-services/page/1/": "/category/cognitive-services/",
+    "/category/cross-platform/page/1/": "/category/cross-platform/",
+    "/category/custom-vision/page/1/": "/category/custom-vision/",
+    "/category/eid/page/1/": "/category/eid/",
+    "/category/fall-creators-update/page/1/": "/category/fall-creators-update/",
+    "/category/fluent-design/page/1/": "/category/fluent-design/",
+    "/category/function-app/page/1/": "/category/function-app/",
+    "/category/ios/page/1/": "/category/ios/",
+    "/category/llms/page/1/": "/category/llms/",
+    "/category/localization/page/1/": "/category/localization/",
+    "/category/maui/page/1/": "/category/maui/",
+    "/category/ml/page/1/": "/category/ml/",
+    "/category/mvvm/page/1/": "/category/mvvm/",
+    "/category/notification-hubs/page/1/": "/category/notification-hubs/",
+    "/category/ollama/page/1/": "/category/ollama/",
+    "/category/onedrive/page/1/": "/category/onedrive/",
+    "/category/openai-services/page/1/": "/category/openai-services/",
+    "/category/performance/page/1/": "/category/performance/",
+    "/category/powershell/page/1/": "/category/powershell/",
+    "/category/python/page/1/": "/category/python/",
+    "/category/realm/page/1/": "/category/realm/",
+    "/category/rs4/page/1/": "/category/rs4/",
+    "/category/rx/page/1/": "/category/rx/",
+    "/category/talks/page/1/": "/category/talks/",
+    "/category/uwp/page/1/": "/category/uwp/",
+    "/category/visual-studio/page/1/": "/category/visual-studio/",
+    "/category/welcome/page/1/": "/category/welcome/",
+    "/category/xamarin/page/1/": "/category/xamarin/",
+    "/category/xamarinalliance/page/1/": "/category/xamarinalliance/",
+    "/category/xaml/page/1/": "/category/xaml/",
+    "/category/xbind/page/1/": "/category/xbind/",
+    "/category/xbox-one/page/1/": "/category/xbox-one/",
+    "/home/": "/",
+    "/page/1/": "/",
+    "/tag/c/page/1/": "/tag/c/",
+    "/tag/deferredloadstrategy/page/1/": "/tag/deferredloadstrategy/",
+    "/tag/mvvm/page/1/": "/tag/mvvm/",
+    "/tag/rx/page/1/": "/tag/rx/",
+    "/tag/uwp/page/1/": "/tag/uwp/",
+    "/tag/xaml/page/1/": "/tag/xaml/",
+    "/tag/xbind/page/1/": "/tag/xbind/",
+    "/wp-content/uploads/2015/11/binding.jpg": "/2015/11/15/xbind-and-inheritance/#legacy-code-binding",
+    "/wp-content/uploads/2015/11/high-level-small.jpg": "/2015/11/07/deferred-loading-mind-the-visual-state-manager/#legacy-code-high-level-small",
+    "/wp-content/uploads/2015/11/new.jpg": "/2015/11/15/xbind-and-inheritance/#legacy-code-new",
+    "/wp-content/uploads/2015/11/vsm-bad.jpg": "/2015/11/07/deferred-loading-mind-the-visual-state-manager/#legacy-code-vsm-bad",
+    "/wp-content/uploads/2015/12/code-header.jpg": "/2015/12/30/disable-gestures-on-pivot-control/#legacy-code-code-header",
+    "/wp-content/uploads/2015/12/code-inside1-1024x128.jpg": "/2015/12/30/disable-gestures-on-pivot-control/#legacy-code-code-inside1",
+    "/wp-content/uploads/2015/12/code-inside1.jpg": "/2015/12/30/disable-gestures-on-pivot-control/#legacy-code-code-inside1",
+    "/wp-content/uploads/2015/12/code-out-1024x128.jpg": "/2015/12/30/disable-gestures-on-pivot-control/#legacy-code-code-out",
+    "/wp-content/uploads/2015/12/code-out.jpg": "/2015/12/30/disable-gestures-on-pivot-control/#legacy-code-code-out"
+  },
+  "imageAliases": [
+    {
+      "from": "/wp-content/uploads/2015/12/xaml-inside-300x129.jpg",
+      "to": "/wp-content/uploads/2015/12/xaml-inside.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2015/12/xaml-out-300x114.jpg",
+      "to": "/wp-content/uploads/2015/12/xaml-out.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2016/01/Design-300x271.png",
+      "to": "/wp-content/uploads/2016/01/Design.png"
+    },
+    {
+      "from": "/wp-content/uploads/2016/02/pdf-print-screen-300x260.png",
+      "to": "/wp-content/uploads/2016/02/pdf-print-screen.png"
+    },
+    {
+      "from": "/wp-content/uploads/2016/02/pdf-print-screen-768x666.png",
+      "to": "/wp-content/uploads/2016/02/pdf-print-screen.png"
+    },
+    {
+      "from": "/wp-content/uploads/2016/09/output-300x157.jpg",
+      "to": "/wp-content/uploads/2016/09/output.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2016/09/VS-SafeMode-1024x37.jpg",
+      "to": "/wp-content/uploads/2016/09/VS-SafeMode.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2016/09/xbox-pointer-300x151.jpg",
+      "to": "/wp-content/uploads/2016/09/xbox-pointer.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2016/10/ExpandableDetailGridView-281x300.gif",
+      "to": "/wp-content/uploads/2016/10/ExpandableDetailGridView.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2016/10/ExpandableDetailGridView.gif",
+      "to": "/wp-content/uploads/2016/10/ExpandableDetailGridView.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2016/11/liveproperties-200x300.jpg",
+      "to": "/wp-content/uploads/2016/11/liveproperties.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2016/11/propertychangednull-768x477.jpg",
+      "to": "/wp-content/uploads/2016/11/propertychangednull.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/Create-new-function-app-300x235.jpg",
+      "to": "/wp-content/uploads/2017/01/Create-new-function-app.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/Create-new-function-app2-238x300.jpg",
+      "to": "/wp-content/uploads/2017/01/Create-new-function-app2.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/Creating-new-function-app-1-300x261.jpg",
+      "to": "/wp-content/uploads/2017/01/Creating-new-function-app-1.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/external-file-connection-267x300.jpg",
+      "to": "/wp-content/uploads/2017/01/external-file-connection.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/External-file-input-768x225.jpg",
+      "to": "/wp-content/uploads/2017/01/External-file-input.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/Integrate-1-768x390.jpg",
+      "to": "/wp-content/uploads/2017/01/Integrate-1.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/overview-300x167.png",
+      "to": "/wp-content/uploads/2017/01/overview.png"
+    },
+    {
+      "from": "/wp-content/uploads/2017/01/overviewpost1-300x163.png",
+      "to": "/wp-content/uploads/2017/01/overviewpost1.png"
+    },
+    {
+      "from": "/wp-content/uploads/2017/02/CustomLocation.gif",
+      "to": "/wp-content/uploads/2017/02/CustomLocation.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2017/02/LocationSimulator-134x300.gif",
+      "to": "/wp-content/uploads/2017/02/LocationSimulator.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2017/02/LocationSimulator.gif",
+      "to": "/wp-content/uploads/2017/02/LocationSimulator.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2017/02/script-terminal-768x47.png",
+      "to": "/wp-content/uploads/2017/02/script-terminal.png"
+    },
+    {
+      "from": "/wp-content/uploads/2017/04/LinuxVM-768x161.jpg",
+      "to": "/wp-content/uploads/2017/04/LinuxVM.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/04/VM-network-Security-Group-300x113.jpg",
+      "to": "/wp-content/uploads/2017/04/VM-network-Security-Group.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/05/Binding-Resources-300x189.png",
+      "to": "/wp-content/uploads/2017/05/Binding-Resources.png"
+    },
+    {
+      "from": "/wp-content/uploads/2017/08/protocol-declaration-300x174.jpg",
+      "to": "/wp-content/uploads/2017/08/protocol-declaration.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/11/HyperlinkLabel-1024x132.jpg",
+      "to": "/wp-content/uploads/2017/11/HyperlinkLabel.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/11/HyperlinkLabel-768x99.jpg",
+      "to": "/wp-content/uploads/2017/11/HyperlinkLabel.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2017/12/achievement-768x167.jpg",
+      "to": "/wp-content/uploads/2017/12/achievement.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/02/CompileSymbol-768x204.jpg",
+      "to": "/wp-content/uploads/2018/02/CompileSymbol.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/02/MultiInstance-300x288.gif",
+      "to": "/wp-content/uploads/2018/02/MultiInstance.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2018/02/MultiInstance.gif",
+      "to": "/wp-content/uploads/2018/02/MultiInstance.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2018/02/MultiInstanceRedirection.gif",
+      "to": "/wp-content/uploads/2018/02/MultiInstanceRedirection.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2018/04/UwpConsole-768x340.jpg",
+      "to": "/wp-content/uploads/2018/04/UwpConsole.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/04/UwpConsoleNewPrj-768x531.jpg",
+      "to": "/wp-content/uploads/2018/04/UwpConsoleNewPrj.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/04/UwpConsoleNotification-1-768x582.gif",
+      "to": "/wp-content/uploads/2018/04/UwpConsoleNotification-1.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2018/04/UwpConsoleNotification-1.gif",
+      "to": "/wp-content/uploads/2018/04/UwpConsoleNotification-1.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2018/05/NewProject-660x621.jpg",
+      "to": "/wp-content/uploads/2018/05/NewProject.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/05/Performance-300x270.jpg",
+      "to": "/wp-content/uploads/2018/05/Performance.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/05/result-768x642.jpg",
+      "to": "/wp-content/uploads/2018/05/result.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/05/resultConsole-1024x254.jpg",
+      "to": "/wp-content/uploads/2018/05/resultConsole.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/05/wrapperclass-300x185.jpg",
+      "to": "/wp-content/uploads/2018/05/wrapperclass.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2018/06/Jun-03-2018-18-12-48.gif",
+      "to": "/wp-content/uploads/2018/06/Jun-03-2018-18-12-48.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2018/06/Screen-Shot-2018-06-03-at-16.55.14-768x135.png",
+      "to": "/wp-content/uploads/2018/06/Screen-Shot-2018-06-03-at-16.55.14.png"
+    },
+    {
+      "from": "/wp-content/uploads/2018/06/Screen-Shot-2018-06-03-at-17.03.33-300x149.png",
+      "to": "/wp-content/uploads/2018/06/Screen-Shot-2018-06-03-at-17.03.33.png"
+    },
+    {
+      "from": "/wp-content/uploads/2019/01/ezgif-1-f473166e6558.gif",
+      "to": "/wp-content/uploads/2019/01/ezgif-1-f473166e6558.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2019/03/essentialsfb.png",
+      "to": "/wp-content/uploads/2019/03/essentialsfb.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2019/04/onnx-255x300.jpg",
+      "to": "/wp-content/uploads/2019/04/onnx.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2019/07/3541-150x150.gif",
+      "to": "/wp-content/uploads/2019/07/3541.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2019/07/3541.gif",
+      "to": "/wp-content/uploads/2019/07/3541.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2019/07/uijuly-300x125.png",
+      "to": "/wp-content/uploads/2019/07/uijuly.png"
+    },
+    {
+      "from": "/wp-content/uploads/2019/07/validation-300x229.gif",
+      "to": "/wp-content/uploads/2019/07/validation.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2019/07/validation.gif",
+      "to": "/wp-content/uploads/2019/07/validation.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2019/07/validationDefault-300x229.gif",
+      "to": "/wp-content/uploads/2019/07/validationDefault.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2019/07/validationDefault.gif",
+      "to": "/wp-content/uploads/2019/07/validationDefault.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2020/02/Addressfile-contents-1024x316.jpg",
+      "to": "/wp-content/uploads/2020/02/Addressfile-contents.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/02/leIncorrect-1024x62.jpg",
+      "to": "/wp-content/uploads/2020/02/leIncorrect.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/02/ReadAPDU-1024x368.jpg",
+      "to": "/wp-content/uploads/2020/02/ReadAPDU.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/02/SelectAPDU-1024x457.jpg",
+      "to": "/wp-content/uploads/2020/02/SelectAPDU.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/02/SelectAPDUResponse-1024x704.jpg",
+      "to": "/wp-content/uploads/2020/02/SelectAPDUResponse.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/11/connectedDevice-300x63.jpg",
+      "to": "/wp-content/uploads/2020/11/connectedDevice.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/12/noreleases-300x221.jpg",
+      "to": "/wp-content/uploads/2020/12/noreleases.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/12/version-1024x95.jpg",
+      "to": "/wp-content/uploads/2020/12/version.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2020/12/version2-1024x81.jpg",
+      "to": "/wp-content/uploads/2020/12/version2.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2021/02/ExecutionEngineException-1024x316.jpg",
+      "to": "/wp-content/uploads/2021/02/ExecutionEngineException.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2021/08/Tab-regular-300x124.gif",
+      "to": "/wp-content/uploads/2021/08/Tab-regular.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2021/08/Tab-regular.gif",
+      "to": "/wp-content/uploads/2021/08/Tab-regular.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2021/08/Tab-select_1-300x124.gif",
+      "to": "/wp-content/uploads/2021/08/Tab-select_1.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2021/08/Tab-select_1.gif",
+      "to": "/wp-content/uploads/2021/08/Tab-select_1.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2021/09/maui-template-300x54.jpg",
+      "to": "/wp-content/uploads/2021/09/maui-template.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2021/09/maui-template-new-300x54.jpg",
+      "to": "/wp-content/uploads/2021/09/maui-template-new.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2021/09/naming-300x76.jpg",
+      "to": "/wp-content/uploads/2021/09/naming.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2021/09/ProjectStructure-300x88.jpg",
+      "to": "/wp-content/uploads/2021/09/ProjectStructure.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2022/02/MauiNavigation-192x300.gif",
+      "to": "/wp-content/uploads/2022/02/MauiNavigation.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2022/02/MauiNavigation.gif",
+      "to": "/wp-content/uploads/2022/02/MauiNavigation.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2022/12/EmbeddedResource-300x114.png",
+      "to": "/wp-content/uploads/2022/12/EmbeddedResource.png"
+    },
+    {
+      "from": "/wp-content/uploads/2022/12/xmas-300x190.png",
+      "to": "/wp-content/uploads/2022/12/xmas.png"
+    },
+    {
+      "from": "/wp-content/uploads/2023/10/whisper-1024x423.jpg",
+      "to": "/wp-content/uploads/2023/10/whisper.jpg"
+    },
+    {
+      "from": "/wp-content/uploads/2023/12/deployGTP35-1024x631.png",
+      "to": "/wp-content/uploads/2023/12/deployGTP35.png"
+    },
+    {
+      "from": "/wp-content/uploads/2023/12/whisperGTP.png",
+      "to": "/wp-content/uploads/2023/12/whisperGTP.webp"
+    },
+    {
+      "from": "/wp-content/uploads/2025/08/Screenshot-2025-08-14-at-10.45.47-1024x394.png",
+      "to": "/wp-content/uploads/2025/08/Screenshot-2025-08-14-at-10.45.47.png"
+    },
+    {
+      "from": "/wp-content/uploads/2025/08/Screenshot-2025-08-14-at-11.22.49-1024x77.png",
+      "to": "/wp-content/uploads/2025/08/Screenshot-2025-08-14-at-11.22.49.png"
+    },
+    {
+      "from": "/wp-content/uploads/2026/05/llama2.png",
+      "to": "/wp-content/uploads/2026/05/llama2.webp"
+    }
+  ],
+  "pluginRedirects": {
+    "supplied": false,
+    "count": 0
+  },
+  "notFound": {
+    "paragraphs": [
+      "Nothing to see on this location...",
+      "You may have mis-typed the URL\nOr the page has been removed"
+    ],
+    "image": "/wp-content/uploads/2018/12/image.gif",
+    "measurements": {
+      "inputBytes": 671698,
+      "outputBytes": 459982,
+      "inputWidth": 400,
+      "inputHeight": 300,
+      "width": 400,
+      "height": 300,
+      "inputFrames": 29,
+      "frames": 29,
+      "durationMs": 3480,
+      "sha256": "3e9c96213483675a3809c21edee9c5d0f2a461c2d342107c918bdbf381d17509"
+    }
+  }
+}

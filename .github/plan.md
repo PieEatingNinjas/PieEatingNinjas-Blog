@@ -401,6 +401,16 @@ authorization to start Phase 4.
 
 **Depends on:** approved imported content and canonical routes.
 
+Implementation and validation evidence are recorded in the
+[Phase 4 README handoff](../README.md#phase-4-archives-feeds-and-compatibility).
+On 2026-10-25, automation verified 62 posts, 68 archive pages, 51 taxonomy
+terms, 66 query IDs, 73 HTML aliases, 85 image byte aliases and identical feeds.
+Acceptance remains blocked by the missing plugin redirect list, 394 unresolved
+attachment URL/query dispositions, 417 unapproved additional image variants
+and the documented owner review decisions. Pagination follows the unaccepted
+Phase 1 proposal, not an inferred owner approval. Human-review and acceptance
+checkboxes below are intentionally unchanged. No Phase 5 work is authorized.
+
 - Replace template home content with the paginated post archive at `/`; generate
   `/page/N/` for subsequent pages with consistent ordering and navigation.
   Decide the disposition of `/page/1/` explicitly.

@@ -1,0 +1,15 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+import PostArchive from '../layouts/PostArchive.astro';
+import { archivePages } from '../lib/archives';
+import { getPosts } from '../lib/posts';
+
+export async function getStaticPaths() {
+	return archivePages(await getPosts()).filter((page) => page.path !== '/').map((page) => ({
+		params: { archive: page.path.slice(1, -1) }, props: page,
+	}));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+---
+
+<PostArchive {...Astro.props} />
