@@ -3,7 +3,7 @@ import { legacyPageSchema } from './content-schema.ts';
 export const legacyPages = {
 	about: legacyPageSchema.parse({
 		role: 'about', legacyId: 5, path: '/about/',
-		title: 'About Me', description: 'About the author of Pie Eating Ninjas.',
+		title: 'About Me', description: 'Pieter Nijs: .NET and AI developer, trainer, speaker, author, and Microsoft MVP.',
 	}),
 	book: legacyPageSchema.parse({
 		role: 'book', legacyId: 1947, path: '/book/',
