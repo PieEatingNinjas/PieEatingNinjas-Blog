@@ -1,5 +1,27 @@
 # Astro Starter Kit: Blog
 
+## Dev container and VS Code tunnel
+
+The dev container uses Node 24 and installs the standalone stable VS Code CLI
+as `code-tunnel`, without replacing the editor's existing `code` command.
+After changing the container configuration, run **Dev Containers: Rebuild
+Container** from the VS Code Command Palette.
+
+To open a tunnel into the running container:
+
+```sh
+code-tunnel tunnel --name pieeatingninjas-dev
+```
+
+Accept the license and authenticate interactively with your GitHub account.
+Open https://vscode.dev/agents with the same account, select the tunnel, and
+choose `/workspaces/PieEatingNinjas-Blog`. If the browser Agents experience is
+not available on stable, use https://insiders.vscode.dev/agents.
+Keep the command and container running; press Ctrl+C to stop the tunnel.
+No tunnel is started and no credentials are embedded during the image build.
+Rebuilding installs the current stable CLI; authentication stored inside the
+container might need to be repeated after a rebuild.
+
 ## WordPress migration
 
 Migration is phase-gated. See the [approved plan](.github/plan.md) and
