@@ -466,7 +466,7 @@ script/map, Astro redirects, and compatibility test results.
 **STOP:** hand off evidence and wait for Phase 4 acceptance and explicit
 authorization to start Phase 5.
 
-## Phase 5 - Static legacy comments and gated Giscus
+## Phase 5 - Static legacy comments
 
 **Depends on:** approved post import and stable legacy IDs.
 
@@ -481,14 +481,9 @@ authorization to start Phase 5.
 - Render comments statically and threaded below posts, retaining legacy comment
   anchors where present. Resolve orphaned parents and detect cycles explicitly;
   preserve approved replies without exposing excluded parent content.
-- Add Giscus below this legacy comment archive. Default it to disabled and
-  document its configuration: public repository, Discussions/category setup,
-  repository/category IDs, and stable discussion mapping.
-- Leave Giscus disabled until the repository is public, configuration is complete,
-  and the owner approves enabling it. No script or network request when disabled.
 
 **Deliverables:** per-post comment JSON, comment importer/sanitizer tests, static
-thread rendering, and disabled-by-default Giscus configuration.
+thread rendering, and comment privacy/reconciliation results.
 
 **Acceptance checks (all required):**
 
@@ -502,22 +497,56 @@ thread rendering, and disabled-by-default Giscus configuration.
   markup/URLs, and embedded emails; all tests pass with explicit expected output.
 - [ ] Every imported legacy comment anchor resolves; privacy scans of `src/`,
   `public/`, and `dist/` report zero emails; `npm run build` exits 0.
-- [ ] With Giscus disabled, generated pages contain no Giscus embed script and a
-  browser network check records zero Giscus requests.
 
 **Human review:**
 
 - [ ] Compare at least one nested thread and one orphan-handling example against
   approved source/fixture data; verify names, dates, ordering, and safe links.
-- [ ] Confirm Giscus placement below legacy comments and its disabled state.
-  Any enablement is a separate explicit decision after prerequisites are met.
 
 **STOP:** hand off evidence and wait for Phase 5 acceptance and explicit
 authorization to start Phase 6.
 
-## Phase 6 - Final verifier and GitHub Pages release readiness
+## Phase 6 - Giscus integration and tuning
 
-**Depends on:** approved Phases 1-5. No production cutover without separate approval.
+**Depends on:** accepted Phase 5 static legacy comment archive.
+
+- Add Giscus below the static legacy comment archive on each post; it is separate
+  from, and never a replacement for, imported comments.
+- Refine and review its placement and presentation alongside the existing template
+  styles without redesigning the blog.
+- Document the required public repository, Discussions/category setup,
+  repository/category IDs, and stable discussion mapping.
+- Keep Giscus disabled until the repository is public, configuration is complete,
+  and the owner explicitly approves enabling it. Do not load its script or make
+  network requests while disabled.
+
+**Deliverables:** tuned Giscus placement, documented configuration, and
+disabled-by-default behavior with verification results.
+
+**Acceptance checks (all required):**
+
+- [ ] With Giscus disabled, generated pages contain no Giscus embed script and a
+  browser network check records zero Giscus requests.
+- [ ] The embed is placed below the legacy comment archive on posts and does not
+  replace, obscure, or alter its threaded comments.
+- [ ] Configuration prerequisites and stable discussion mapping are documented;
+  incomplete configuration cannot load the Giscus script.
+- [ ] `npm run build` exits 0 and focused checks cover the disabled state and
+  configured integration without exposing secrets or private data.
+
+**Human review:**
+
+- [ ] Review Giscus placement and presentation below legacy comments.
+- [ ] Confirm it remains disabled until the repository, configuration, and owner
+  approval gates are all satisfied. Enabling it requires a separate explicit
+  decision.
+
+**STOP:** hand off evidence and wait for Phase 6 acceptance and explicit
+authorization to start Phase 7.
+
+## Phase 7 - Final verifier and GitHub Pages release readiness
+
+**Depends on:** approved Phases 1-6. No production cutover without separate approval.
 
 - Finish a re-runnable Node verification script in `scripts/`, runnable after
   `npm run build`, using the complete private expected-output manifest locally.
@@ -581,10 +610,10 @@ CI checks, gated Pages workflow, custom-domain file, and release/rollback runboo
 - [ ] Explicitly approve or reject deployment and custom-domain cutover for the
   identified revision/artifact; do not infer approval from passing CI.
 
-**STOP:** wait for Phase 6 acceptance and explicit authorization to start Phase 7
+**STOP:** wait for Phase 7 acceptance and explicit authorization to start Phase 8
 with production deployment and DNS changes.
 
-## Phase 7 - Approved cutover and live smoke checks
+## Phase 8 - Approved cutover and live smoke checks
 
 **Depends on:** explicit release approval and access to Pages/domain settings.
 
