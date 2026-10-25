@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Manual trigger only for now; no automatic deployment on push.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Temporary preview without a custom domain: Pages serves the site under
+      # /<repository>/. Remove this variable when blog.pieeatingninjas.be is
+      # mapped (see README "GitHub Pages deployment").
+      PAGES_BASE_PATH: /${{ github.event.repository.name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Build and upload Astro site
+        uses: withastro/action@v6
+        with:
+          node-version: 24
+          package-manager: npm
+          build-cmd: npm run build:pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
