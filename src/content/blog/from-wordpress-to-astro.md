@@ -42,6 +42,6 @@ The VS Code Agents window was my main workspace. I could split the job into smal
 
 Even as launch day got closer, I could kick off a few things from [vscode.dev/agents](https://vscode.dev/agents) through a tunnel to my MacBook. That meant I could keep the migration moving without sitting in front of the editor all day.
 
-It was a fun weekend with the family, while a years-old blog migration ran in the background. It was not a one-shot prompt that magically produced a finished blog: I still reviewed the output and tested the pages. Some small details need a bit more love here and there, but this made a weekend-sized side project feel very doable.
+It was a fun weekend with the family, while I migrated my years-old blog in the background. It was not a one-shot prompt that magically produced a finished blog: I still reviewed the output and tested the pages. Some small details need a bit more love here and there, but this made a weekend-sized side project feel very doable.
 
 Astro and GitHub Pages turned out to be a nice fit for a content-heavy personal blog: fast pages, straightforward hosting, and content I can manage right alongside the code. The new blog is live, the old posts are still where you expect them, and I can finally say goodbye to my PHP WordPress hosting bill.
