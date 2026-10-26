@@ -27,7 +27,7 @@ const config = getGiscusConfig(import.meta.env.PUBLIC_GISCUS_ENABLED ?? 'true', 
 			for (const { name, value } of configuration.attributes) {
 				if (name.startsWith('data-')) embed.setAttribute(name, value);
 			}
-			// Resolve against the viewing origin, including the Pages preview prefix.
+			// Resolve against the viewing origin so local review uses its own theme.
 			embed.dataset.theme = new URL(configuration.dataset.theme, window.location.origin).href;
 			embed.src = 'https://giscus.app/client.js';
 			embed.async = true;
