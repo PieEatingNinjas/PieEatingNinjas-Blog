@@ -24,6 +24,58 @@ container might need to be repeated after a rebuild.
 
 ## WordPress migration
 
+### Google Analytics (owner-approved integration)
+
+GA4 measurement ID `G-5QRG2T1GBZ` is configured in `src/lib/analytics.ts`.
+Tracking runs only in production builds viewed on exactly
+`https://blog.pieeatingninjas.be`, after explicit consent. Development, Pages
+previews and localhost builds never load Google's script. No backend or Tag
+Manager container is required.
+
+The footer provides equally available accept/refuse actions and persistent
+“Analytics settings”. Both choices expire after 180 days. Refusal sends no
+Analytics requests; withdrawal disables collection, clears accessible GA cookies
+and reloads to unload Google's script. With storage blocked, the choice applies
+only to the current page. Cross-tab changes are observed. No consent means no
+tracking, including when JavaScript is disabled. This is basic consent gating,
+not cookieless/advanced Consent Mode.
+
+The integration sends one explicit `page_view` per page load (including the
+current page when accepted), with the page title and URL path. Query strings,
+fragments and referrers are excluded. Google signals and ad personalization are
+disabled in code; no User-ID is set. Analytics cookies expire after 180 days
+without automatic renewal. Counts exclude visitors who refuse, block scripts or
+disable JavaScript; users are browser-based estimates, not exact people.
+
+Before deployment, the owner must review the privacy text and GA4 property:
+
+- Confirm the web stream URL, Brussels reporting timezone and Measurement ID.
+- **Disable Enhanced measurement in the GA4 web stream**, including automatic
+  page views/history changes, site search, outbound clicks, form interactions
+  and downloads. This integration deliberately sends only explicit page views;
+  automatic events could expose query parameters, form data or outbound URLs.
+- Disable Google signals, user-provided data collection, advertising features
+  and unnecessary data sharing/linking in the property. Do not add a second
+  Google tag or Analytics integration.
+- Select and document the desired event-level data retention in GA4 (start with
+  two months for minimum retention); aggregated report retention is separate.
+- Review Google's processing terms, international transfers and the privacy page
+  for the actual property configuration. The site does not claim legal compliance
+  solely because it has a consent banner.
+
+After publication, check GA4 Realtime using a consenting visit; refusing or
+revoking should generate no subsequent collection requests. Normal reports may
+take 24–48 hours to populate. In **Reports → Engagement → Pages and screens**,
+select **Page path and screen class**, a date range, and **Views** / **Active
+users** to compare articles and periods. Depending on the report collection,
+this report may need to be published from the GA4 Library. Historical data is
+available only if previously collected in the same property.
+
+Validation: `node --experimental-strip-types --test scripts/analytics.test.mjs`,
+`npm run astro -- check`, and `npm run build`. Review the UI using
+`npm run astro -- dev --background`, then `npm run astro -- dev status`.
+Local review intentionally sends no Analytics data.
+
 Migration is phase-gated. See the [approved plan](.github/plan.md) and
 [phase-one inventory and proposed contract](.github/migration-phase-one.md).
 Phase one inventories local inputs only; it does not import content or assets.
