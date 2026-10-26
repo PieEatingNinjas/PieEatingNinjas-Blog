@@ -8,6 +8,7 @@ import { parseExport } from './migration-inventory.mjs';
 import { buildCommentTree } from '../src/lib/comments.ts';
 
 const ORIGIN = 'https://blog.pieeatingninjas.be';
+const ORIGIN_URL = new URL(ORIGIN);
 const EXPECTED_APPROVED_COMMENTS = 196;
 const EMAIL = /[A-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
 const array = (value) => value === undefined ? [] : Array.isArray(value) ? value : [value];
@@ -84,6 +85,9 @@ function safeWebsite(value) {
 		|| containsEmail(url.href)
 		|| [...url.searchParams.keys()].some((key) => /email|token|secret|password|auth|key/i.test(key))) {
 		return null;
+	}
+	if (url.hostname === ORIGIN_URL.hostname && !url.port) {
+		return `${url.pathname}${url.search}${url.hash}`;
 	}
 	return url.href;
 }

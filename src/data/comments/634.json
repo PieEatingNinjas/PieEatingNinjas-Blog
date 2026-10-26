@@ -7,7 +7,7 @@
       "id": 28,
       "parentId": 0,
       "name": "Displaying PDF files in a UWP app | Pie Eating Ninjas' Blog",
-      "website": "http://blog.pieeatingninjas.be/2016/02/06/displaying-pdf-files-in-a-uwp-app/",
+      "website": "/2016/02/06/displaying-pdf-files-in-a-uwp-app/",
       "gravatarHash": null,
       "date": "2016-09-19 18:35:10",
       "content": "[…] I made a PdfViewerControl you can use in order to easily display PDF files in your UWP apps. It’s available, together with the source code in GitHub. See this blogpost: UWP Simple PDF viewer […]"

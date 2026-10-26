@@ -10,10 +10,11 @@ import LegacyComments from '../components/LegacyComments.astro';
 import type { LegacyComment } from '../lib/comments';
 import type { TaxonomyTerm } from '../lib/archives';
 
-type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 'tags'> & {
+type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 'tags' | 'codeRepositories'> & {
 	pubDate?: Date;
 	canonicalPath?: string;
 	archiveTerms?: TaxonomyTerm[];
+	codeRepositories?: string[];
 };
 
 const {

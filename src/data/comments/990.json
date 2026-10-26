@@ -43,7 +43,7 @@
       "id": 147,
       "parentId": 0,
       "name": "Using Android Linkify to add inline links to a Xamarin Forms Label – Pie Eating Ninjas' Blog",
-      "website": "https://blog.pieeatingninjas.be/2018/12/07/using-android-linkify-to-add-inline-links-to-a-xamarin-forms-label/",
+      "website": "/2018/12/07/using-android-linkify-to-add-inline-links-to-a-xamarin-forms-label/",
       "gravatarHash": null,
       "date": "2018-12-07 16:00:50",
       "content": "[…] this is what it feels like…), I created this custom Xamarin Forms control HyperlinkLabel (Blog post, GitHub repo) that can show one or multiple hyperlinks inline with other text. The links can be […]"

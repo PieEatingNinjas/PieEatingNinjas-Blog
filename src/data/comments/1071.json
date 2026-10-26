@@ -25,7 +25,7 @@
       "id": 95,
       "parentId": 0,
       "name": "Multiple instances support for UWP apps (Part 2): Redirection – Pie Eating Ninjas' Blog",
-      "website": "https://blog.pieeatingninjas.be/2018/02/25/multiple-instances-support-for-uwp-apps-part-2-redirection/",
+      "website": "/2018/02/25/multiple-instances-support-for-uwp-apps-part-2-redirection/",
       "gravatarHash": null,
       "date": "2018-02-25 11:17:13",
       "content": "[…] my previous blogpost, I showed you how we can opt-in for multi instance support in the Windows RS4 […]"

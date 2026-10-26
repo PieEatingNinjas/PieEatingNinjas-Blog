@@ -151,7 +151,7 @@
       "id": 27,
       "parentId": 0,
       "name": "UWP Simple PDF viewer | Pie Eating Ninjas' Blog",
-      "website": "http://blog.pieeatingninjas.be/2016/09/19/uwp-simple-pdf-viewer/",
+      "website": "/2016/09/19/uwp-simple-pdf-viewer/",
       "gravatarHash": null,
       "date": "2016-09-19 18:31:45",
       "content": "[…] Some months ago, I blogged about how to display PDF files in&nbsp;your UWP app: Displaying PDF files in a UWP app […]"

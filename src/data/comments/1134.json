@@ -7,7 +7,7 @@
       "id": 104,
       "parentId": 0,
       "name": "Image classification with WinML and UWP – Pie Eating Ninjas' Blog",
-      "website": "https://blog.pieeatingninjas.be/2018/05/15/image-classification-with-winml-and-uwp/",
+      "website": "/2018/05/15/image-classification-with-winml-and-uwp/",
       "gravatarHash": null,
       "date": "2018-05-15 10:27:47",
       "content": "[…] an earlier blogpost I stipulated how to create a UWP Console App. The cool thing with UWP Console (and […]"

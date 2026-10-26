@@ -16,7 +16,7 @@
       "id": 34,
       "parentId": 0,
       "name": "Dynamically binding RESX Resources in Xamarin Forms | Pie Eating Ninjas' Blog",
-      "website": "http://blog.pieeatingninjas.be/2017/05/20/dynamically-binding-resx-resources-in-xamarin-forms/",
+      "website": "/2017/05/20/dynamically-binding-resx-resources-in-xamarin-forms/",
       "gravatarHash": null,
       "date": "2017-05-20 11:22:41",
       "content": "[…] and trigger a PropertyChanged&nbsp;event, passing “item” as PropertyName&nbsp;(see my previous blogpost). All bindings on the index property are re-executed, resulting in getting the resource values of […]"

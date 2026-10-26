@@ -85,9 +85,12 @@ async function verify() {
 			assert.equal(typeof comment.content, 'string');
 			assert.ok(comment.gravatarHash === null || /^[a-f0-9]{64}$/.test(comment.gravatarHash));
 			if (comment.website !== null) {
-				const website = new URL(comment.website);
+				const website = new URL(comment.website, 'https://blog.pieeatingninjas.be');
 				assert.ok(['http:', 'https:'].includes(website.protocol));
 				assert.equal(Boolean(website.username || website.password), false);
+				if (website.hostname === 'blog.pieeatingninjas.be' && !website.port) {
+					assert.ok(comment.website.startsWith('/') && !comment.website.startsWith('//'));
+				}
 			}
 			const $ = load(`<div>${comment.content}</div>`, {}, false);
 			const allowedTags = new Set(['a', 'blockquote', 'br', 'code', 'del', 'em', 'li', 'ol', 'p', 'pre', 'strong', 'ul']);

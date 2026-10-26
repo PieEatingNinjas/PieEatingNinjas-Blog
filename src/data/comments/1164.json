@@ -7,7 +7,7 @@
       "id": 111,
       "parentId": 0,
       "name": "Creating a UWP Console app in C# – Pie Eating Ninjas' Blog",
-      "website": "https://blog.pieeatingninjas.be/2018/04/05/creating-a-uwp-console-app-in-c/",
+      "website": "/2018/04/05/creating-a-uwp-console-app-in-c/",
       "gravatarHash": null,
       "date": "2018-05-22 12:25:53",
       "content": "[…] example of a UWP Console app can be found in this blogpost. In this post we use a UWP Console app that does image classification using […]"
@@ -16,7 +16,7 @@
       "id": 115,
       "parentId": 0,
       "name": "Image classification with Azure Custom Vision Service and CoreML – Pie Eating Ninjas' Blog",
-      "website": "https://blog.pieeatingninjas.be/2018/06/04/image-classification-with-azure-custom-vision-service-and-coreml/",
+      "website": "/2018/06/04/image-classification-with-azure-custom-vision-service-and-coreml/",
       "gravatarHash": null,
       "date": "2018-06-04 08:26:12",
       "content": "[…] my previous blogpost I created a small PoC to show you how to work with the Azure Custom Vision Service and WinML. In […]"
@@ -43,7 +43,7 @@
       "id": 177,
       "parentId": 0,
       "name": "Image classification with WinML and UWP (update) - Pie Eating Ninjas' Blog",
-      "website": "https://blog.pieeatingninjas.be/2019/04/22/image-classification-with-winml-and-uwp-update/",
+      "website": "/2019/04/22/image-classification-with-winml-and-uwp-update/",
       "gravatarHash": null,
       "date": "2019-04-22 13:58:39",
       "content": "[…] over a year ago, I blogged about how to do image classification using WinML in UWP. Since then we got some updates of Windows and Visual Studio which result in some […]"

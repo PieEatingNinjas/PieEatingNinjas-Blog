@@ -58,6 +58,19 @@ test('strips executable HTML and unsafe URL schemes while retaining allowlisted 
 	assert.doesNotMatch(result.content, /script|steal|iframe|data:|img|onerror|style=|class=/);
 });
 
+test('rewrites the blog own-domain website to a root-relative path', () => {
+	const { comment: result } = sanitizeLegacyComment({
+		'wp:comment_id': '12',
+		'wp:comment_parent': '0',
+		'wp:comment_author': 'Synthetic',
+		'wp:comment_author_email': '',
+		'wp:comment_author_url': 'http://blog.pieeatingninjas.be/2016/09/19/uwp-simple-pdf-viewer/',
+		'wp:comment_date': '2020-01-01 12:00:00',
+		'wp:comment_content': 'Synthetic comment',
+	});
+	assert.equal(result.website, '/2016/09/19/uwp-simple-pdf-viewer/');
+});
+
 test('redacts URL-encoded embedded emails and omits email-bearing websites', () => {
 	const { comment: result, privacyRedactions, websiteOmittedForPrivacy } = sanitizeLegacyComment({
 		'wp:comment_id': '13',
