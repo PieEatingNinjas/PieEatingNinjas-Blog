@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import { SITE_ORIGIN } from './src/lib/urls.ts';
-import compatibility from './src/data/migration-compatibility.json' with { type: 'json' };
+import compatibility from './src/data/legacy-site.json' with { type: 'json' };
 
 // https://astro.build/config
 export default defineConfig({

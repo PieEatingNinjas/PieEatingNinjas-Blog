@@ -113,7 +113,7 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 	]);
 	const configFile = path.join(directory, 'astro.config.mjs');
 	await writeFile(configFile, (await readFile(configFile, 'utf8')).replace('defineConfig({', "defineConfig({\n\tcacheDir: './.astro-cache/',"));
-	const compatibilityFile = path.join(directory, 'src/data/migration-compatibility.json');
+	const compatibilityFile = path.join(directory, 'src/data/legacy-site.json');
 	const compatibility = JSON.parse(await readFile(compatibilityFile, 'utf8'));
 	compatibility.taxonomies.push({ kind: 'category', slug: 'shared', name: 'Synthetic category' },
 		{ kind: 'tag', slug: 'shared', name: 'Synthetic tag' });

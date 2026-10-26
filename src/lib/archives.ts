@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import compatibility from '../data/migration-compatibility.json' with { type: 'json' };
+import compatibility from '../data/legacy-site.json' with { type: 'json' };
 
 export type ArchivePost = Pick<CollectionEntry<'blog'>, 'id' | 'data'>;
 export interface TaxonomyTerm {
