@@ -24,9 +24,7 @@
     "test:giscus": "node --experimental-strip-types --test scripts/giscus.test.mjs",
     "migration:compatibility": "node scripts/migration-compatibility.mjs",
     "test:compatibility": "node --test scripts/migration-compatibility.test.mjs",
-    "migration:verify-compatibility": "node scripts/migration-verify-compatibility.mjs",
-    "build:pages": "astro build && node scripts/pages-base-path.mjs",
-    "test:pages-base": "node --test scripts/pages-base-path.test.mjs"
+    "migration:verify-compatibility": "node scripts/migration-verify-compatibility.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",

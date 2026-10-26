@@ -3,7 +3,6 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { runInNewContext } from 'node:vm';
 import { GISCUS_PUBLIC_CONFIG, getGiscusConfig } from '../src/lib/giscus.ts';
-import { rewriteHtml } from './pages-base-path.mjs';
 
 const validConfig = {
 	repo: 'PieEatingNinjas/PieEatingNinjas-blog-discussions',
@@ -36,16 +35,14 @@ test('invalid enable flags and repository names fail explicitly', () => {
 	assert.throws(() => getGiscusConfig('true', { ...validConfig, repo: 'not-a-repository' }), /owner\/repository/);
 });
 
-test('Giscus loads its custom theme from the viewing origin on root and Pages deployments', async () => {
+test('Giscus loads its custom theme from the viewing origin in production and local development', async () => {
 	const source = await readFile(new URL('../src/components/Giscus.astro', import.meta.url), 'utf8');
-	for (const [origin, base] of [
-		['https://blog.pieeatingninjas.be', ''],
-		['https://pieeatingninjas.github.io', '/PieEatingNinjas-Blog'],
-		['http://localhost:4321', ''],
+	for (const origin of [
+		'https://blog.pieeatingninjas.be',
+		'http://localhost:4321',
 	]) {
-		const html = base ? rewriteHtml(source, base) : source;
-		const [, theme] = /data-theme="([^"]+)"/.exec(html);
-		const [, code] = /<script\b[^>]*>([\s\S]*?)<\/script>/.exec(html);
+		const [, theme] = /data-theme="([^"]+)"/.exec(source);
+		const [, code] = /<script\b[^>]*>([\s\S]*?)<\/script>/.exec(source);
 		const embed = { dataset: {}, setAttribute(name, value) { this[name] = value; } };
 		let appended;
 		runInNewContext(code, {
@@ -64,7 +61,7 @@ test('Giscus loads its custom theme from the viewing origin on root and Pages de
 			},
 		});
 		assert.equal(appended, embed);
-		assert.equal(embed.dataset.theme, `${origin}${base}/giscus-theme.css`);
+		assert.equal(embed.dataset.theme, `${origin}/giscus-theme.css`);
 		assert.equal(embed['data-repo'], validConfig.repo);
 		assert.equal(embed.src, 'https://giscus.app/client.js');
 		assert.equal(embed.async, true);
