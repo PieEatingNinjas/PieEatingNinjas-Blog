@@ -5,6 +5,48 @@ const page = legacyPages.book;
 ---
 
 <Layout title={page.title} description={page.description} canonicalPath={page.path}>
-	<p>The MVVM Pattern in .NET MAUI</p>
-	<p>This page is being restored as part of the blog migration.</p>
+	<section class="book">
+		<div>
+			<h2>The MVVM Pattern in .NET MAUI</h2>
+			<p>
+				A practical guide to structuring cross-platform apps with Model-View-ViewModel, with
+				ideas you can apply as you build and maintain .NET MAUI applications.
+			</p>
+			<p>
+				<a href="https://www.amazon.com/MVVM-Pattern-NET-MAUI-cross-platform/dp/1805125001/">
+					Find the book on Amazon
+				</a>
+			</p>
+		</div>
+		<img
+			src="/assets/mvvm-pattern-dotnet-maui.jpg"
+			alt="Cover of The MVVM Pattern in .NET MAUI by Pieter Nijs"
+			width="600"
+			height="740"
+		/>
+	</section>
 </Layout>
+
+<style>
+	.book {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 1.5em;
+		align-items: center;
+	}
+
+	.book img {
+		width: 150px;
+		box-shadow: var(--box-shadow);
+	}
+
+	@media (max-width: 480px) {
+		.book {
+			gap: 1em;
+		}
+
+		.book img {
+			width: 100px;
+		}
+	}
+</style>
