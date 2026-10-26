@@ -11,7 +11,7 @@ The term UWP is used for a lot of things: UI (WinUI), the Windows AppModel, Wind
 
 # Just 1 NuGet package
 
-In a [previous blogpost](/2020/02/15/reading-belgian-eid-in-uwp-using-smartcardreader/ "Reading Belgian eID in UWP using SmartCardReader"), I talked about how I used the `Windows.Devices.SmartCards.SmartCardReader`class to access an eID and read the content from it. This demo was written in a UWP app (you know, the 'full'/'classic'/store/modern UI/... UWP kinda app).
+In a [previous blogpost](/2020/02/15/reading-belgian-eid-in-uwp-using-smartcardreader/ "Reading Belgian eID in UWP using SmartCardReader"), I talked about how I used the `Windows.Devices.SmartCards.SmartCardReader` class to access an eID and read the content from it. This demo was written in a UWP app (you know, the 'full'/'classic'/store/modern UI/... UWP kinda app).
 
 What few people know, is that these Windows Runtime APIs aren't exclusive for these kinds of app. It's possible to access these APIs from WinForms, WPF, even from the Console.
 
