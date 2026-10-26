@@ -30,7 +30,7 @@ There were quite a few posts to migrate. I wanted every old post to keep its ori
 
 Some of those old posts had code samples embedded as images. Yes, we all make questionable choices sometimes. I converted those back into actual text and code blocks, which makes them easier to read, copy, and search.
 
-I also reduced image sizes where it made sense. For images Astro can process, it can generate optimized output as part of the build.
+The agents also resized images where it made sense. For images Astro can process, it can generate optimized output as part of the build.
 
 ## Copilot as a migration buddy
 
@@ -40,7 +40,7 @@ When I say "I migrated the blog", there is a small asterisk: I did not write a s
 
 The VS Code Agents window was my main workspace. I could split the job into smaller tasks and let multiple agents work in parallel, while I checked how the pieces fitted together. I also connected the Astro Docs MCP, so the agents could look up Astro's documentation as they worked.
 
-Even as launch day got closer, I could kick off a few things from [vscode.dev/agents](https://vscode.dev/agents) through a tunnel to my MacBook. That meant I could keep the migration moving without sitting in front of the editor all day.
+While I was on the go, I could kick off a few things from [vscode.dev/agents](https://vscode.dev/agents) through a tunnel to my MacBook. That meant I could keep the migration moving and spend valuable time with my family instead of being tied to the editor.
 
 It was a fun weekend with the family, while I migrated my years-old blog in the background. It was not a one-shot prompt that magically produced a finished blog: I still reviewed the output and tested the pages. Some small details need a bit more love here and there, but this made a weekend-sized side project feel very doable.
 
