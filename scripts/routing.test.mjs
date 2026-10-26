@@ -149,6 +149,10 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 		const file = page.path === '/404.html' ? '404.html' : `${page.path.slice(1)}index.html`;
 		const $ = load(await readFile(path.join(output, file), 'utf8'));
 		assert.equal($('link[rel="canonical"]').attr('href'), canonicalUrl(page.path));
+		if (page.role === 'book') {
+			assert.equal($('meta[http-equiv="refresh"]').length, 0);
+			assert.match($('h2').text(), /The MVVM Pattern in \.NET MAUI/);
+		}
 	}
 	const listings = [];
 	for (let page = 1; ; page++) {
@@ -160,7 +164,7 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 	const listing = listings[0];
 	assert.equal(listing('link[rel="canonical"]').attr('href'), canonicalUrl('/'));
 	assert.ok(!listing.text().includes('Hello, Astronaut!'));
-	assert.deepEqual(listing('header .internal-links a').toArray().map((element) => listing(element).text().trim()), ['Blog', 'About']);
+	assert.deepEqual(listing('header .internal-links a').toArray().map((element) => listing(element).text().trim()), ['Blog', 'About', 'Book']);
 	const blogRedirect = load(await readFile(path.join(output, 'blog/index.html'), 'utf8'));
 	assert.match(blogRedirect('meta[http-equiv="refresh"]').attr('content'), /url=\/$/);
 	assert.equal(blogRedirect('link[rel="canonical"]').attr('href'), canonicalUrl('/'));
