@@ -10,11 +10,15 @@ It was time for a refresh. My blog had been running on WordPress for years, and 
 
 The result is still my blog, with the same posts and the same URLs. But there is no PHP site to maintain, and I can cancel the WordPress hosting.
 
-## Static site, custom domain
+## Astro, Markdown, and GitHub Pages
 
-The site is built with Astro as a static site. The content lives in the repository as Markdown, and a build produces the files that GitHub Pages hosts. No database, no runtime server, and no WordPress updates to keep an eye on.
+Astro is a web framework for building content-focused websites. In this project, each post is a Markdown file with a little metadata at the top, like its title, date, and categories. Astro combines that content with the site layouts and builds the pages, archives, and other data from it.
 
-The site is published at [blog.pieeatingninjas.be](https://blog.pieeatingninjas.be), with the custom domain pointing to GitHub Pages. Astro takes care of the pages, while GitHub Pages serves the finished site.
+That distinction is worth calling out: the content can feel dynamic while I am editing it, but it is turned into ordinary static files at build time. There is no database or application server generating pages when someone visits.
+
+When I push to `main` (or start the workflow manually), a GitHub Action checks out the repository and uses Astro's GitHub Action to build the site with Node.js 24 and npm. It uploads the generated site as an artifact, then a deploy job publishes that artifact to GitHub Pages. The custom domain, [blog.pieeatingninjas.be](https://blog.pieeatingninjas.be), points to Pages.
+
+No PHP site to maintain, no database, and no WordPress updates to keep an eye on.
 
 For comments, I added Giscus, which uses GitHub Discussions. I also brought over the comments from the old blog using WordPress's export. That saved me from having to copy them over by hand, and it means the history is still there.
 
@@ -32,7 +36,9 @@ I also reduced image sizes where it made sense. For images Astro can process, it
 
 I used Copilot throughout the project. I started with the idea, put the WordPress export and the existing site into the project, and iterated from there. Copilot helped with the migration, the Astro implementation, and the less exciting details like keeping routes and content consistent.
 
-It was not a one-shot prompt that magically produced a finished blog. I reviewed the output, tested the pages, fixed things that did not look right, and kept going until the site was in good shape. Still, having Copilot available made a weekend-sized side project feel very doable.
+VS Code's Copilot agent mode was my buddy. I could split the work into separate tasks and have multiple agents work on them in parallel, then review how the pieces fit together. That made it much easier to tackle the content migration, site behavior, and all the little compatibility details at the same time.
+
+It was not a one-shot prompt that magically produced a finished blog. I reviewed the output, tested the pages, fixed things that did not look right, and kept going. Some small details still need a bit more love here and there, but having Copilot available made a weekend-sized side project feel very doable.
 
 Astro and GitHub Pages turned out to be a nice fit for a content-heavy personal blog: fast pages, straightforward hosting, and content I can manage right alongside the code.
 
