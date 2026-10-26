@@ -1,0 +1,99 @@
+<div class="analytics-settings">
+	<a href="/privacy-policy/">Privacy policy</a>
+	<button type="button" id="analytics-settings" aria-controls="analytics-consent" aria-expanded="false" hidden>
+		Analytics settings
+	</button>
+</div>
+<p id="analytics-storage-warning" role="status" hidden>
+	Your browser could not save this choice. It applies to this page only.
+	Allow site storage and choose again to save it for future visits.
+</p>
+<section id="analytics-consent" aria-labelledby="analytics-consent-title" hidden>
+	<h2 id="analytics-consent-title">Optional analytics</h2>
+	<p>
+		May we use Google Analytics cookies to understand which articles are read?
+		Nothing is sent to Google Analytics unless you accept. Refusing does not affect the blog.
+		You can change your choice using “Analytics settings” in the footer.
+		{' '}<a href="/privacy-policy/">Read the privacy policy</a>.
+	</p>
+	<p id="analytics-preview" hidden>Analytics is disabled on this development or preview site.</p>
+	<div class="choices">
+		<button type="button" id="analytics-accept">Accept analytics</button>
+		<button type="button" id="analytics-refuse">Refuse analytics</button>
+		<button type="button" id="analytics-close" hidden>Close settings</button>
+	</div>
+</section>
+
+<script>
+	import { initializeAnalytics } from '../lib/analytics';
+	initializeAnalytics(import.meta.env.PROD);
+</script>
+
+<style>
+	.analytics-settings, .choices {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 0.75rem;
+		margin-top: 1rem;
+	}
+	button {
+		padding: 0.55rem 0.8rem;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		background: var(--surface);
+		color: rgb(var(--gray-dark));
+		font: inherit;
+		cursor: pointer;
+	}
+	#analytics-settings {
+		appearance: none;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 0.18em;
+		text-decoration-thickness: 1px;
+	}
+	button:hover {
+		border-color: var(--accent);
+	}
+	#analytics-settings:hover {
+		color: var(--accent-dark);
+	}
+	button:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+	[hidden] {
+		display: none !important;
+	}
+	#analytics-consent {
+		position: fixed;
+		z-index: 100;
+		inset: auto 1rem 1rem;
+		width: min(44rem, calc(100% - 2rem));
+		max-height: calc(100dvh - 2rem);
+		overflow-y: auto;
+		box-sizing: border-box;
+		margin: 0 auto;
+		padding: 1.25rem;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		background: var(--surface);
+		color: rgb(var(--gray-dark));
+		box-shadow: var(--box-shadow);
+		text-align: left;
+		font-size: 1rem;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+	p {
+		margin: 0.75rem 0;
+	}
+</style>

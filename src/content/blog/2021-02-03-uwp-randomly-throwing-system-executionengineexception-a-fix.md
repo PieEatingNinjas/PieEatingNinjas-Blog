@@ -7,7 +7,7 @@ categories: ["uwp"]
 tags: []
 ---
 
-While debugging my UWP apps, I recently started getting this `System.ExecutionEngineExeption`randomly (roughly 50% of the time) when navigating to a new page.
+While debugging my UWP apps, I recently started getting this `System.ExecutionEngineExeption` randomly (roughly 50% of the time) when navigating to a new page.
 
 ![](/wp-content/uploads/2021/02/ExecutionEngineException.jpg)
 
