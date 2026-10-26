@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import compatibility from '../data/migration-compatibility.json';
+import compatibility from '../data/legacy-site.json';
 
 export function imageAliasPaths(extension: 'jpg' | 'png' | 'gif') {
 	return compatibility.imageAliases.filter((alias) => alias.from.endsWith(`.${extension}`)).map((alias) => ({

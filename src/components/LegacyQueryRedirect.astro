@@ -1,5 +1,5 @@
 ---
-import compatibility from '../data/migration-compatibility.json';
+import compatibility from '../data/legacy-site.json';
 ---
 
 <script id="legacy-query-ids" type="application/json" set:html={JSON.stringify(compatibility.queryIds).replaceAll('<', '\\u003c')} />

@@ -10,29 +10,14 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "migration:inventory": "node scripts/migration-inventory.mjs",
-    "migration:pilot": "node scripts/migration-import.mjs",
-    "migration:posts": "node scripts/migration-import.mjs --all-posts",
-    "test:import": "node --test scripts/migration-import.test.mjs",
-    "migration:verify-pilot": "node scripts/migration-verify-pilot.mjs",
-    "migration:verify-posts": "node scripts/migration-verify-posts.mjs",
-    "migration:comments": "node scripts/migration-comments.mjs",
-    "test:comments": "node --test scripts/migration-comments.test.mjs",
-    "migration:verify-comments": "node scripts/migration-verify-comments.mjs",
-    "test:migration": "node --test scripts/migration-inventory.test.mjs",
     "test:routing": "node --experimental-strip-types --test scripts/routing.test.mjs",
     "test:giscus": "node --experimental-strip-types --test scripts/giscus.test.mjs",
-    "migration:compatibility": "node scripts/migration-compatibility.mjs",
-    "test:compatibility": "node --test scripts/migration-compatibility.test.mjs",
-    "migration:verify-compatibility": "node scripts/migration-verify-compatibility.mjs"
+    "build:pages": "astro build && node scripts/pages-base-path.mjs",
+    "test:pages-base": "node --test scripts/pages-base-path.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "cheerio": "^1.1.2",
-    "fast-xml-parser": "^5.3.0",
-    "pdf-lib": "^1.17.1",
-    "turndown": "^7.2.0",
-    "turndown-plugin-gfm": "^1.0.2",
     "typescript": "^6.0.3"
   },
   "dependencies": {
