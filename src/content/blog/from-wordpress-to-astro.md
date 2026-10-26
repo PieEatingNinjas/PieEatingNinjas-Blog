@@ -36,10 +36,12 @@ I also reduced image sizes where it made sense. For images Astro can process, it
 
 I used Copilot throughout the project. I started with the idea, put the WordPress export and the existing site into the project, and iterated from there. Copilot helped with the migration, the Astro implementation, and the less exciting details like keeping routes and content consistent.
 
-VS Code's Copilot agent mode was my buddy. I could split the work into separate tasks and have multiple agents work on them in parallel, then review how the pieces fit together. That made it much easier to tackle the content migration, site behavior, and all the little compatibility details at the same time.
+When I say "I migrated the blog", there is a small asterisk: I did not write a single line of code. I prompted the agents, reviewed what they came back with, and tested the result. I did not even retype code from screenshots. The agents handled that too.
 
-It was not a one-shot prompt that magically produced a finished blog. I reviewed the output, tested the pages, fixed things that did not look right, and kept going. Some small details still need a bit more love here and there, but having Copilot available made a weekend-sized side project feel very doable.
+The VS Code Agents window was my main workspace. I could split the job into smaller tasks and let multiple agents work in parallel, while I checked how the pieces fitted together. I also connected the Astro Docs MCP, so the agents could look up Astro's documentation as they worked.
 
-Astro and GitHub Pages turned out to be a nice fit for a content-heavy personal blog: fast pages, straightforward hosting, and content I can manage right alongside the code.
+Even as launch day got closer, I could kick off a few things from [vscode.dev/agents](https://vscode.dev/agents) through a tunnel to my MacBook. That meant I could keep the migration moving without sitting in front of the editor all day.
 
-The new blog is live. The old posts are still where you expect them, and I can finally say goodbye to my PHP WordPress hosting bill.
+It was a fun weekend with the family, while a years-old blog migration ran in the background. It was not a one-shot prompt that magically produced a finished blog: I still reviewed the output and tested the pages. Some small details need a bit more love here and there, but this made a weekend-sized side project feel very doable.
+
+Astro and GitHub Pages turned out to be a nice fit for a content-heavy personal blog: fast pages, straightforward hosting, and content I can manage right alongside the code. The new blog is live, the old posts are still where you expect them, and I can finally say goodbye to my PHP WordPress hosting bill.
