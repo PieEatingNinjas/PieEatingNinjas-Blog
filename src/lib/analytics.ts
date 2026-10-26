@@ -88,17 +88,18 @@ export function initializeAnalytics(production: boolean, win: Window = window, d
 		});
 		script = doc.createElement('script');
 		script.async = true;
+		script.referrerPolicy = 'no-referrer';
 		script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
 		doc.head.append(script);
 	}
 
-	function stop() {
+	function stop(reload = true) {
 		analytics[disableKey] = true;
 		script?.remove();
 		if (analytics.dataLayer) analytics.dataLayer.length = 0;
 		clearCookies();
 		// Unload Google's listeners/timers as well as disabling collection immediately.
-		if (started) win.location.reload();
+		if (started && reload) win.location.reload();
 	}
 
 	let choice = readChoice();
@@ -113,19 +114,24 @@ export function initializeAnalytics(production: boolean, win: Window = window, d
 
 	function choose(next: Choice) {
 		choice = next;
+		let saved = false;
 		try {
 			win.localStorage.setItem(CONSENT_KEY, JSON.stringify({
 				choice, expiresAt: Date.now() + CONSENT_LIFETIME,
 			}));
+			saved = true;
 		} catch {
-			// The choice still applies to this page when storage is blocked.
+			// Clear stale acceptance if possible; never reload into it on failure.
+			try { win.localStorage.removeItem(CONSENT_KEY); } catch { /* Storage is blocked. */ }
 		}
+		const warning = doc.getElementById('analytics-storage-warning');
+		if (warning) warning.hidden = saved;
 		panel!.hidden = true;
 		close!.hidden = false;
 		settings!.setAttribute('aria-expanded', 'false');
 		settings!.focus();
 		if (choice === 'accepted') start();
-		else stop();
+		else stop(saved);
 	}
 
 	accept.addEventListener('click', () => choose('accepted'));

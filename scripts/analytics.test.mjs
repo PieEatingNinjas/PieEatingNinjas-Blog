@@ -5,7 +5,10 @@ import { CONSENT_KEY, MEASUREMENT_ID, initializeAnalytics } from '../src/lib/ana
 const origin = 'https://blog.pieeatingninjas.be';
 const validChoice = (choice) => JSON.stringify({ choice, expiresAt: Date.now() + 86_400_000 });
 
-function browser({ production = true, url = `${origin}/2020/01/01/synthetic/`, stored, blocked = false } = {}) {
+function browser({
+	production = true, url = `${origin}/2020/01/01/synthetic/`, stored,
+	blocked = false, writesBlocked = false,
+} = {}) {
 	class Element extends EventTarget {
 		hidden = true;
 		attributes = {};
@@ -16,7 +19,7 @@ function browser({ production = true, url = `${origin}/2020/01/01/synthetic/`, s
 	}
 	const elements = Object.fromEntries([
 		'analytics-consent', 'analytics-settings', 'analytics-accept', 'analytics-refuse',
-		'analytics-close', 'analytics-preview',
+		'analytics-close', 'analytics-preview', 'analytics-storage-warning',
 	].map((id) => [id, new Element()]));
 	const win = new EventTarget();
 	win.location = new URL(url);
@@ -28,8 +31,12 @@ function browser({ production = true, url = `${origin}/2020/01/01/synthetic/`, s
 			return storage.get(key) ?? null;
 		},
 		setItem(key, value) {
-			if (blocked) throw new Error('Storage blocked');
+			if (blocked || writesBlocked) throw new Error('Storage blocked');
 			storage.set(key, value);
+		},
+		removeItem(key) {
+			if (blocked || writesBlocked) throw new Error('Storage blocked');
+			storage.delete(key);
 		},
 	};
 	const scripts = [];
@@ -77,6 +84,7 @@ test('acceptance persists a bounded choice, loads once and sends one explicit pa
 	assert.equal(b.scripts.length, 1);
 	assert.equal(b.scripts[0].src, `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`);
 	assert.equal(b.scripts[0].async, true);
+	assert.equal(b.scripts[0].referrerPolicy, 'no-referrer');
 	const commands = b.commands();
 	const views = commands.filter(([command, name]) => command === 'event' && name === 'page_view');
 	assert.equal(views.length, 1);
@@ -185,6 +193,20 @@ test('blocked storage fails closed but still allows a current-page choice', () =
 	assert.equal(b.scripts.length, 1);
 	b.elements['analytics-refuse'].click();
 	assert.equal(b.win[`ga-disable-${MEASUREMENT_ID}`], true);
+	assert.equal(b.win.reloads, undefined);
+	assert.equal(b.elements['analytics-storage-warning'].hidden, false);
+});
+
+test('failed withdrawal persistence never reloads into a readable stale acceptance', () => {
+	const b = browser({ stored: validChoice('accepted'), writesBlocked: true });
+	assert.equal(b.scripts.length, 1);
+	b.elements['analytics-refuse'].click();
+	assert.equal(b.win[`ga-disable-${MEASUREMENT_ID}`], true);
+	assert.equal(b.scripts[0].removed, true);
+	assert.deepEqual(b.commands(), []);
+	assert.equal(b.win.reloads, undefined);
+	assert.equal(b.elements['analytics-storage-warning'].hidden, false);
+	assert.equal(JSON.parse(b.storage.get(CONSENT_KEY)).choice, 'accepted');
 });
 
 test('cross-tab withdrawal, acceptance, expiry and clearing storage are observed', () => {

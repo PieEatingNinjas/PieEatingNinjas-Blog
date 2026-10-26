@@ -35,8 +35,9 @@ Manager container is required.
 The footer provides equally available accept/refuse actions and persistent
 “Analytics settings”. Both choices expire after 180 days. Refusal sends no
 Analytics requests; withdrawal disables collection, clears accessible GA cookies
-and reloads to unload Google's script. With storage blocked, the choice applies
-only to the current page. Cross-tab changes are observed. No consent means no
+and reloads to unload Google's script when the choice is saved. With storage
+blocked, the choice applies only to the current page and a warning is displayed;
+withdrawal does not reload into a possibly stale acceptance. Cross-tab changes are observed. No consent means no
 tracking, including when JavaScript is disabled. This is basic consent gating,
 not cookieless/advanced Consent Mode.
 
