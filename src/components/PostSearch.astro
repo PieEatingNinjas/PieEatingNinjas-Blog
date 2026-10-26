@@ -1,0 +1,121 @@
+---
+import type { ArchivePost } from '../lib/archives';
+import { sortedPosts } from '../lib/archives';
+import { normalizeSearchText } from '../lib/search';
+import { postUrl } from '../lib/urls';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+	posts: ArchivePost[];
+}
+
+const { posts } = Astro.props;
+---
+
+<section id="post-search" aria-label="Search blog posts" hidden>
+	<form role="search">
+		<label class="sr-only" for="post-search-input">Search all posts</label>
+		<input
+			id="post-search-input"
+			type="search"
+			placeholder="Search all posts"
+			aria-controls="post-search-results"
+			autocomplete="off"
+		/>
+		<button type="reset" disabled>Clear</button>
+	</form>
+	<div id="post-search-results" hidden>
+		<p role="status" aria-live="polite" aria-atomic="true"></p>
+		<ul>
+			{sortedPosts(posts).map((post) => (
+				<li data-search-text={normalizeSearchText([
+					post.data.title, post.data.description, ...post.data.categories, ...post.data.tags,
+				].join(' '))}>
+					<a href={postUrl(post)}><h2>{post.data.title}</h2></a>
+					<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+					<p>{post.data.description}</p>
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<script>
+	import { initializePostSearch } from '../lib/search';
+	initializePostSearch();
+</script>
+
+<style>
+	section {
+		margin-bottom: 2rem;
+	}
+	form {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		width: min(22rem, 100%);
+	}
+	input {
+		appearance: none;
+		flex: 1;
+		min-width: 0;
+		width: 100%;
+	}
+	input::-webkit-search-cancel-button {
+		-webkit-appearance: none;
+		width: 14px;
+		height: 14px;
+		margin-left: 0.5rem;
+		background-color: var(--accent);
+		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 4 8 8m0-8-8 8' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+		cursor: pointer;
+	}
+	input, button {
+		padding: 0.5rem 0.65rem;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		background: var(--surface);
+		color: rgb(var(--gray-dark));
+		font: 0.9rem var(--font-atkinson);
+	}
+	button {
+		cursor: pointer;
+	}
+	button:disabled {
+		visibility: hidden;
+	}
+	button:not(:disabled):hover {
+		border-color: var(--accent);
+	}
+	input:focus, button:focus-visible {
+		border-color: var(--accent);
+		outline: none;
+		box-shadow: none;
+	}
+	.date {
+		margin: 0.5rem 0;
+		color: rgb(var(--gray));
+		font-size: 0.85rem;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		margin-top: 1rem;
+		padding: 1.25rem;
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		background: var(--surface);
+	}
+	h2 {
+		font-size: 1.3rem;
+	}
+	li > p:last-child {
+		margin-bottom: 0;
+	}
+	[hidden] {
+		display: none !important;
+	}
+</style>

@@ -8,6 +8,10 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+### For every visual update
+
+When making visual updates, ensure that you check the changes in the browser and verify that they appear as expected. Use the dev server in background mode to quickly iterate on visual changes. Validate with the user.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build

@@ -2,7 +2,8 @@
 import PostArchive from '../layouts/PostArchive.astro';
 import { archivePages } from '../lib/archives';
 import { getPosts } from '../lib/posts';
-const home = archivePages(await getPosts())[0];
+const posts = await getPosts();
+const home = archivePages(posts)[0];
 ---
 
-<PostArchive {...home} />
+<PostArchive {...home} searchPosts={posts} />

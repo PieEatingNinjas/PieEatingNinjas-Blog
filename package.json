@@ -12,6 +12,7 @@
     "astro": "astro",
     "test:routing": "node --experimental-strip-types --test scripts/routing.test.mjs",
     "test:giscus": "node --experimental-strip-types --test scripts/giscus.test.mjs",
+    "test:search": "node --experimental-strip-types --test scripts/search.test.mjs",
     "build:pages": "astro build && node scripts/pages-base-path.mjs",
     "test:pages-base": "node --test scripts/pages-base-path.test.mjs"
   },

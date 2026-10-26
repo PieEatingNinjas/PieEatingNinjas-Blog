@@ -1,16 +1,17 @@
 ---
 import { Image } from 'astro:assets';
 import { postUrl } from '../lib/urls';
-import type { archivePages } from '../lib/archives';
+import type { ArchivePost, archivePages } from '../lib/archives';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import LegacyQueryRedirect from '../components/LegacyQueryRedirect.astro';
+import PostSearch from '../components/PostSearch.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-type Props = ReturnType<typeof archivePages>[number];
-const { posts, title, page, total, path, previous, next } = Astro.props;
+type Props = ReturnType<typeof archivePages>[number] & { searchPosts?: ArchivePost[] };
+const { posts, title, page, total, path, previous, next, searchPosts } = Astro.props;
 ---
 
 <!doctype html>
@@ -223,34 +224,37 @@ const { posts, title, page, total, path, previous, next } = Astro.props;
 					</header>
 				)}
 				{title && <h1>{title}</h1>}
-				{!posts.length && <p>No posts in this archive yet.</p>}
-				<ul class="post-list">
-					{posts.map((post, index) => (
-						<li
-							class:list={['post-card', {
-								featured: index === 0 && page === 1,
-								'has-image': Boolean(post.data.heroImage),
-							}]}
-							data-post-id={post.data.legacy?.id ?? post.id}
-						>
-							<a href={postUrl(post)}>
-								{post.data.heroImage && (typeof post.data.heroImage === 'string'
-									? <img src={post.data.heroImage} alt="" />
-									: <Image width={720} height={360} src={post.data.heroImage} alt="" />)}
-								{!post.data.heroImage && <div class="post-art" aria-hidden="true">{'{ }'}</div>}
-								<div class="post-card-content">
-									<p class="date"><FormattedDate date={post.data.pubDate} /></p>
-									<h2 class="title">{post.data.title}</h2>
-								</div>
-							</a>
-						</li>
-					))}
-				</ul>
-				<nav aria-label="Archive pagination">
-					{previous ? <a href={previous} rel="prev">Newer posts</a> : <span />}
-					<span>Page {page} of {total}</span>
-					{next ? <a href={next} rel="next">Older posts</a> : <span />}
-				</nav>
+				{searchPosts && <PostSearch posts={searchPosts} />}
+				<div id={searchPosts ? 'home-posts' : undefined}>
+					{!posts.length && <p>No posts in this archive yet.</p>}
+					<ul class="post-list">
+						{posts.map((post, index) => (
+							<li
+								class:list={['post-card', {
+									featured: index === 0 && page === 1,
+									'has-image': Boolean(post.data.heroImage),
+								}]}
+								data-post-id={post.data.legacy?.id ?? post.id}
+							>
+								<a href={postUrl(post)}>
+									{post.data.heroImage && (typeof post.data.heroImage === 'string'
+										? <img src={post.data.heroImage} alt="" />
+										: <Image width={720} height={360} src={post.data.heroImage} alt="" />)}
+									{!post.data.heroImage && <div class="post-art" aria-hidden="true">{'{ }'}</div>}
+									<div class="post-card-content">
+										<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+										<h2 class="title">{post.data.title}</h2>
+									</div>
+								</a>
+							</li>
+						))}
+					</ul>
+					<nav aria-label="Archive pagination">
+						{previous ? <a href={previous} rel="prev">Newer posts</a> : <span />}
+						<span>Page {page} of {total}</span>
+						{next ? <a href={next} rel="next">Older posts</a> : <span />}
+					</nav>
+				</div>
 			</section>
 		</main>
 		<Footer />

@@ -162,6 +162,22 @@ test('static build emits dated fixture pages, canonicals, archive/feed links and
 		if (!$('nav[aria-label="Archive pagination"] a[rel="next"]').length) break;
 	}
 	const listing = listings[0];
+	assert.equal(listing('#post-search[hidden]').length, 1);
+	assert.equal(listing('#home-posts[hidden]').length, 0);
+	assert.equal(listing('#post-search input[type="search"]').attr('aria-controls'), 'post-search-results');
+	assert.equal(listing('#post-search input').attr('placeholder'), 'Search all posts');
+	assert.equal(listing('#post-search-toggle').length, 0);
+	assert.equal(listing('#post-search [inert]').length, 0);
+	assert.equal(listing('#post-search label.sr-only').length, 1);
+	assert.equal(listing('#post-search-results[hidden] [role="status"]').length, 1);
+	const searchEntries = listing('#post-search-results li');
+	assert.equal(searchEntries.length, listings.reduce((count, $) => count + $('.post-card').length, 0));
+	for (const entry of fixtures) {
+		assert.equal(searchEntries.find(`a[href="${entry.legacy.path}"]`).length, 1);
+	}
+	assert.match(searchEntries.filter((_, element) => listing(element).find('a').attr('href') === data.legacy.path)
+		.attr('data-search-text'), /synthetic route test.*synthetic content.*shared/);
+	for (const other of listings.slice(1)) assert.equal(other('#post-search').length, 0);
 	assert.equal(listing('link[rel="canonical"]').attr('href'), canonicalUrl('/'));
 	assert.ok(!listing.text().includes('Hello, Astronaut!'));
 	assert.deepEqual(listing('header .internal-links a').toArray().map((element) => listing(element).text().trim()), ['Blog', 'About', 'Book']);
