@@ -16,11 +16,11 @@ The result is still my blog, with the same posts and the same URLs. But there is
 
 Astro is a web framework for building content-focused websites. In this project, each post is a Markdown file with a little metadata at the top, like its title, date, and categories. Astro combines that content with the site layouts and builds the pages, archives, and other data from it.
 
-This is the interesting bit: while I am editing the site, the content feels dynamic. But when I push a change, the site is rebuilt into plain HTML, JavaScript, and assets. Visitors get those files directly; nothing is generated on the fly.
+This is the interesting bit: the content of the website feels dynamic, but it actually isn't. I'm basically editing static files in my repo and when I push a change, the site is rebuilt into plain HTML, JavaScript, and assets. Visitors get those files directly; nothing is generated on the fly.
 
-When I push to `main` (or start the workflow manually), a GitHub Action checks out the repository and uses Astro's GitHub Action to build the site with Node.js 24 and npm. It uploads the generated site as an artifact, then a deploy job publishes that artifact to GitHub Pages. The custom domain, [blog.pieeatingninjas.be](https://blog.pieeatingninjas.be), points to Pages.
+When I push to `main` (or start the workflow manually), a GitHub Action checks out the repository and uses Astro's GitHub Action to build the site with Node.js 24 and npm. It uploads the generated site as an artifact, then a deploy job publishes that artifact to GitHub Pages. 
 
-The [blog repository](https://github.com/PieEatingNinjas/PieEatingNinjas-Blog) is public now, so you can browse the site source and its [GitHub Pages workflow](https://github.com/PieEatingNinjas/PieEatingNinjas-Blog/blob/main/.github/workflows/deploy.yml). The build step is deliberately small:
+The build step is deliberately small:
 
 ```yaml
 - name: Build and upload Astro site
@@ -32,7 +32,9 @@ The [blog repository](https://github.com/PieEatingNinjas/PieEatingNinjas-Blog) i
 
 The workflow then deploys that artifact with `actions/deploy-pages@v5`.
 
-No database, no WordPress or PHP updates to keep an eye on.
+The custom domain, [blog.pieeatingninjas.be](https://blog.pieeatingninjas.be), points to Pages. 
+
+It's as simple as that! No database, no WordPress or PHP updates to keep an eye on.
 
 For comments, I added [Giscus](https://giscus.app/), which uses GitHub Discussions. I also brought over the comments from the old blog using WordPress's export. That saved me from having to copy them over by hand, and it means the history is still there.
 
@@ -50,11 +52,11 @@ Some images I had in my blog were hugely oversized, so while I was at it, I resi
 
 I used Copilot throughout the project. I started with the idea, put the WordPress export and the existing site into the project, and iterated from there. Copilot helped with the migration, the Astro implementation, and the less exciting details like keeping routes and content consistent.
 
-When I say "I migrated the blog", there is a small asterisk: I did not write a single line of code. I prompted the agents, reviewed what they came back with, and tested the result. I did not even retype code from screenshots nor did I resize the pictures myself. The agents handled that too.
+When I say "I migrated the blog", there is a small asterisk: I did not write a single line of code. I prompted the agents, reviewed what they came back with, and tested the result. I did not even retype code from screenshots or resized a single pictures myself. The agents handled that where it made sense.
 
 The VS Code Agents window was my main workspace. I could split the job into smaller tasks and let multiple agents work in parallel, while I checked how the pieces fitted together. I also connected the Astro Docs MCP, so the agents could look up the [Astro documentation](https://docs.astro.build/) as they worked.
 
-While I was on the go, I could kick off a few things from [vscode.dev/agents](https://vscode.dev/agents) through a tunnel to my MacBook. That meant I could keep the migration moving and spend valuable time with my family instead of being tied to the editor.
+While I was on the go this weekend, I could kick off a few things from [vscode.dev/agents](https://vscode.dev/agents) through a tunnel to my MacBook. That meant I could keep the migration moving and spend valuable time with my family instead of being tied to the editor.
 
 It was a fun weekend with the family, while I migrated my years-old blog in the background. It was not a one-shot prompt that magically produced a finished blog: I still reviewed the output and tested the pages. Some small details need a bit more love here and there, but this made a weekend-sized side project feel very doable.
 
