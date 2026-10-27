@@ -28,6 +28,8 @@ integrations, and compatibility routes are specific to this blog.
 - **Comments:** historical WordPress comments are rendered as static,
   sanitized archives. New comments use giscus with
   [Discussions in this repository](https://github.com/PieEatingNinjas/PieEatingNinjas-Blog/discussions).
+  Posts show the giscus discussion by default; set `allowComments: false` in a
+  post's frontmatter to hide it for that post.
 - **Local search:** browser-only search covers all posts by title,
   description, category, and tag, without an external search service. The
   normal paginated archive remains available without JavaScript.

@@ -10,8 +10,9 @@ import LegacyComments from '../components/LegacyComments.astro';
 import type { LegacyComment } from '../lib/comments';
 import type { TaxonomyTerm } from '../lib/archives';
 
-type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'categories' | 'tags' | 'codeRepositories'> & {
+type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'allowComments' | 'categories' | 'tags' | 'codeRepositories'> & {
 	pubDate?: Date;
+	allowComments?: boolean;
 	canonicalPath?: string;
 	archiveTerms?: TaxonomyTerm[];
 	codeRepositories?: string[];
@@ -24,6 +25,7 @@ const {
 	updatedDate,
 	heroImage,
 	canonicalPath,
+	allowComments = true,
 	archiveTerms = [],
 	codeRepositories = [],
 } = Astro.props;
@@ -231,7 +233,7 @@ const commentArchive = Astro.props.legacy
 					)}
 				</div>
 			</article>
-			{Astro.props.legacy && <Giscus />}
+			{allowComments && <Giscus />}
 			{commentArchive && <LegacyComments archive={commentArchive} />}
 		</main>
 		<Footer />

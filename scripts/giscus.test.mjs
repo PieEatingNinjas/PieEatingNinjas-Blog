@@ -18,10 +18,10 @@ test('Giscus can be disabled with an explicit false flag', () => {
 test('complete configuration is returned only when explicitly enabled', () => {
 	assert.deepEqual(getGiscusConfig('true', validConfig), validConfig);
 	assert.deepEqual(GISCUS_PUBLIC_CONFIG, {
-		repo: 'PieEatingNinjas/PieEatingNinjas-blog-discussions',
-		repoId: 'R_kgDOVWsG1Q',
+		repo: 'PieEatingNinjas/PieEatingNinjas-Blog',
+		repoId: 'R_kgDOVVzhhA',
 		category: 'Announcements',
-		categoryId: 'DIC_kwDOVWsG1c4DJkl6',
+		categoryId: 'DIC_kwDOVVzhhM4DJuSL',
 	});
 });
 
@@ -33,6 +33,15 @@ test('enabled Giscus rejects incomplete configuration', () => {
 test('invalid enable flags and repository names fail explicitly', () => {
 	assert.throws(() => getGiscusConfig('yes', validConfig), /must be either/);
 	assert.throws(() => getGiscusConfig('true', { ...validConfig, repo: 'not-a-repository' }), /owner\/repository/);
+});
+
+test('post comments are enabled by default and can be opted out per post', async () => {
+	const schema = await readFile(new URL('../src/lib/content-schema.ts', import.meta.url), 'utf8');
+	const layout = await readFile(new URL('../src/layouts/BlogPost.astro', import.meta.url), 'utf8');
+
+	assert.match(schema, /allowComments:\s*z\.boolean\(\)\.default\(true\)/);
+	assert.match(layout, /\{allowComments && <Giscus \/>\}/);
+	assert.doesNotMatch(layout, /\{Astro\.props\.legacy && <Giscus \/>\}/);
 });
 
 test('Giscus loads its custom theme from the viewing origin in production and local development', async () => {

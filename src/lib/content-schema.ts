@@ -6,6 +6,7 @@ export const postFields = {
 	description: z.string().min(1),
 	pubDate: z.coerce.date(),
 	updatedDate: z.coerce.date().optional(),
+	allowComments: z.boolean().default(true),
 	categories: z.array(z.string().min(1)).default([]),
 	tags: z.array(z.string().min(1)).default([]),
 	codeRepositories: z.array(z.string().refine(isCodeRepositoryUrl,
