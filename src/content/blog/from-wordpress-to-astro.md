@@ -44,13 +44,13 @@ There were quite a few posts to migrate. I wanted every old post to keep its ori
 
 Some of those old posts had code samples embedded as images. Yes, we all make questionable choices sometimes. I converted those back into actual text and code blocks, which makes them easier to read, copy, and search.
 
-I didn't even resize the pictures myself; the agents took care of that where it made sense. For images Astro can process, it can also generate optimized output as part of the build.
+Some images I had in my blog were hugely oversized, so while I was at it, I resized them as well. 
 
 ## Copilot as a migration buddy
 
 I used Copilot throughout the project. I started with the idea, put the WordPress export and the existing site into the project, and iterated from there. Copilot helped with the migration, the Astro implementation, and the less exciting details like keeping routes and content consistent.
 
-When I say "I migrated the blog", there is a small asterisk: I did not write a single line of code. I prompted the agents, reviewed what they came back with, and tested the result. I did not even retype code from screenshots. The agents handled that too.
+When I say "I migrated the blog", there is a small asterisk: I did not write a single line of code. I prompted the agents, reviewed what they came back with, and tested the result. I did not even retype code from screenshots nor did I resize the pictures myself. The agents handled that too.
 
 The VS Code Agents window was my main workspace. I could split the job into smaller tasks and let multiple agents work in parallel, while I checked how the pieces fitted together. I also connected the Astro Docs MCP, so the agents could look up the [Astro documentation](https://docs.astro.build/) as they worked.
 
@@ -58,4 +58,6 @@ While I was on the go, I could kick off a few things from [vscode.dev/agents](ht
 
 It was a fun weekend with the family, while I migrated my years-old blog in the background. It was not a one-shot prompt that magically produced a finished blog: I still reviewed the output and tested the pages. Some small details need a bit more love here and there, but this made a weekend-sized side project feel very doable.
 
-Astro and GitHub Pages turned out to be a nice fit for a content-heavy personal blog: fast pages, straightforward hosting, and content I can manage right alongside the code. The [new blog](https://blog.pieeatingninjas.be) is live, the old posts are still where you expect them, and I can finally say goodbye to my PHP WordPress hosting bill. All the code behind the blog is available in the [public GitHub repository](https://github.com/PieEatingNinjas/PieEatingNinjas-Blog) if you want to see how it is put together.
+Astro and GitHub Pages turned out to be a nice fit for a content-heavy personal blog: fast pages, straightforward hosting, and content I can manage right alongside the code. The [new blog](https://blog.pieeatingninjas.be) is live, the old posts are still where you expect them, and I can finally say goodbye to my PHP WordPress hosting bill. 
+
+All the code behind the blog is available in the [public GitHub repository](https://github.com/PieEatingNinjas/PieEatingNinjas-Blog) if you want to see how it is put together.
