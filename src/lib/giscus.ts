@@ -6,10 +6,10 @@ export type GiscusConfig = {
 };
 
 export const GISCUS_PUBLIC_CONFIG: GiscusConfig = {
-	repo: 'PieEatingNinjas/PieEatingNinjas-blog-discussions',
-	repoId: 'R_kgDOVWsG1Q',
+	repo: 'PieEatingNinjas/PieEatingNinjas-Blog',
+	repoId: 'R_kgDOVVzhhA',
 	category: 'Announcements',
-	categoryId: 'DIC_kwDOVWsG1c4DJkl6',
+	categoryId: 'DIC_kwDOVVzhhM4DJuSL',
 };
 
 export function getGiscusConfig(enabled: string | undefined, config: Partial<GiscusConfig> = GISCUS_PUBLIC_CONFIG): GiscusConfig | undefined {
