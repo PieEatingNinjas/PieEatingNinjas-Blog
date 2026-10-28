@@ -5,7 +5,10 @@ import { externalLinkAttributes } from '../lib/external-links';
 const page = legacyPages.book;
 ---
 
-<Layout title={page.title} description={page.description} canonicalPath={page.path}>
+<Layout title={page.title} 
+	description={page.description} 
+	canonicalPath={page.path}
+	allowComments={false}>
 	<section class="book">
 		<div>
 			<h2>The MVVM Pattern in .NET MAUI</h2>
