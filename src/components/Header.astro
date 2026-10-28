@@ -1,5 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import { externalLinkAttributes } from '../lib/external-links';
 ---
 
 <header>
@@ -13,9 +14,9 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/book/">Book</HeaderLink>
 		</div>
 		<div class="social-links">
-			<a href="https://bsky.app/profile/pieternijs.bsky.social">Bluesky</a>
-			<a href="https://github.com/PieEatingNinjas">GitHub</a>
-			<a href="https://www.linkedin.com/in/pieter-nijs/">LinkedIn</a>
+			<a href="https://bsky.app/profile/pieternijs.bsky.social" {...externalLinkAttributes}>Bluesky</a>
+			<a href="https://github.com/PieEatingNinjas" {...externalLinkAttributes}>GitHub</a>
+			<a href="https://www.linkedin.com/in/pieter-nijs/" {...externalLinkAttributes}>LinkedIn</a>
 		</div>
 	</nav>
 </header>

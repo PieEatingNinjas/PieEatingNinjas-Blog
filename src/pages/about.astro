@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 import { legacyPages } from '../lib/legacy-pages';
+import { externalLinkAttributes } from '../lib/external-links';
 ---
 
 <Layout
@@ -33,6 +34,7 @@ import { legacyPages } from '../lib/legacy-pages';
 				class="mvp-link"
 				href="https://mvp.microsoft.com/en-US/mvp/profile/afb27de4-e6d3-e711-80fd-3863bb2bca60"
 				aria-label="Visit my Microsoft MVP profile"
+				{...externalLinkAttributes}
 			>
 				<img
 					class="mvp-badge"
@@ -48,8 +50,8 @@ import { legacyPages } from '../lib/legacy-pages';
 	<p>
 		I teach .NET development at CVO Volt, where I create course materials and help students reach
 		their learning goals. Outside the classroom, I write and speak about technology. I’m also a board
-		member of <a href="https://www.visug.be/">VISUG</a>, Belgium’s .NET user group, and part of the team
-		behind <a href="https://techorama.be/">Techorama</a>.
+		member of <a href="https://www.visug.be/" {...externalLinkAttributes}>VISUG</a>, Belgium’s .NET user group, and part of the team
+		behind <a href="https://techorama.be/" {...externalLinkAttributes}>Techorama</a>.
 	</p>
 
 	<p>
@@ -59,7 +61,7 @@ import { legacyPages } from '../lib/legacy-pages';
 
 	<section class="book-feature" aria-label="My book">
 		<p>
-			I wrote <a href="https://www.amazon.com/MVVM-Pattern-NET-MAUI-cross-platform/dp/1805125001/">
+			I wrote <a href="https://www.amazon.com/MVVM-Pattern-NET-MAUI-cross-platform/dp/1805125001/" {...externalLinkAttributes}>
 				<em>The MVVM Pattern in .NET MAUI</em>
 			</a>, a practical guide to applying the MVVM pattern when building cross-platform apps with
 			.NET MAUI.
@@ -68,6 +70,7 @@ import { legacyPages } from '../lib/legacy-pages';
 			class="book-cover"
 			href="https://www.amazon.com/MVVM-Pattern-NET-MAUI-cross-platform/dp/1805125001/"
 			aria-label="View The MVVM Pattern in .NET MAUI on Amazon"
+			{...externalLinkAttributes}
 		>
 			<img
 				src="/assets/mvvm-pattern-dotnet-maui.jpg"
@@ -80,9 +83,9 @@ import { legacyPages } from '../lib/legacy-pages';
 	</section>
 
 	<p>
-		You can find me on <a href="https://bsky.app/profile/pieternijs.bsky.social">Bluesky</a>,{' '}
-		<a href="https://github.com/PieEatingNinjas">GitHub</a>, and{' '}
-		<a href="https://www.linkedin.com/in/pieter-nijs/">LinkedIn</a>. I’m always happy to share ideas,
+		You can find me on <a href="https://bsky.app/profile/pieternijs.bsky.social" {...externalLinkAttributes}>Bluesky</a>,{' '}
+		<a href="https://github.com/PieEatingNinjas" {...externalLinkAttributes}>GitHub</a>, and{' '}
+		<a href="https://www.linkedin.com/in/pieter-nijs/" {...externalLinkAttributes}>LinkedIn</a>. I’m always happy to share ideas,
 		learn something new, and meet people who are curious about what we can build with software and AI.
 	</p>
 </Layout>

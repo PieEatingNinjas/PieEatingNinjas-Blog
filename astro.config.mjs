@@ -1,9 +1,11 @@
 // @ts-check
 
 import mdx from '@astrojs/mdx';
+import { satteri } from '@astrojs/markdown-satteri';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import { SITE_ORIGIN } from './src/lib/urls.ts';
+import { externalLinks } from './src/lib/external-links.ts';
 import compatibility from './src/data/legacy-site.json' with { type: 'json' };
 
 // https://astro.build/config
@@ -13,6 +15,9 @@ export default defineConfig({
 	trailingSlash: 'always',
 	build: { format: 'directory' },
 	server: { host: true, port: 4321 },
+	markdown: {
+		processor: satteri({ hastPlugins: [externalLinks] }),
+	},
 	security: {
 		allowedDomains: [{ protocol: 'https', hostname: 'giscus.app' }],
 	},

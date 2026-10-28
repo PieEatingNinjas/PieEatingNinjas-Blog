@@ -71,9 +71,9 @@ One caveat: Xcode 27.1 needs macOS 26.6 or later, and Xcode 26.x doesn't run on 
 
 On first launch, Xcode asks you to install the **iOS 27.1 simulator runtime**. If you skip it, install it later via Xcode → Settings → Components. Then say hello to **Device Hub** (Xcode → Open Developer Tool → Device Hub), where you can launch and interact with simulators in Xcode 27. For the iPhone Duo it shows a 3D device that you can fold to any angle and rotate. Yes, I spent way too long folding and unfolding it.
 
-## Step 2: your existing app on the Duo, no update required (yet)
+## Step 2: your existing app on the Duo
 
-Here's a question every app owner will ask this month: "What does my current App Store build look like on the new foldable?" You don't need a Duo to find out. You need the baseline binary and one command.
+Here's a question every app owner will ask this month: "What does my current App Store build look like on the new foldable?" You don't need a Duo to find out. You need the baseline binary, iPhone Duo simulator and one command.
 
 First, find the identifier of the iPhone Duo simulator:
 
@@ -201,7 +201,7 @@ In the `.csproj` I pinned the MAUI version:
 <MauiVersion>10.0.110</MauiVersion>
 ```
 
-This PoC targets iOS only; Mac Catalyst is out of scope here. If your app also targets Mac Catalyst, its scene delegate, manifest and minimum supported OS version need separate attention. Update the existing `SupportedOSPlatformVersion` values for your targets instead of adding duplicates, and check the requirements for your exact SDK/workload combination. See [Gerald's post](https://devblogs.microsoft.com/dotnet/migrate-dotnet-maui-apps-uikit-scene-lifecycle/) for more information.
+This PoC targets iOS only; Mac Catalyst is out of scope here. If your app also targets Mac Catalyst, its scene delegate, manifest and minimum supported OS version need separate attention. See [Gerald's post](https://devblogs.microsoft.com/dotnet/migrate-dotnet-maui-apps-uikit-scene-lifecycle/) for more information.
 
 ### 4. A word about real apps
 
@@ -242,7 +242,7 @@ One thing to keep an eye on: my content isn't inset for the rail yet. The "Click
   <img src="/assets/2026-10-28-iphone-duo-scenes-open.webp" alt="The Home screen on the open iPhone Duo, with the tab rail at the right." />
 </figure>
 
-This is where iOS 27.1 does its thing. On the Duo, the system moves the tab bar, navigation bar and toolbar into the vertical rail when the device is folded or open in landscape, and back to classic horizontal bars when it's open in portrait. **Because a MAUI Shell `TabBar` is a native tab bar controller under the hood, you get that behavior from the system, without writing Duo-specific code.**
+This is where iOS 27.1 does its thing. On the Duo, the system moves the tab bar and toolbar into the vertical rail when the device is folded or open in landscape, and back to classic horizontal bars when it's open in portrait. **Because a MAUI Shell `TabBar` is a native tab bar controller under the hood, you get that behavior from the system, without writing Duo-specific code.**
 
 Tag: [`scenes`](https://github.com/PieEatingNinjas/Maui-iPhoneDuo-PoC/tree/scenes).
 

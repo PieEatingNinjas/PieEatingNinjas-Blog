@@ -1,14 +1,15 @@
 ---
 import AnalyticsConsent from './AnalyticsConsent.astro';
+import { externalLinkAttributes } from '../lib/external-links';
 const today = new Date();
 ---
 
 <footer>
 	&copy; {today.getFullYear()} Pie Eating Ninjas. All rights reserved.
 	<div class="social-links">
-		<a href="https://bsky.app/profile/pieternijs.bsky.social">Bluesky</a>
-		<a href="https://github.com/PieEatingNinjas">GitHub</a>
-		<a href="https://www.linkedin.com/in/pieter-nijs/">LinkedIn</a>
+		<a href="https://bsky.app/profile/pieternijs.bsky.social" {...externalLinkAttributes}>Bluesky</a>
+		<a href="https://github.com/PieEatingNinjas" {...externalLinkAttributes}>GitHub</a>
+		<a href="https://www.linkedin.com/in/pieter-nijs/" {...externalLinkAttributes}>LinkedIn</a>
 	</div>
 	<AnalyticsConsent />
 </footer>

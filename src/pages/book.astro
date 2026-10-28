@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 import { legacyPages } from '../lib/legacy-pages';
+import { externalLinkAttributes } from '../lib/external-links';
 const page = legacyPages.book;
 ---
 
@@ -13,7 +14,7 @@ const page = legacyPages.book;
 				ideas you can apply as you build and maintain .NET MAUI applications.
 			</p>
 			<p>
-				<a href="https://www.amazon.com/MVVM-Pattern-NET-MAUI-cross-platform/dp/1805125001/">
+				<a href="https://www.amazon.com/MVVM-Pattern-NET-MAUI-cross-platform/dp/1805125001/" {...externalLinkAttributes}>
 					Find the book on Amazon
 				</a>
 			</p>

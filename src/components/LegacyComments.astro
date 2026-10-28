@@ -25,7 +25,7 @@ const { entries } = buildCommentTree(archive.comments);
 						<header>
 							<strong>
 								{comment.website
-									? <a href={comment.website} rel="nofollow ugc">{comment.name}</a>
+									? <a href={comment.website} target="_blank" rel="nofollow ugc noopener noreferrer">{comment.name}</a>
 									: comment.name}
 							</strong>
 							{comment.name.trim().toLowerCase() === 'pieeatingninjas' && (
