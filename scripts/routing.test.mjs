@@ -10,6 +10,7 @@ import { load } from 'cheerio';
 import { assertUniqueRoutes, canonicalUrl, parsePostPath, postUrl } from '../src/lib/urls.ts';
 import { legacyPageSchema, matchesLegacyDate, postFields } from '../src/lib/content-schema.ts';
 import { legacyPages } from '../src/lib/legacy-pages.ts';
+import { archivePages, postTerms } from '../src/lib/archives.ts';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const schema = z.object(postFields).refine(matchesLegacyDate);
@@ -84,6 +85,29 @@ test('schemas keep categories/tags separate and only permit the four selected pa
 	}
 	assert.equal(legacyPageSchema.safeParse({ ...legacyPages.about, path: '/wrong/' }).success, false);
 	assert.equal(legacyPageSchema.safeParse({ ...legacyPages.about, status: 'draft' }).success, false);
+});
+
+test('legacy category names keep reviewed slugs and new category names generate their own slugs', () => {
+	const post = {
+		id: 'iphone-duo',
+		data: {
+			pubDate: new Date('2027-10-27'),
+			categories: ['C#', 'maui', 'ios', 'iPhone Duo'],
+			tags: [],
+		},
+	};
+	const termNames = Object.fromEntries(postTerms(post).map(({ slug, name }) => [slug, name]));
+	assert.deepEqual(termNames, {
+		c: 'C#',
+		ios: 'iOS',
+		'iphone-duo': 'iPhone Duo',
+		maui: 'MAUI',
+	});
+
+	const pages = archivePages([post]);
+	assert.equal(pages.find((page) => page.base === '/category/c/')?.posts[0], post);
+	assert.equal(pages.find((page) => page.base === '/category/iphone-duo/')?.posts[0], post);
+	assert.equal(pages.find((page) => page.base === '/category/iphone-duo/')?.title, 'Category: iPhone Duo');
 });
 
 test('optional code repositories support multiple canonical GitHub URLs and reject unsafe or ambiguous values', () => {
