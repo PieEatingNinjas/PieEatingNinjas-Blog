@@ -230,7 +230,7 @@ Here's the same screen folded, before and after the scene lifecycle change:
   </figure>
   <figure>
     <img src="/assets/2026-10-28-iphone-duo-scenes-closed.webp" alt="After: the rebuilt app using the full display and system rail." />
-    <figcaption>After: rebuilt with the scene lifecycle</figcaption>
+    <figcaption>After: rebuilt with Xcode 27</figcaption>
   </figure>
 </div>
 
