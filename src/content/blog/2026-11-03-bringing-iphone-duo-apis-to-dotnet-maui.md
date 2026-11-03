@@ -4,7 +4,7 @@ description: "A structured guide to adaptive Shell toolbars and window-aware hin
 pubDate: "2026-11-03"
 categories: ["C#", "maui", "ios", "iPhone Duo"]
 tags: []
-heroImage: "/assets/2026-11-03-header.webp"
+heroImage: "/assets/2026-11-03-Header.webp"
 codeRepositories: ["https://github.com/PieEatingNinjas/DuoExtensions.Maui"]
 ---
 
