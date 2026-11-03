@@ -4,6 +4,7 @@ description: "Adaptive toolbars in Shell and window-aware hinge support with Duo
 pubDate: "2026-11-03"
 categories: ["C#", "maui", "ios", "iPhone Duo"]
 tags: []
+heroImage: "/assets/2026-11-03-Header.webp"
 codeRepositories: ["https://github.com/PieEatingNinjas/DuoExtensions.Maui"]
 ---
 
@@ -11,7 +12,7 @@ The iPhone Duo introduces new ways for apps to adapt their toolbars and layouts.
 
 To bridge that gap, I put together a small **DuoExtensions.Maui** library. It wraps the native integration in attached properties, helpers, and a hinge service, so we can use these features from our MAUI pages without repeating the platform plumbing.
 
-This is a playground project, not a polished library. I have no idea how long this approach will stay relevant: the .NET MAUI team might add similar support, probably with a much cleaner implementation than mine. Or, if there's interest and the approach proves useful, perhaps some of it could find a home in the .NET MAUI Community Toolkit. For now, let's experiment and see where it goes. Tell me what you think!
+_This is a playground project, not a polished library. I have no idea how long this approach will stay relevant: the .NET MAUI team might add similar support, probably with a much cleaner implementation than mine. Or, if there's interest and the approach proves useful, perhaps some of it could find a home in the .NET MAUI Community Toolkit. For now, let's experiment and see where it goes. Tell me what you think!_
 
 In this post, we'll look at:
 
@@ -21,19 +22,11 @@ In this post, we'll look at:
 - **The vertical toolbar edge**: reading the system's preferred edge for a vertical bar.
 - **The hinge API**: observing hinge status and angle through a window-specific service.
 
-We'll focus on iOS, exploring adaptive toolbars in MAUI Shell and hinge monitoring in any MAUI app, showing both how to use the library and the native integration behind it.
 
 ## Try the demo
 
 The separate [DuoExtensions-Demo app](https://github.com/PieEatingNinjas/DuoExtensions.Maui/tree/main/DuoExtensions-Demo) is a clean, iOS-only Shell sample with five tabs: **Axis**, **Compression**, **Vertical**, **Edge**, and **Hinge**. It references the library directly, compiles against the iOS 27.1 SDK, and supports deployment to iOS 15.0 and later.
 
-```bash
-dotnet build DuoExtensions-Demo/DuoExtensions-Demo.csproj -f net10.0-ios27.1
-```
-
-Compare the toolbar demos in a Duo layout with vertical bars. Compression uses eight individually recognizable actions to make crowding easier to see; Edge shows a live arrow rather than inferring the side from orientation. The Vertical tab changes a Shell-wide preference, so restore **Automatic** before comparing vertical compression and edge. The Hinge tab demonstrates constructor injection and subscribing only while the page is visible.
-
-<!-- GIF: Show the demo app on the iPhone Duo simulator. Fold and unfold the device to introduce the five tabs and show the system moving the Shell bars. -->
 
 ## Enabling DuoExtensions.Maui
 
@@ -63,7 +56,7 @@ xmlns:duo="clr-namespace:DuoExtensions.Maui;assembly=DuoExtensions.Maui"
 
 The library includes a shared target so its public APIs remain available in cross-platform code, while UIKit integration is compiled only for iOS. Its iOS target explicitly uses the 27.1 SDK for these new APIs; runtime checks still allow the app to run on older iOS versions.
 
-The two features can also be enabled independently: `builder.UseHingeMonitoring()` adds only the window-aware service, without requiring Shell or replacing its renderer; `builder.UseDuoShellToolbars()` enables only Shell toolbars. `UseDuoExtensions()` is the shortcut for both.
+The two features can also be enabled independently: `builder.UseHingeMonitoring()` adds only the hinge service, without requiring Shell or replacing its renderer; `builder.UseDuoShellToolbars()` enables only Shell toolbars. `UseDuoExtensions()` is the shortcut for both.
 
 ## Toolbar item axis behavior
 
@@ -104,13 +97,16 @@ Two caveats matter:
 
 The platform integration only applies on iOS 27.1 and later.
 
-One runtime detail surprised me: on the tested Duo simulator, setting `HorizontalOnly` before the first layout put the action at the top, while switching from `Automatic` to `HorizontalOnly` later put it in a horizontal bar at the bottom. I reproduced this with UIKit controllers alone, without the MAUI integration. The API specifies the supported axis, not a top or bottom position, but that doesn't establish whether this difference is intentional or an iOS issue. Don't rely on initial placement and runtime transitions producing identical results.
+I also reproduced this behavior in a native SwiftUI app, so it isn't specific to the MAUI integration. Is it a bug or a feature? I honestly don't know. The practical takeaway is simple: don't change the axis behavior on the fly.
 
-<!-- GIF: In the Axis tab, cycle an action through Automatic, HorizontalOnly, and VerticalPreferred on the Duo simulator. Show which axes it is eligible for without implying UIKit guarantees an exact position. -->
+
+<figure class="article-screenshot">
+  <img src="/assets/2026-11-03-axes.gif" alt="The demo app showing the difference in Automatic, HorizontalOnly, and VerticalPreferred" />
+</figure>
 
 ### Under the hood
 
-Shell creates the native toolbar buttons internally; a MAUI `ToolbarItem` doesn't have its own view handler exposing that button. Our `ToolbarLayoutShellRenderer` supplies a page renderer tracker that matches configured items to Shell's existing `UIBarButtonItem`s through their automation identifiers. It then applies the native setting:
+I bit off more than I could chew with this one; I didn't expect it to be such a pain. MAUI's `ToolbarItem`s aren't `UIElement`s, and Shell renders them through a separate path, so there's no straightforward way to get the native `UIBarButtonItem` from a `ToolbarItem`. I ended up adding some boilerplate in a custom Shell renderer: `ToolbarLayoutShellRenderer` supplies a page renderer tracker that matches configured items to Shell's existing `UIBarButtonItem`s through their automation identifiers. It then applies the native setting:
 
 ```csharp
 item.AxisBehavior = UIBarButtonItemAxisBehavior.VerticalPreferred;
@@ -160,7 +156,9 @@ The relevant UIKit property is `ChildViewControllerForPreferredVerticalBarBehavi
 
 When the attached value changes on iOS 27.1+, the helper tells UIKit to re-evaluate the preference using `SetNeedsUpdateOfVerticalBarConfiguration()`. The attached property stores the choice; that invalidation asks UIKit to query the override again. It doesn't directly rearrange the controls: UIKit still handles the layout and transition.
 
-<!-- GIF: In the Vertical tab, switch between Automatic and Disabled while the Duo is in a pose that displays vertical bars; show the Shell-wide layout change. -->
+<figure class="article-screenshot">
+  <img src="/assets/2026-11-03-novbar.gif" alt="The demo app showing what it looks like to Disable to Vertical tab bar" />
+</figure>
 
 ## Vertical toolbar compression
 
@@ -203,7 +201,7 @@ controller.NavigationItem.VerticalBarCompressionBehavior =
     UIVerticalBarCompressionBehavior.PrefersBarItems;
 ```
 
-`NavigationItem` holds a screen's navigation settings; it isn't the bar itself. UIKit calls this option `PrefersBarItems`, whereas our MAUI enum uses `PrefersToolbarItems`.
+`NavigationItem` holds a screen's navigation. UIKit calls this option `PrefersBarItems`, whereas our MAUI enum uses `PrefersToolbarItems`.
 
 The page renderer tracker applies the preference when the page or its native renderer becomes available, and reapplies it after toolbar updates. This covers either initialization order: the MAUI value may exist before the native controller does.
 
@@ -223,7 +221,9 @@ nativeItem.Title = toolbarItem.Text;
 
 The tracker also observes `ToolbarItem.Text` changes and updates the native title, and reapplies it whenever Shell rebuilds the toolbar. This applies to actions explicitly opted into axis tracking with `ToolbarItemAxisBehavior.AxisBehavior`, including `Automatic`; it doesn't require replacing the native buttons or building a custom overflow menu. The icons and click handling remain managed by MAUI, and UIKit still decides which actions overflow and how they are presented.
 
-<!-- GIF: In the Compression tab, toggle PrefersToolbarItems and PrefersTabBar with all eight recognizable actions visible, then show UIKit's resulting compression or overflow behavior. -->
+<figure class="article-screenshot">
+  <img src="/assets/2026-11-03-compression.gif" alt="The demo app showing the difference in Automatic, PrefersToolbarItems and PrefersTabBar Compression Behavior" />
+</figure>
 
 ## The vertical toolbar edge
 
@@ -270,6 +270,9 @@ The result is translated to our MAUI enum and stored through a private `Bindable
 
 Like the other toolbar integrations, this requires iOS 27.1+. On older versions the settings have no native effect, and the sample reports the edge as `Unspecified`.
 
+<figure class="article-screenshot">
+  <img src="/assets/2026-11-03-wherebar.gif" alt="The demo app showing the ToolbarVerticalEdge property in different poses." />
+</figure>
 <!-- GIF: In the Edge tab, rotate and fold the Duo simulator and show the live Leading/Trailing/Unspecified value and arrow without deriving it from orientation. -->
 
 ## Hinge status and angle
@@ -342,7 +345,7 @@ Call `ForWindow` once the page belongs to a window, such as in `OnAppearing`, no
 
 That was my first thought too: the app runs on one device, so surely one shared hinge reading is enough? Physically, yes: creating another window doesn't create another hinge, and windows receiving readings for the same hinge should describe the same physical state.
 
-The distinction is **how UIKit delivers those readings**. This isn't a global sensor API: a `UIHingeInteraction` observes the hinge associated with its view's hierarchy. UIKit can report no hinge for that hierarchy, including when the interaction leaves a hierarchy that provides updates. That's an availability change, not a change to the physical hinge.
+The distinction is **how UIKit delivers those readings**. This isn't a global sensor API: a `UIHingeInteraction` observes the hinge associated with its view's hierarchy. UIKit can report no hinge for that hierarchy, including when the interaction leaves a hierarchy that provides updates.
 
 If we merged everything into one global state, an unavailable update from one window could erase a valid reading for another. Keeping an observer per window preserves that context without making every page manage a native interaction.
 
@@ -350,7 +353,10 @@ So there is still **one singleton service throughout the app**. `ForWindow(Windo
 
 Request the observer on the window's UI thread; events are delivered there too. Consumers only unsubscribe from their own events, not dispose the shared observer. Monitoring continues until the window is destroyed, when the library releases the interaction and event handlers.
 
-<!-- GIF: In the Hinge tab on the iPhone Duo simulator, move through closed, partially open, and fully open poses while the status and angle update. Include the no-reading/unsupported state only if the simulator demonstrates it. -->
+<figure class="article-screenshot">
+  <img src="/assets/2026-11-03-hinge.gif" alt="The demo app showing the state values of the Hingeservice while folding the iPhone." />
+</figure>
+
 
 ### Under the hood
 
