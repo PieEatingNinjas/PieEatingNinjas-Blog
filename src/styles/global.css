@@ -103,6 +103,9 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 }
+.prose table + h3 {
+	margin-top: 2rem;
+}
 img {
 	max-width: 100%;
 	height: auto;
@@ -179,6 +182,22 @@ blockquote {
 	margin: 1.5em 0;
 	color: rgb(var(--gray));
 	font-size: 1.1em;
+}
+.prose .callout-warning {
+	margin: 1.5rem 0 2rem;
+	padding: 0.9rem 1.15rem;
+	border-left: 4px solid #b18a42;
+	border-radius: 0 8px 8px 0;
+	background: #f7f4ec;
+	color: #5b513d;
+	font-size: 0.95rem;
+	line-height: 1.6;
+}
+.prose .callout-warning p {
+	margin: 0 0 0.65rem;
+}
+.prose .callout-warning p:last-child {
+	margin-bottom: 0;
 }
 hr {
 	border: none;
