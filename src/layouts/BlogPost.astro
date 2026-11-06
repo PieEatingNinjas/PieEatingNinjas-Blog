@@ -156,9 +156,14 @@ const commentArchive = Astro.props.legacy
 				flex: none;
 				fill: currentColor;
 			}
-			.support-link {
-				margin: 1.25rem 0 0;
+			.post-support {
+				margin: 2.5rem 0 0;
+				padding: 1rem 0 0;
+				border-top: 1px solid var(--border);
 				font-size: 0.9rem;
+			}
+			.post-support p {
+				margin: 0;
 			}
 			.date {
 				margin-bottom: 0.75rem;
@@ -257,13 +262,6 @@ const commentArchive = Astro.props.legacy
 								})}
 							</ul>
 						)}
-						{isBlogPost && (
-							<p class="support-link">
-								<a href="https://buymeacoffee.com/pieternijs" {...externalLinkAttributes}>
-									Buy me a coffee
-								</a>
-							</p>
-						)}
 						{ageReferenceDate && (
 							<p
 								class="age-warning"
@@ -277,6 +275,17 @@ const commentArchive = Astro.props.legacy
 						<hr />
 					</div>
 					<slot />
+					{isBlogPost && (
+						<section class="post-support" aria-label="Support this blog">
+							<p>
+								Did you enjoy reading this? If my work has saved you time or taught you
+								something new, consider{' '}
+								<a href="https://buymeacoffee.com/pieternijs" {...externalLinkAttributes}>
+									buying me a coffee
+								</a>.
+							</p>
+						</section>
+					)}
 					{archiveTerms.length > 0 && (
 						<nav aria-label="Post categories and tags">
 							{(['category', 'tag'] as const).map((kind) => {
