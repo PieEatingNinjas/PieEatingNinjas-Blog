@@ -17,6 +17,17 @@ import { externalLinkAttributes } from '../lib/external-links';
 			<a href="https://bsky.app/profile/pieternijs.bsky.social" {...externalLinkAttributes}>Bluesky</a>
 			<a href="https://github.com/PieEatingNinjas" {...externalLinkAttributes}>GitHub</a>
 			<a href="https://www.linkedin.com/in/pieter-nijs/" {...externalLinkAttributes}>LinkedIn</a>
+			<a
+				class="support-link"
+				href="https://buymeacoffee.com/pieternijs"
+				aria-label="Buy me a coffee"
+				{...externalLinkAttributes}
+			>
+				<svg viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M4 8h13v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Zm13 2h2a2 2 0 1 1 0 4h-2M7 3v2m4-2v2m4-2v2" />
+				</svg>
+				<span class="support-label">Buy me a coffee</span>
+			</a>
 		</div>
 	</nav>
 </header>
@@ -68,6 +79,23 @@ import { externalLinkAttributes } from '../lib/external-links';
 		color: rgb(var(--gray));
 		font-size: 0.85rem;
 	}
+	.social-links .support-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: var(--accent-dark);
+		font-weight: 700;
+	}
+	.support-link svg {
+		width: 1.15rem;
+		height: 1.15rem;
+		flex: none;
+		fill: none;
+		stroke: currentColor;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 1.8;
+	}
 	nav a:hover {
 		color: var(--accent-dark);
 	}
@@ -89,6 +117,16 @@ import { externalLinkAttributes } from '../lib/external-links';
 			gap: 0.85rem;
 		}
 		.social-links {
+			display: flex;
+			margin-left: auto;
+		}
+		.social-links > a:not(.support-link) {
+			display: none;
+		}
+		.social-links .support-link {
+			display: inline-flex;
+		}
+		.support-label {
 			display: none;
 		}
 	}
