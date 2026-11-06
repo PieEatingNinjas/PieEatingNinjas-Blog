@@ -17,6 +17,6 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} archiveTerms={postTerms(post)}>
+<BlogPost {...post.data} isBlogPost archiveTerms={postTerms(post)}>
 	<Content />
 </BlogPost>

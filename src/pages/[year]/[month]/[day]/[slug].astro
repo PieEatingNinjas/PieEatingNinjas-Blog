@@ -18,6 +18,6 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} canonicalPath={postUrl(post)} archiveTerms={postTerms(post)}>
+<BlogPost {...post.data} isBlogPost canonicalPath={postUrl(post)} archiveTerms={postTerms(post)}>
 	<Content />
 </BlogPost>

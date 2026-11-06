@@ -9,10 +9,12 @@ import Header from '../components/Header.astro';
 import LegacyComments from '../components/LegacyComments.astro';
 import type { LegacyComment } from '../lib/comments';
 import type { TaxonomyTerm } from '../lib/archives';
+import { externalLinkAttributes } from '../lib/external-links';
 
 type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate' | 'allowComments' | 'categories' | 'tags' | 'codeRepositories'> & {
 	pubDate?: Date;
 	allowComments?: boolean;
+	isBlogPost?: boolean;
 	canonicalPath?: string;
 	archiveTerms?: TaxonomyTerm[];
 	codeRepositories?: string[];
@@ -25,6 +27,7 @@ const {
 	updatedDate,
 	heroImage,
 	canonicalPath,
+	isBlogPost = false,
 	allowComments = true,
 	archiveTerms = [],
 	codeRepositories = [],
@@ -153,6 +156,10 @@ const commentArchive = Astro.props.legacy
 				flex: none;
 				fill: currentColor;
 			}
+			.support-link {
+				margin: 1.25rem 0 0;
+				font-size: 0.9rem;
+			}
 			.date {
 				margin-bottom: 0.75rem;
 				color: rgb(var(--gray));
@@ -249,6 +256,13 @@ const commentArchive = Astro.props.legacy
 									);
 								})}
 							</ul>
+						)}
+						{isBlogPost && (
+							<p class="support-link">
+								<a href="https://buymeacoffee.com/pieternijs" {...externalLinkAttributes}>
+									Buy me a coffee
+								</a>
+							</p>
 						)}
 						{ageReferenceDate && (
 							<p
