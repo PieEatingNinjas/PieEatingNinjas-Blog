@@ -1,14 +1,15 @@
 ---
 title: "A Bigger Context Window Doesn't Mean You Should Use It All"
 description: "Models now offer context windows of a million tokens, but that doesn't mean every Copilot session should fill them. Why I keep starting new sessions, and how I carry knowledge over."
-pubDate: "2026-11-19"
+heroImage: "/assets/2026-11-20-copilot-context-balance.webp"
+pubDate: "2026-11-20"
 categories: ["ai", "github copilot"]
 tags: []
 ---
 
-I had an interesting discussion with someone at a conference recently about how I use Copilot.
+I had an interesting discussion with someone at a conference earlier this week about how I use Copilot.
 
-I mentioned that, for larger tasks, I tend to start new sessions throughout the day rather than keeping one conversation going indefinitely. My reasoning is pretty simple: I want to keep the context focused, to limit token usage and to avoid the quality of the conversation degrading as it gets longer.
+I mentioned that, throughout the day, I often start new sessions rather than keeping one conversation going indefinitely. My reasoning is pretty simple: I want to keep the context focused, to limit token usage and to avoid the quality of the conversation degrading as it gets longer.
 
 He strongly disagreed.
 
@@ -18,7 +19,7 @@ And, to be fair, he has a point.
 
 But I still think there's a fundamental misunderstanding here:
 
-**A large context window is a capability. It is not a recommendation.**
+**A large context window is a capability, not a recommendation.** Just because a car can drive at 200 km/h doesn't mean I should drive at its top speed to run errands.
 
 ## Context capacity and context quality are different things
 
@@ -34,9 +35,9 @@ The first one has improved dramatically.
 
 The other two haven't magically disappeared.
 
-There's actually some interesting research on this. The [Lost in the Middle](https://arxiv.org/abs/2307.03172) paper by Liu et al. found that models can struggle to retrieve relevant information when it's buried in the middle of a long context. Performance was generally better when the relevant information appeared near the beginning or end of the context.
+There's some interesting research on this. The [Lost in the Middle](https://arxiv.org/abs/2307.03172) paper by Liu et al. found that models can struggle to retrieve relevant information when it's buried in the middle of a long context. Performance was generally better when the relevant information appeared near the beginning or end.
 
-So there's a slightly counterintuitive problem here: having more context can sometimes make the useful context harder to use.
+Of course, the same challenge can exist in smaller context windows too. I'm not arguing that smaller is always better, or that a model necessarily performs worse just because it has more room. My point is simply that more context doesn't automatically mean relevant information is used more effectively, especially when much of that context is no longer relevant to the task at hand.
 
 ## A coding session accumulates a lot of junk
 
@@ -52,15 +53,13 @@ Imagine spending two hours investigating one problem, fixing it, and then moving
 
 Do I really want my next question to be asked in the context of everything that happened during those previous two hours?
 
-Maybe.
-
-But often I don't.
+Maybe. But often, I don't.
 
 At some point, the conversation turns into a historical archive instead of useful working memory.
 
 That's where starting a new session makes a lot of sense.
 
-Interestingly, this isn't just my personal preference. GitHub's own guidance on optimizing Copilot usage recommends keeping context lean, starting a new conversation when switching problems, and separating research, planning and implementation into different phases.
+Interestingly, this isn't just my personal preference. [GitHub's guidance on optimizing Copilot Chat](https://docs.github.com/en/copilot/tutorials/optimize-chat-usage) recommends keeping conversations focused and starting a new one when switching to a different problem.
 
 ## I'm not arguing for a new session after every prompt
 
@@ -72,13 +71,11 @@ Starting a new session at that point would be a mistake.
 
 The important distinction is that starting a new session doesn't have to mean starting from zero.
 
-Before moving on, I can ask the current session to extract the durable knowledge from the conversation:
-
-> Review what we learned in this session and classify the learnings into: (1) session-specific context that can be discarded, (2) project knowledge that should be persisted in project instructions or documentation, and (3) reusable patterns that could become a Copilot instruction, skill, or reusable workflow.
+Before moving on, I can ask the current session to summarize what we learned and help distinguish between details that only mattered for the task, knowledge worth adding to the project's instructions or documentation, and patterns that could be useful as a reusable Copilot instruction, skill, or workflow.
 
 That gives me something much more useful than carrying the entire conversation forward.
 
-For example, discovering that a project deliberately uses PostgreSQL-specific behaviour might belong in project documentation or instructions. A recurring workflow for handling a particular type of migration might be worth turning into a reusable skill. Meanwhile, the five approaches we tried and discarded to fix today's bug probably don't need to survive the session.
+For example, discovering that a project deliberately uses PostgreSQL-specific behavior might belong in project documentation or instructions. A recurring workflow for handling a particular type of migration might be worth turning into a reusable skill. Meanwhile, the five approaches we tried and discarded to fix today's bug probably don't need to survive the session.
 
 In other words, I'm trying to preserve knowledge and put it in the right place. Preserving history is a different goal, and a much less useful one.
 
