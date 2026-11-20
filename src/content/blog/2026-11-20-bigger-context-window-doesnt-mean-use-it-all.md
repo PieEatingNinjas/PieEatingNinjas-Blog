@@ -19,7 +19,7 @@ And, to be fair, he has a point.
 
 But I still think there's a fundamental misunderstanding here:
 
-**A large context window is a capability, not a recommendation.** Just because a car can drive at 200 km/h doesn't mean I should drive at its top speed to run errands.
+**A large context window is a capability. I don't think it is a recommendation.** Just because a car can drive at 200 km/h doesn't mean I should drive at its top speed to run errands.
 
 ## Context capacity and context quality are different things
 
