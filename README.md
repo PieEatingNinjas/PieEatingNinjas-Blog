@@ -49,6 +49,28 @@ npm run dev
 Open `http://localhost:4321`. The development server binds to all interfaces,
 and the dev container forwards port 4321.
 
+The dev container installs dependencies automatically with `npm ci`. Its
+`node_modules` directory uses a Docker volume, separate from dependencies
+installed on the host. This prevents macOS and Linux native packages from
+overwriting each other and keeps dependency installation off the shared
+filesystem.
+
+A second Docker volume preserves npm's download cache across container
+rebuilds. Installation prefers cached packages and logs HTTP activity so
+slow downloads are visible in the Dev Containers log. The first install
+still needs to download packages; the `whatwg-encoding` deprecation warning
+does not indicate a failed or stalled installation.
+
+The base image includes the VS Code ESLint extension, but this repository
+does not configure ESLint. Workspace settings disable that extension's
+validation; use `npm run astro -- check` for Astro and TypeScript diagnostics.
+
+After changing the dev container configuration, run **Dev Containers: Rebuild
+and Reopen in Container** from the VS Code Command Palette. If startup fails
+with a missing native binding (for example, Rolldown or Sharp), rebuild the
+container to apply the isolated dependency volume; do not delete the lockfile.
+After dependency changes, run `npm ci` inside the container.
+
 To build the site:
 
 ```sh
